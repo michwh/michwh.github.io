@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="git, 凡沸" />
+  <meta name="keywords" content="git, 总结, 凡沸" />
 
 
 
@@ -209,7 +209,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-用git在码云或者GitHub上提交代码"><span class="toc-text">1.用git在码云或者GitHub上提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改提交项目的name和email"><span class="toc-text">2.修改提交项目的name和email</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-用git在码云或者GitHub上提交代码"><span class="toc-text">1.用git在码云或者GitHub上提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改提交项目的name和email"><span class="toc-text">2.修改提交项目的name和email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-安装依赖"><span class="toc-text">3.安装依赖</span></a></li></ol>
     </div>
   </div>
 
@@ -239,6 +239,11 @@
 </li>
 </ul>
 <h2 id="2-修改提交项目的name和email"><a href="#2-修改提交项目的name和email" class="headerlink" title="2.修改提交项目的name和email"></a>2.修改提交项目的name和email</h2><p>　最近发现用git提交代码，GitHub上的contributions老是没有记录。于是我按照百度上面的步骤，随便打开一个项目的本地文件夹，在<strong>git bash</strong>输入 <code>git log</code> 发现提交邮箱写错了。于是我修改了提交作者和邮箱：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 设置全局</span><br><span class="line">git config --global user.name &quot;Author Name&quot;</span><br><span class="line">git config --global user.email &quot;Author Email&quot;</span><br><span class="line"></span><br><span class="line">// 或者设置本地项目库配置</span><br><span class="line">git config user.name &quot;Author Name&quot;</span><br><span class="line">git config user.email &quot;Author Email&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-安装依赖"><a href="#3-安装依赖" class="headerlink" title="3.安装依赖"></a>3.安装依赖</h2><p>一个node项目有两种依赖，一种是dependencies一种是devDependencies，其中前者依赖的项是正常运行该项目时所需要的依赖项，而后者则是开发的时候需要的依赖项，像一些进行单元测试之类的包。</p>
+<p>如果你将项目下载下来在项目的根目录里运行 <code>npm install</code> 默认会安装两种依赖</p>
+<p>如果你只是单纯的使用这个包而不需要进行一些改动测试之类的，可以使用 <code>npm install --production</code><br>只安装dependencies而不安装devDependencies。</p>
+<p>如果你是通过 <code>npm install packagename</code> 进行安装，那么只会安装dependencies</p>
+<p>如果想要安装devDependencies，需要输入 <code>npm install packagename --dev</code></p>
 
       
     </div>
@@ -275,6 +280,8 @@
           <div class="post-tags">
             
               <a href="/tags/git/">git</a>
+            
+              <a href="/tags/总结/">总结</a>
             
           </div>
         

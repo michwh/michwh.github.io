@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="博客, 总结, 凡沸" />
+  <meta name="keywords" content="总结, 博客, 凡沸" />
 
 
 
@@ -209,7 +209,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-搭建博客"><span class="toc-text">1.搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-写博客"><span class="toc-text">2.写博客</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-搭建博客"><span class="toc-text">1.搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-写博客"><span class="toc-text">2.写博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-在博客中插入图片"><span class="toc-text">3.在博客中插入图片</span></a></li></ol>
     </div>
   </div>
 
@@ -264,6 +264,13 @@
 <li><p>输入 <code>hexo g -d</code> 打开自己的博客，博客就更新了</p>
 </li>
 </ul>
+<h2 id="3-在博客中插入图片"><a href="#3-在博客中插入图片" class="headerlink" title="3.在博客中插入图片"></a>3.在博客中插入图片</h2><ul>
+<li><p>把主页配置文件_config.yml 里的 <code>post_asset_folder:</code> 这个选项设置为<code>true</code></p>
+</li>
+<li><p>在博客文件夹下执行 <code>npm install hexo-asset-image --save</code>, 这是下载安装一个可以上传本地图片的插件</p>
+</li>
+</ul>
+<p>*之后当新建一篇博客 <code>hexo new &quot;博客名&quot;</code> 时，source/_posts文件夹下回生成一个与博客同名的文件夹，本地图片放在里面，再通过 <code>![你想输入的替代文字](博客名/图片名.jpg)</code> 引用即可。</p>
 
       
     </div>
@@ -299,9 +306,9 @@
         
           <div class="post-tags">
             
-              <a href="/tags/博客/">博客</a>
-            
               <a href="/tags/总结/">总结</a>
+            
+              <a href="/tags/博客/">博客</a>
             
           </div>
         
@@ -309,9 +316,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/02/01/日常学习自问自答（更新中）/">
+      <a class="prev" href="/2018/02/04/日常学习自问自答/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">日常学习自问自答（更新中）</span>
+        <span class="prev-text nav-default">日常学习自问自答</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     

@@ -209,7 +209,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-npm-install时的警告：The-package-XXX-is-included-as-both-a-dev-and-production-dependency"><span class="toc-text">1.npm install时的警告：The package XXX is included as both a dev and production dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在git-bash中输入-git-add-时的警告：warning-LF-will-be-replaced-by-CRLF-in-lt-file-name-gt"><span class="toc-text">2.在git bash中输入 git add . 时的警告：warning: LF will be replaced by CRLF in &lt;file-name&gt;.</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-npm-install时的警告：The-package-XXX-is-included-as-both-a-dev-and-production-dependency"><span class="toc-text">1.npm install时的警告：The package XXX is included as both a dev and production dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在git-bash中输入-git-add-时的警告：warning-LF-will-be-replaced-by-CRLF-in-lt-file-name-gt"><span class="toc-text">2.在git bash中输入 git add . 时的警告：warning: LF will be replaced by CRLF in &lt;file-name&gt;.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON-sringify"><span class="toc-text">3.JSON.sringify</span></a></li></ol>
     </div>
   </div>
 
@@ -226,6 +226,8 @@
 <p>core.autocrlf是git中负责处理line ending的变量，可以设置3个值：true，false，inout。</p>
 <p>简单来说，设置 core.autocrlf=true 后，我们工作区的文件都应该用 CRLF 来换行。如果改动文件时引入了 LF，或者设置 core.autocrlf 之前，工作区已经有 LF 换行符。提交改动时，git 会警告你哪些文件不是纯 CRLF 文件，但git不会擅自修改工作区的那些文件，而是对暂存区（我们对工作区的改动）进行修改。也因此，当我们进行 <strong> git add . </strong> 的操作时，只要 git 发现改动的内容里有 LF 换行符，就还会出现这个警告。</p>
 <p>解决方案：设置 core.autocrlf=true, 只要保持工作区都是纯 CRLF 文件，编辑器用 CRLF 换行，就不会出现警告了。即：<code>git config --global core.autocrlf true</code> <strong> （2018.2.2） </strong></p>
+<h3 id="3-JSON-sringify"><a href="#3-JSON-sringify" class="headerlink" title="3.JSON.sringify"></a>3.JSON.sringify</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = &#123; <span class="attr">a</span>: <span class="number">2</span>, <span class="attr">b</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125; &#125;;</span><br><span class="line"><span class="built_in">JSON</span>.stringify(foo);</span><br><span class="line"><span class="comment">// "&#123; "a": 2 &#125;"</span></span><br></pre></td></tr></table></figure>
+<p>JSON.stringify函数将一个JavaScript对象转换成文本化的JSON。不能被文本化的属性会被忽略。foo中属性b的值是函数定义，没有被转换而丢失。 <strong>（2018.2.4）</strong></p>
 
       
     </div>

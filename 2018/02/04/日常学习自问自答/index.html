@@ -22,6 +22,8 @@
 
 
 
+  <meta name="keywords" content="总结, 凡沸" />
+
 
 
 
@@ -207,7 +209,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-npm-install时的警告：The-package-XXX-is-included-as-both-a-dev-and-production-dependency"><span class="toc-text">1.npm install时的警告：The package XXX is included as both a dev and production dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在git-bash中输入-git-add-时的警告：warning-LF-will-be-replaced-by-CRLF-in-lt-file-name-gt"><span class="toc-text">2.在git bash中输入 git add . 时的警告：warning: LF will be replaced by CRLF in &lt;file-name&gt;.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON-sringify"><span class="toc-text">3.JSON.sringify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-even主题在博客中引入代码时无法显示语言"><span class="toc-text">4.even主题在博客中引入代码时无法显示语言</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-npm-install时的警告：The-package-XXX-is-included-as-both-a-dev-and-production-dependency"><span class="toc-text">1.npm install时的警告：The package XXX is included as both a dev and production dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在git-bash中输入-git-add-时的警告：warning-LF-will-be-replaced-by-CRLF-in-lt-file-name-gt"><span class="toc-text">2.在git bash中输入 git add . 时的警告：warning: LF will be replaced by CRLF in &lt;file-name&gt;.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON-sringify"><span class="toc-text">3.JSON.sringify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-even主题在博客中引入代码时无法显示语言"><span class="toc-text">4.even主题在博客中引入代码时无法显示语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-koa2中的app-on"><span class="toc-text">5.koa2中的app.on</span></a></li></ol>
     </div>
   </div>
 
@@ -232,11 +234,19 @@
 <p><img src="/2018/02/04/日常学习自问自答/2.jpg" alt=""></p>
 <p>虽然代码会高亮，但是Code不会显示成JavaScript。后来我发现在even的作者项目文件hexo-theme-even/source/css/_variables.scss（自己博客文件夹下themes/even/source/css/_variables.scss）下的代码：</p>
 <p><img src="/2018/02/04/日常学习自问自答/3.jpg" alt=""></p>
-<p>原来作者用js指代了JavaScript，所以只要把博客中的引入博客的写法改成：</p>
+<p>原来作者用js指代了JavaScript，所以只要把博客中引入代码的写法改成：</p>
 <p><img src="/2018/02/04/日常学习自问自答/4.jpg" alt=""></p>
 <p>就会出现如下效果：</p>
 <p><img src="/2018/02/04/日常学习自问自答/5.jpg" alt=""></p>
 <p>如果自己还是喜欢用JavaScript，只要把_variables.scss中的<code>js: &quot;JavaScript&quot;,</code> 改成 <code>JavaScript: &quot;JavaScript&quot;,</code> 即可。 <strong>（2018.2.4）</strong> </p>
+<h3 id="5-koa2中的app-on"><a href="#5-koa2中的app-on" class="headerlink" title="5.koa2中的app.on"></a>5.koa2中的app.on</h3><p><code>app.on(&#39;事件名称&#39;,方法);</code></p>
+<p>添加事件，例如添加错误事件监听，自定义发生错误时的输出：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.on(<span class="string">'error'</span>, err =&gt;</span><br><span class="line">  log.error(<span class="string">'server error'</span>, err)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>当 req/res 周期中出现任何错误且无法响应客户端时，Koa 会把 Context(上下文) 实例作为第二个参数传递给 error 事件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.on(<span class="string">'error'</span>, (err, ctx) =&gt;</span><br><span class="line">  log.error(<span class="string">'server error'</span>, err, ctx)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>也可以这样写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, ctx</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'server error'</span>, err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>（2018.2.4）</strong></p>
 
       
     </div>
@@ -269,6 +279,12 @@
 
     
       <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/总结/">总结</a>
+            
+          </div>
         
         
         

@@ -209,7 +209,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-npm-install时的警告：The-package-XXX-is-included-as-both-a-dev-and-production-dependency"><span class="toc-text">1.npm install时的警告：The package XXX is included as both a dev and production dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在git-bash中输入-git-add-时的警告：warning-LF-will-be-replaced-by-CRLF-in-lt-file-name-gt"><span class="toc-text">2.在git bash中输入 git add . 时的警告：warning: LF will be replaced by CRLF in &lt;file-name&gt;.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON-sringify"><span class="toc-text">3.JSON.sringify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-even主题在博客中引入代码时无法显示语言"><span class="toc-text">4.even主题在博客中引入代码时无法显示语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-koa2中的app-on"><span class="toc-text">5.koa2中的app.on</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-npm-install时的警告：The-package-XXX-is-included-as-both-a-dev-and-production-dependency"><span class="toc-text">1.npm install时的警告：The package XXX is included as both a dev and production dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在git-bash中输入-git-add-时的警告：warning-LF-will-be-replaced-by-CRLF-in-lt-file-name-gt"><span class="toc-text">2.在git bash中输入 git add . 时的警告：warning: LF will be replaced by CRLF in &lt;file-name&gt;.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON-sringify"><span class="toc-text">3.JSON.sringify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-even主题在博客中引入代码时无法显示语言"><span class="toc-text">4.even主题在博客中引入代码时无法显示语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-koa2中的app-on"><span class="toc-text">5.koa2中的app.on</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-async-function（异步函数）"><span class="toc-text">6.async function（异步函数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-even主题当目录过长时显示滚动条"><span class="toc-text">7.even主题当目录过长时显示滚动条</span></a></li></ol>
     </div>
   </div>
 
@@ -247,6 +247,36 @@
 <p>也可以这样写：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, ctx</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'server error'</span>, err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><strong>（2018.2.4）</strong></p>
+<h3 id="6-async-function（异步函数）"><a href="#6-async-function（异步函数）" class="headerlink" title="6.async function（异步函数）"></a>6.async function（异步函数）</h3><p>ES2017 新特性</p>
+<p>以下是已经存在的异步函数变体。请注意无处不在的  async 关键字：</p>
+<ul>
+<li><p>异步函数声明： <code>async function foo() {}</code></p>
+</li>
+<li><p>异步函数表达式： <code>const foo = async function () {};</code></p>
+</li>
+<li><p>异步函数定义：<code>let obj = { async foo() {} }</code></p>
+</li>
+<li><p>异步箭头函数：<code>const foo = async () =&gt; {};</code></p>
+</li>
+</ul>
+<p>1、async(异步) 函数总是返回 Promises</p>
+<p>（1）async(异步) 函数的 Promise 完成状态：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello world'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f().then(<span class="function"><span class="params">v</span> =&gt;</span> <span class="built_in">console</span>.log(v))</span><br><span class="line"><span class="comment">// "hello world"</span></span><br></pre></td></tr></table></figure>
+<p>async函数内部return语句返回的值，会成为then方法回调函数的参数。</p>
+<p>（2）async(异步) 函数的 Promise 拒绝状态：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Problem!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">asyncFunc()</span><br><span class="line">.catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err));</span><br><span class="line"><span class="comment">// Error: Problem!</span></span><br></pre></td></tr></table></figure>
+<p>async函数内部抛出错误，会导致返回的 Promise 对象变为reject状态。抛出的错误对象会被catch方法回调函数接收到。</p>
+<p>2、只有async函数内部的异步操作执行完，才会执行then方法指定的回调函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getTitle</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(url);</span><br><span class="line">  <span class="keyword">let</span> html = <span class="keyword">await</span> response.text();</span><br><span class="line">  <span class="keyword">return</span> html.match(<span class="regexp">/&lt;title&gt;([\s\S]+)&lt;\/title&gt;/i</span>)[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">getTitle(<span class="string">'https://tc39.github.io/ecma262/'</span>).then(<span class="built_in">console</span>.log)</span><br><span class="line"><span class="comment">// "ECMAScript 2017 Language Specification"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，函数getTitle内部有三个操作：抓取网页、取出文本、匹配页面标题。只有这三个操作全部完成，才会执行then方法里面的console.log。</p>
+<p>3、正常情况下，await命令后面是一个 Promise 对象。如果不是，会被转成一个立即resolve的 Promise 对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">await</span> <span class="number">123</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f().then(<span class="function"><span class="params">v</span> =&gt;</span> <span class="built_in">console</span>.log(v))</span><br><span class="line"><span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，await命令的参数是数值123，它被转成 Promise 对象，并立即resolve。只要一个await语句后面的 Promise 变为reject，那么整个async函数都会中断执行。</p>
+<p>4、有时，我们希望即使前一个异步操作失败，也不要中断后面的异步操作。这时可以将第一个await放在try…catch结构里面，这样不管这个异步操作是否成功，第二个await都会执行。</p>
+<p>具体分析可参考 <a href="https://www.cnblogs.com/zczhangcui/p/6642144.html" target="_blank" rel="noopener">js-ES6学习笔记-async函数（2）</a> 和 <a href="http://www.css88.com/archives/7731" target="_blank" rel="noopener">ES2017 新特性：Async Functions (异步函数)</a><br><strong>（2018.2.5）</strong></p>
+<h3 id="7-even主题当目录过长时显示滚动条"><a href="#7-even主题当目录过长时显示滚动条" class="headerlink" title="7.even主题当目录过长时显示滚动条"></a>7.even主题当目录过长时显示滚动条</h3><p>今天发现博客里面要是目录太长时，没有滚动条。于是我翻了作者代码的 <a href="https://github.com/ahonn/hexo-theme-even/commit/8fea653b6bc9fe2ee0f19bba1a9d581672090a93" target="_blank" rel="noopener">提交记录 </a> 发现他原来是有加滚动条的，不过后来删了。于是我根据他的提交记录进行了修改：</p>
+<p><img src="/2018/02/04/日常学习自问自答/6.jpg" alt=""></p>
+<p>虽然有滚动条了，但是挺丑的。以后可能会对样式进行修改吧 <strong>（2018.2.5）</strong></p>
 
       
     </div>

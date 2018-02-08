@@ -214,7 +214,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-npm-install时的警告：The-package-XXX-is-included-as-both-a-dev-and-production-dependency"><span class="toc-text">1.npm install时的警告：The package XXX is included as both a dev and production dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在git-bash中输入-git-add-时的警告：warning-LF-will-be-replaced-by-CRLF-in-lt-file-name-gt"><span class="toc-text">2.在git bash中输入 git add . 时的警告：warning: LF will be replaced by CRLF in &lt;file-name&gt;.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON-sringify"><span class="toc-text">3.JSON.sringify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-even主题在博客中引入代码时无法显示语言"><span class="toc-text">4.even主题在博客中引入代码时无法显示语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-koa2中的app-on"><span class="toc-text">5.koa2中的app.on</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-async-function（异步函数）"><span class="toc-text">6.async function（异步函数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-even主题当目录过长时显示滚动条"><span class="toc-text">7.even主题当目录过长时显示滚动条</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-npm-install时的警告：The-package-XXX-is-included-as-both-a-dev-and-production-dependency"><span class="toc-text">1.npm install时的警告：The package XXX is included as both a dev and production dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在git-bash中输入-git-add-时的警告：warning-LF-will-be-replaced-by-CRLF-in-lt-file-name-gt"><span class="toc-text">2.在git bash中输入 git add . 时的警告：warning: LF will be replaced by CRLF in &lt;file-name&gt;.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON-sringify"><span class="toc-text">3.JSON.sringify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-even主题在博客中引入代码时无法显示语言"><span class="toc-text">4.even主题在博客中引入代码时无法显示语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-koa2中的app-on"><span class="toc-text">5.koa2中的app.on</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-async-function（异步函数）"><span class="toc-text">6.async function（异步函数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-even主题当目录过长时没有显示滚动条"><span class="toc-text">7.even主题当目录过长时没有显示滚动条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-同步-Synchronous-和异步-Asynchronous"><span class="toc-text">8.同步(Synchronous)和异步(Asynchronous)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-token"><span class="toc-text">8.token</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-JavaScript里的params"><span class="toc-text">9.JavaScript里的params</span></a></li></ol>
     </div>
   </div>
 
@@ -280,9 +280,14 @@
 <p>上面代码中，await命令的参数是数值123，它被转成 Promise 对象，并立即resolve。只要一个await语句后面的 Promise 变为reject，那么整个async函数都会中断执行。</p>
 <p>4、有时，我们希望即使前一个异步操作失败，也不要中断后面的异步操作。这时可以将第一个await放在try…catch结构里面，这样不管这个异步操作是否成功，第二个await都会执行。</p>
 <p>具体分析可参考 <a href="https://www.cnblogs.com/zczhangcui/p/6642144.html" target="_blank" rel="noopener">js-ES6学习笔记-async函数（2）</a> 和 <a href="http://www.css88.com/archives/7731" target="_blank" rel="noopener">ES2017 新特性：Async Functions (异步函数)</a><br><strong>（2018.2.5）</strong></p>
-<h3 id="7-even主题当目录过长时显示滚动条"><a href="#7-even主题当目录过长时显示滚动条" class="headerlink" title="7.even主题当目录过长时显示滚动条"></a>7.even主题当目录过长时显示滚动条</h3><p>今天发现博客里面要是目录太长时，没有滚动条。于是我翻了作者代码的 <a href="https://github.com/ahonn/hexo-theme-even/commit/8fea653b6bc9fe2ee0f19bba1a9d581672090a93" target="_blank" rel="noopener">提交记录 </a> 发现他原来是有加滚动条的，不过后来删了。于是我根据他的提交记录进行了修改：</p>
+<h3 id="7-even主题当目录过长时没有显示滚动条"><a href="#7-even主题当目录过长时没有显示滚动条" class="headerlink" title="7.even主题当目录过长时没有显示滚动条"></a>7.even主题当目录过长时没有显示滚动条</h3><p>今天发现博客里面要是目录太长时，没有滚动条。于是我翻了作者代码的 <a href="https://github.com/ahonn/hexo-theme-even/commit/8fea653b6bc9fe2ee0f19bba1a9d581672090a93" target="_blank" rel="noopener">提交记录 </a> 发现他原来是有加滚动条的，不过后来删了。于是我根据他的提交记录进行了修改：</p>
 <p><img src="/2018/02/04/日常学习自问自答/6.jpg" alt=""></p>
 <p>虽然有滚动条了，但是挺丑的。以后可能会对样式进行修改吧 <strong>（2018.2.5）</strong></p>
+<h3 id="8-同步-Synchronous-和异步-Asynchronous"><a href="#8-同步-Synchronous-和异步-Asynchronous" class="headerlink" title="8.同步(Synchronous)和异步(Asynchronous)"></a>8.同步(Synchronous)和异步(Asynchronous)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">	function b()&#123;...&#125;</span><br><span class="line"></span><br><span class="line">	function c()&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同步就是在执行函数a时先执行完函数b，再执行函数c。</p>
+<p>异步就是在执行函数a时函数b还没有执行完就开始开始执行函数c。<strong>（2018.2.6）</strong></p>
+<h3 id="8-token"><a href="#8-token" class="headerlink" title="8.token"></a>8.token</h3><p>Token, 令牌，代表执行某些操作的权利的对象。<strong>（2018.2.6）</strong></p>
+<h3 id="9-JavaScript里的params"><a href="#9-JavaScript里的params" class="headerlink" title="9.JavaScript里的params"></a>9.JavaScript里的params</h3><p>是指跳转页面后可以取上一个页面的所有值params。<strong>（2018.2.6）</strong></p>
 
       
     </div>
@@ -325,6 +330,12 @@
         
         
   <nav class="post-nav">
+    
+      <a class="prev" href="/2018/02/08/ES6常用知识点总结/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">ES6常用知识点总结</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
     
     
       <a class="next" href="/2018/01/22/如何用Hexo在GitHub上搭建博客/">

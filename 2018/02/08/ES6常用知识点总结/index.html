@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="总结, es6, 凡沸" />
+  <meta name="keywords" content="es6, 读书笔记, 凡沸" />
 
 
 
@@ -210,7 +210,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-const和let"><span class="toc-text">1.const和let</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-函数变量提升"><span class="toc-text">1.1 函数变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-let和const"><span class="toc-text">1.2 let和const</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字符串模板"><span class="toc-text">2.字符串模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数"><span class="toc-text">3.函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-const和let"><span class="toc-text">1.const和let</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-函数变量提升"><span class="toc-text">1.1 函数变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-let和const"><span class="toc-text">1.2 let和const</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字符串模板"><span class="toc-text">2.字符串模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数"><span class="toc-text">3.函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-拓展的对象功能"><span class="toc-text">4.拓展的对象功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-对象的初始化简写"><span class="toc-text">4.1 对象的初始化简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Object-assign"><span class="toc-text">4.2 Object.assign()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-解构"><span class="toc-text">5.解构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
     </div>
   </div>
 
@@ -251,13 +251,19 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例如：</span></span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map( <span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span> )</span><br><span class="line">    </span><br><span class="line"><span class="comment">//等同于：</span></span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map((<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line">    &#125;).bind(<span class="keyword">this</span>))</span><br></pre></td></tr></table></figure>
 <p>当函数有且仅有一个参数的时候，可以省略掉括号。当函数返回有且仅有一个表达式的时候可以省略{}；例如:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> people = <span class="function"><span class="params">name</span> =&gt;</span> <span class="string">'hello'</span> + name</span><br><span class="line">    <span class="comment">//参数name就没有括号</span></span><br></pre></td></tr></table></figure>
-<pre><code class="js"><span class="keyword">var</span> people = <span class="function">(<span class="params">name, age</span>) =&gt;</span> {
-        <span class="keyword">const</span> fullName = <span class="string">'h'</span> + name
-        <span class="keyword">return</span> fullName
-    } 
-    <span class="comment">//如果缺少()或者{}就会报错</span>
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> people = <span class="function"><span class="params">name</span> =&gt;</span> <span class="string">'hello'</span> + name</span><br><span class="line"><span class="comment">//参数name就没有括号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> people = <span class="function">(<span class="params">name, age</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> fullName = <span class="string">'h'</span> + name</span><br><span class="line">  <span class="keyword">return</span> fullName</span><br><span class="line"> <span class="comment">//如果缺少()或者&#123;&#125;就会报错 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-拓展的对象功能"><a href="#4-拓展的对象功能" class="headerlink" title="4.拓展的对象功能"></a>4.拓展的对象功能</h2><h3 id="4-1-对象的初始化简写"><a href="#4-1-对象的初始化简写" class="headerlink" title="4.1 对象的初始化简写"></a>4.1 对象的初始化简写</h3><p>（1）键值对重名</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">people</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name, <span class="comment">//相当于name:name,</span></span><br><span class="line">    ger <span class="comment">//相当于age:age</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（2）为对象添加方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">  name:<span class="string">'lux'</span>,</span><br><span class="line">  getName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相当于<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">  name:<span class="string">'lux'</span>,</span><br><span class="line">  getName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-2-Object-assign"><a href="#4-2-Object-assign" class="headerlink" title="4.2 Object.assign()"></a>4.2 Object.assign()</h3><p><code>const obj = Object.assign(target,...source)</code></p>
+<p>target:目标对象，source:源对象</p>
+<p>用于把一个或多个源对象的可枚举属性复制到目标对象中（浅复制），返回值为目标对象。</p>
+<p>在实际项目中，我们为了不改变源对象，一般会把目标对象传为{}。即：<code>const obj = Object.assign({},...source)</code></p>
+<h2 id="5-解构"><a href="#5-解构" class="headerlink" title="5.解构"></a>5.解构</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> [first, second, third] = someArray;</span><br><span class="line"></span><br><span class="line"><span class="comment">//相当于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> first = someArray[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> second = someArray[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> third = someArray[<span class="number">2</span>];</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">  name: <span class="string">'lux'</span>,</span><br><span class="line">  age: <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123; name, age &#125; = people</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span> --- <span class="subst">$&#123;age&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//相当于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">  name: <span class="string">'lux'</span>,</span><br><span class="line">  age: <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> name = people.name</span><br><span class="line"><span class="keyword">const</span> age = people.age</span><br><span class="line"><span class="built_in">console</span>.log(name + <span class="string">' --- '</span> + age)</span><br></pre></td></tr></table></figure>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
 <li><a href="https://www.jianshu.com/p/287e0bb867ae" target="_blank" rel="noopener">ES6这些就够了</a></li>
 </ul>
@@ -296,15 +302,21 @@
         
           <div class="post-tags">
             
-              <a href="/tags/总结/">总结</a>
-            
               <a href="/tags/es6/">es6</a>
+            
+              <a href="/tags/读书笔记/">读书笔记</a>
             
           </div>
         
         
         
   <nav class="post-nav">
+    
+      <a class="prev" href="/2018/02/09/博客完善日志/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">博客完善日志</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
     
     
       <a class="next" href="/2018/02/04/日常学习自问自答/">

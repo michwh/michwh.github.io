@@ -49,6 +49,8 @@
 
 
 
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
 
 
 
@@ -210,7 +212,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-概述"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-术语和概念"><span class="toc-text">2.术语和概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-专业术语"><span class="toc-text">2.1 专业术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#值"><span class="toc-text">值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键字"><span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#长度单位"><span class="toc-text">长度单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能符"><span class="toc-text">功能符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-未定义行为"><span class="toc-text">2.2 未定义行为</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-流、元素和基本尺寸"><span class="toc-text">3.流、元素和基本尺寸</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-display"><span class="toc-text">3.1 display</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-width"><span class="toc-text">3.2 width</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-width-auto"><span class="toc-text">3.2.1 width:auto</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#外部尺寸与流体特性"><span class="toc-text">外部尺寸与流体特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内部尺寸与流体特性"><span class="toc-text">内部尺寸与流体特性</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-概述"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-术语和概念"><span class="toc-text">2.术语和概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-专业术语"><span class="toc-text">2.1 专业术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#值"><span class="toc-text">值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键字"><span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#长度单位"><span class="toc-text">长度单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能符"><span class="toc-text">功能符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-未定义行为"><span class="toc-text">2.2 未定义行为</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-流、元素和基本尺寸"><span class="toc-text">3.流、元素和基本尺寸</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-display"><span class="toc-text">3.1 display</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-width"><span class="toc-text">3.2 width</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-width-auto"><span class="toc-text">3.2.1 width:auto</span></a></li></ol></li></ol></li></ol>
     </div>
   </div>
 
@@ -263,17 +265,20 @@
 <p>（4）<strong>超出容器限制</strong> 当内容很长的连续的英文和数字，或者内联元素被设置了white-space:nowrap。</p>
 <p><strong>内部尺寸</strong>：表示尺寸由内部元素决定。</p>
 <p><strong>外部尺寸</strong>：宽度由外部元素决定。</p>
-<h4 id="外部尺寸与流体特性"><a href="#外部尺寸与流体特性" class="headerlink" title="外部尺寸与流体特性"></a>外部尺寸与流体特性</h4><p>（1）<strong>正常流宽度</strong> 应充分利用流的特性。例如：</p>
+<p>1.外部尺寸与流体特性</p>
+<p>（1）<strong>正常流宽度</strong> 应充分利用流的特性。例如：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>无宽度，借助流动性<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">"nav-a"</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">"nav-a"</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">"nav-a"</span>&gt;</span>导航3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav-a</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">9px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#b70000</span>;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#de3636</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav-a</span><span class="selector-pseudo">:first-child</span> &#123; <span class="attribute">border-top</span>: <span class="number">0</span>; &#125;</span><br><span class="line"><span class="selector-class">.nav-a</span> + <span class="selector-class">.nav-a</span> + <span class="selector-class">.nav-a</span> &#123; <span class="attribute">border-bottom</span>: <span class="number">0</span>;&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">240px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav-a</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="comment">/*200px = 240px - 10px*2 - 10px*2 */</span></span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">9px</span> <span class="number">10px</span>;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以产生同样的效果。但是，表现为“外部尺寸”的块级元素一旦设置了宽度，流动性就丢失了。第二种方法，如果模块的宽度变化了，width就要重新计算。</p>
+<p>上面两种CSS代码可以产生同样的效果。但是，表现为“外部尺寸”的块级元素一旦设置了宽度，流动性就丢失了。第二种方法，如果模块的宽度变化了，width就要重新计算。</p>
 <p>（2）<strong>格式化宽度</strong> 在position属性值为absolute或fixed的元素中，对于非替换元素，当left/top或top/bottom对立方位的属性值同时存在的时候，元素的宽度表现为“格式化宽度”，其宽度大小相对于最近的具有定位特性（position属性值不是static）的祖先元素计算。例：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>:absolute;</span><br><span class="line">	<span class="attribute">left</span>:<span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">right</span>:<span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>假设给<code>&lt;div&gt;</code>元素最近的具有定位特性的祖先元素的宽度是1000像素，则这个<code>&lt;div&gt;</code>元素的宽度是960（1000-20-20）像素。</p>
 <p>“格式化宽度”具有完全的流体性，即margin、border、padding和content内容区域会自动分配水平（和垂直）空间。</p>
-<h4 id="内部尺寸与流体特性"><a href="#内部尺寸与流体特性" class="headerlink" title="内部尺寸与流体特性"></a>内部尺寸与流体特性</h4><p>“内部尺寸”的3中表现形式：</p>
-<p>（1）<strong>包裹性</strong><br>“包裹性”包括“包裹”和“自适应性”。</p>
+<p>2.内部尺寸与流体特性</p>
+<p>“内部尺寸”的3中表现形式：</p>
+<p>（1）<strong>包裹性</strong></p>
+<p>包裹性包括包裹和自适应性。</p>
 <p>自适应性：元素尺寸由内部元素决定，但永远小于“包含块”容器的尺寸（除非容器尺寸小于元素的“首选最小宽度”）。是区分内部尺寸和外部尺寸表现的很重要的一点。</p>
 <p>inline-block元素、浮动元素以及绝对定位元素都具有包裹性。这三种元素都有智能宽度行为。</p>
 <p>比如按钮（<code>&lt;button&gt;按钮&lt;/button&gt;</code>或<code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot;&gt;</code>)就是inline-block元素。按钮文字越多宽度越宽（内部尺寸特性），但如果文字足够多，则会在容器的宽度处自动换行（自适应特性）。不过<code>&lt;input&gt;</code>标签按钮，默认white-space:pre，是不会换行的，需要将pre改成normal。例：</p>
@@ -283,6 +288,34 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 当模块文字内容较短时，居中显示。文字内容超过一行时居左显示。 --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="undefined">      text-align: center;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.content</span>&#123;</span></span><br><span class="line"><span class="undefined">    display: inline-block;</span></span><br><span class="line"><span class="undefined">    text-align: left;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>测试一下<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2018/02/10/《CSS世界》读书笔记/4.jpg" alt=""></p>
 <p><img src="/2018/02/10/《CSS世界》读书笔记/5.jpg" alt=""></p>
+<p>（2）<strong>首选最小宽度</strong></p>
+<p>指的是元素最适合的最小宽度。例如外部容器的宽度变成0px，里面的inline-block元素表现出来的宽度就是首选最小宽度。</p>
+<p>首选最小宽度表现规则：</p>
+<ul>
+<li>中文的最小宽度为每个汉字的宽度<br><img src="/2018/02/10/《CSS世界》读书笔记/6.jpg" alt="6"></li>
+<li><p>英文最小宽度由特定的连续的英文字符单元决定。一般会终止于空格、短横线、问号和其他非英文字符。例如”display:inline-block”会被拆成”display:inline-“和”block”，最后的宽度就是”display:inline-“的宽度。如果”display：inline-block”中的冒号是中文的冒号，则会被拆成”display：”、”inline-“和”block”。<br><img src="/2018/02/10/《CSS世界》读书笔记/7.jpg" alt="7"><br>如果想让英文字符和中文一样，每一个字符都用最小宽度单元，可采用<code>word-break:break-all</code>。</p>
+</li>
+<li><p>类似图片这样的替换元素的最小宽度就是该元素内容本身的宽度。</p>
+</li>
+</ul>
+<p>首选最小宽度的作用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//使用一层HTML标签实现“凹”的效果</span><br><span class="line"></span><br><span class="line">HTML:</span><br><span class="line">&lt;div class=&quot;ao&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">CSS:</span><br><span class="line">.ao&#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: 0;</span><br><span class="line">&#125;</span><br><span class="line">.ao:before&#123;</span><br><span class="line">  content: &quot;love你love&quot;;</span><br><span class="line">  outline: 2px solid #cd0000;</span><br><span class="line">  color: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/02/10/《CSS世界》读书笔记/8.jpg" alt="8"></p>
+<p>利用的是连续英文单词不换行的特性。</p>
+<p>（3）<strong>最大宽度</strong></p>
+<p>最大宽度就是元素可以有的最大宽度。如果内部没有块级元素或者块级元素没有设定宽度，则最大宽度实际上就是最大的<strong>连续内联盒子</strong>（都是内联级别的一个或一堆元素，中间没有任何的换行标签<code>&lt;br&gt;</code>或其他块级元素）的宽度。</p>
+<p><img src="/2018/02/10/《CSS世界》读书笔记/9.jpg" alt="9"></p>
+<p><img src="/2018/02/10/《CSS世界》读书笔记/10.jpg" alt="10"></p>
+<p>图3-15中有3处连续内联盒子，分别是：</p>
+<ul>
+<li><p><code>&lt;br&gt;</code>前面的4个内联盒子组合</p>
+</li>
+<li><p><code>&lt;br&gt;</code>后面“我是下一行”字样所在的匿名内联盒子</p>
+</li>
+<li><p>块状<code>&lt;p&gt;</code>标签内的内联盒子</p>
+</li>
+</ul>
+<p>此时最大宽度就是3个连续内联盒子的宽度地最大值。所以从图3-16可以看出最大宽度就是第一个连续内联盒子的宽度。</p>
+<p>最大宽度作用：若要使用iScroll模拟水平滚动，只能使用最大宽度，这样，滚动到底的时候才是真的到底。</p>
 
       
     </div>
@@ -329,8 +362,8 @@
   <nav class="post-nav">
     
     
-      <a class="next" href="/2018/02/09/博客完善日志/">
-        <span class="next-text nav-default">博客完善日志</span>
+      <a class="next" href="/2018/02/09/博客维护日志/">
+        <span class="next-text nav-default">博客维护日志</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -440,6 +473,8 @@
 
 
     
+  
+
 
 
 
@@ -452,6 +487,8 @@
     <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
   
 
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
   
 
 

@@ -209,11 +209,48 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进制转换"><span class="toc-text">进制转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二进制转十进制"><span class="toc-text">二进制转十进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十进制转二进制"><span class="toc-text">十进制转二进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八进制转十进制"><span class="toc-text">八进制转十进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十六进制转十进制"><span class="toc-text">十六进制转十进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二进制转十六进制"><span class="toc-text">二进制转十六进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十六进制转二进制"><span class="toc-text">十六进制转二进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二进制转八进制"><span class="toc-text">二进制转八进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八进制转二进制"><span class="toc-text">八进制转二进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十六进制与八进制之间的转换"><span class="toc-text">十六进制与八进制之间的转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进制运算"><span class="toc-text">进制运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原码-反码-补码"><span class="toc-text">原码/反码/补码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原码"><span class="toc-text">原码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反码"><span class="toc-text">反码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补码"><span class="toc-text">补码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#符号扩张"><span class="toc-text">符号扩张</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加减法"><span class="toc-text">加减法</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+
 
     <div class="post-content">
       
-        <p>不好意思，还是总结</p>
-<a id="more"></a>
+        <p>不好意思，还是总结<br><a id="more"></a></p>
+<h2 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h2><h3 id="二进制转十进制"><a href="#二进制转十进制" class="headerlink" title="二进制转十进制"></a>二进制转十进制</h3><p><img src="/2018/03/06/汇编语言程序设计/1.jpg" alt="6"></p>
+<h3 id="十进制转二进制"><a href="#十进制转二进制" class="headerlink" title="十进制转二进制"></a>十进制转二进制</h3><p>（1）含小数<br><img src="/2018/03/06/汇编语言程序设计/6.jpg" alt="6"><br><img src="/2018/03/06/汇编语言程序设计/5.jpg" alt="5"></p>
+<p>（2）负数<br><img src="/2018/03/06/汇编语言程序设计/7.jpg" alt="5"></p>
+<h3 id="八进制转十进制"><a href="#八进制转十进制" class="headerlink" title="八进制转十进制"></a>八进制转十进制</h3><p><img src="/2018/03/06/汇编语言程序设计/2.jpg" alt="2"></p>
+<h3 id="十六进制转十进制"><a href="#十六进制转十进制" class="headerlink" title="十六进制转十进制"></a>十六进制转十进制</h3><p><img src="/2018/03/06/汇编语言程序设计/3.jpg" alt="3"></p>
+<h3 id="二进制转十六进制"><a href="#二进制转十六进制" class="headerlink" title="二进制转十六进制"></a>二进制转十六进制</h3><p>（0）十六位数的表示方法</p>
+<p><img src="/2018/03/06/汇编语言程序设计/17.jpg" alt="17"></p>
+<p>（1）熟悉二进制数与十六进制数之间的对应关系</p>
+<p><img src="/2018/03/06/汇编语言程序设计/14.jpg" alt="14"></p>
+<p>（2）取四合一</p>
+<p>从二进制的小数点为分界点，向左（或向右）每四位取成一位<br><img src="/2018/03/06/汇编语言程序设计/15.jpg" alt="15"></p>
+<p>组分好以后，对照二进制与十六进制数的对应表，将四位二进制按权相加，得到的数就是一位十六进制数，然后按顺序排列，小数点的位置不变，最后得到的就是十六进制数<br><img src="/2018/03/06/汇编语言程序设计/16.jpg" alt="16"></p>
+<p>注意16进制的表示法，用字母H后缀表示，比如BH就表示16进制数11；也可以用0X前缀表示，比如0X23就是16进制的23<br><img src="/2018/03/06/汇编语言程序设计/18.jpg" alt="18"></p>
+<h3 id="十六进制转二进制"><a href="#十六进制转二进制" class="headerlink" title="十六进制转二进制"></a>十六进制转二进制</h3><p><img src="/2018/03/06/汇编语言程序设计/4.jpg" alt="4"></p>
+<h3 id="二进制转八进制"><a href="#二进制转八进制" class="headerlink" title="二进制转八进制"></a>二进制转八进制</h3><p>（1）熟悉二进制数与八进制数之间的对应关系<br><img src="/2018/03/06/汇编语言程序设计/8.jpg" alt="8"></p>
+<p>（2）取三合一法</p>
+<p>从二进制的小数点为分界点，向左（或向右）每三位取成一位<br><img src="/2018/03/06/汇编语言程序设计/9.jpg" alt="9"></p>
+<p>分好组以后，对照二进制与八进制数的对应表，将三位二进制按权相加，得到的数就是一位八进制数，然后按顺序排列，小数点的位置不变哦，最后得到的就是八进制数<br><img src="/2018/03/06/汇编语言程序设计/10.jpg" alt="10"></p>
+<p>这里需要注意的是，在向左（或向右）取三位时，取到最高位（最低位）如果无法凑足三位，就可以在小数点的最左边（或最右边）补0，进行换算<br><img src="/2018/03/06/汇编语言程序设计/11.jpg" alt="11"></p>
+<h3 id="八进制转二进制"><a href="#八进制转二进制" class="headerlink" title="八进制转二进制"></a>八进制转二进制</h3><p>（1）一分三</p>
+<p>一个八进制数分成三个二进制数，用三位二进制按权相加，最后得到二进制，小数点依旧<br><img src="/2018/03/06/汇编语言程序设计/12.jpg" alt="12"></p>
+<p>这里需要注意的是大家在做添0补位的时候，是在小数点最左边或最右边才能添0<br><img src="/2018/03/06/汇编语言程序设计/13.jpg" alt="13"></p>
+<h3 id="十六进制与八进制之间的转换"><a href="#十六进制与八进制之间的转换" class="headerlink" title="十六进制与八进制之间的转换"></a>十六进制与八进制之间的转换</h3><p>第一种：他们之间的转换可以先转成二进制然后再相互转换。</p>
+<p>第二种：他们之间的转换可以先转成十进制然后再相互转换。</p>
+<h2 id="进制运算"><a href="#进制运算" class="headerlink" title="进制运算"></a>进制运算</h2><p>课本P6</p>
+<h2 id="原码-反码-补码"><a href="#原码-反码-补码" class="headerlink" title="原码/反码/补码"></a>原码/反码/补码</h2><h3 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h3><p><img src="/2018/03/06/汇编语言程序设计/19.jpg" alt="19"></p>
+<h3 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h3><p><img src="/2018/03/06/汇编语言程序设计/20.jpg" alt="20"></p>
+<h3 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h3><p><img src="/2018/03/06/汇编语言程序设计/21.jpg" alt="21"></p>
+<p>如果要用十六进制数表示补码，就用上图得到的二进制值转成十六进制值即可</p>
+<h4 id="符号扩张"><a href="#符号扩张" class="headerlink" title="符号扩张"></a>符号扩张</h4><p>对于用补码表示的数，正数的符号扩张应该在前面补0，负数在前面补1。例：0010 1110==&gt;0000 0000 0010 1110，1101 0010==&gt;1111 1111 1101 0010</p>
+<h4 id="加减法"><a href="#加减法" class="headerlink" title="加减法"></a>加减法</h4><p>课本P9</p>
 
       
     </div>

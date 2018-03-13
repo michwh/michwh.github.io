@@ -212,7 +212,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用git在码云或者GitHub上提交代码"><span class="toc-text">用git在码云或者GitHub上提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改提交项目的name和email"><span class="toc-text">修改提交项目的name和email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install"><span class="toc-text">npm install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dependencies-devDependencies"><span class="toc-text">dependencies/devDependencies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告-1"><span class="toc-text">git警告</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用git在码云或者GitHub上提交代码"><span class="toc-text">用git在码云或者GitHub上提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改提交项目的name和email"><span class="toc-text">修改提交项目的name和email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install"><span class="toc-text">npm install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dependencies-devDependencies"><span class="toc-text">dependencies/devDependencies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告-1"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-add"><span class="toc-text">git add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看仓库当前的状态"><span class="toc-text">查看仓库当前的状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写某个分支的代码"><span class="toc-text">编写某个分支的代码</span></a></li></ol>
     </div>
   </div>
 
@@ -221,7 +221,8 @@
       
         <p>自己在写项目的过程中用过的git命令和碰到的问题总结。</p>
 <a id="more"></a>
-<h2 id="用git在码云或者GitHub上提交代码"><a href="#用git在码云或者GitHub上提交代码" class="headerlink" title="用git在码云或者GitHub上提交代码"></a>用git在码云或者GitHub上提交代码</h2><ul>
+<h2 id="用git在码云或者GitHub上提交代码"><a href="#用git在码云或者GitHub上提交代码" class="headerlink" title="用git在码云或者GitHub上提交代码"></a>用git在码云或者GitHub上提交代码</h2><p>（这种是把代码提交到master分支）</p>
+<ul>
 <li><p>在本地建一个与码云/GitHub上同名的项目文件夹</p>
 </li>
 <li><p>打开本地的这个文件夹，鼠标右键，选择 “Git Bash Here”</p>
@@ -283,6 +284,17 @@
 <p>core.autocrlf是git中负责处理line ending的变量，可以设置3个值：true，false，inout。</p>
 <p>简单来说，设置 core.autocrlf=true 后，我们工作区的文件都应该用 CRLF 来换行。如果改动文件时引入了 LF，或者设置 core.autocrlf 之前，工作区已经有 LF 换行符。提交改动时，git 会警告你哪些文件不是纯 CRLF 文件，但git不会擅自修改工作区的那些文件，而是对暂存区（我们对工作区的改动）进行修改。也因此，当我们进行 <strong> git add . </strong> 的操作时，只要 git 发现改动的内容里有 LF 换行符，就还会出现这个警告。</p>
 <p>解决方案：设置 core.autocrlf=true, 只要保持工作区都是纯 CRLF 文件，编辑器用 CRLF 换行，就不会出现警告了。即：<code>git config --global core.autocrlf true</code> </p>
+<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><p><code>git add file</code>：添加file文件</p>
+<p><code>git add -u</code>：保存修改和删除，但是不包括新建文件。</p>
+<p><code>git add .</code>： 保存新的添加和修改，但是不包括删除。</p>
+<p><code>git add -A</code> ：保存所有的修改</p>
+<h2 id="查看仓库当前的状态"><a href="#查看仓库当前的状态" class="headerlink" title="查看仓库当前的状态"></a>查看仓库当前的状态</h2><p><code>git status</code></p>
+<h2 id="编写某个分支的代码"><a href="#编写某个分支的代码" class="headerlink" title="编写某个分支的代码"></a>编写某个分支的代码</h2><p>（1） 将这个分支pull到本地</p>
+<p><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code>例如：<code>git pull origin master:master</code>就是把origin主机的master分支与本地的master分支合并。如果远程分支是与当前分支合并，则冒号后面的部分可以省略:<code>git pull origin master</code></p>
+<p>（2） 通过<code>git branch</code>查看分支情况，例：</p>
+<p><img src="/2018/01/22/git操作总结/1.jpg" alt="1"><br>当前项目中有两个分支，且在工作的是master分支（有*的那个）</p>
+<p>（3） 切换分支：<code>git checkout 分支名</code></p>
+<p>例如<code>git checkout develop</code>就可以切换到develop分支<br><img src="/2018/01/22/git操作总结/2.jpg" alt="2"></p>
 
       
     </div>

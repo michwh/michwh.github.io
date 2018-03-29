@@ -216,7 +216,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-sringify"><span class="toc-text">JSON.sringify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-on"><span class="toc-text">app.on</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异步函数"><span class="toc-text">异步函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步-异步"><span class="toc-text">同步/异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#token"><span class="toc-text">token</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#params"><span class="toc-text">params</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可枚举性"><span class="toc-text">可枚举性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node不支持ES6"><span class="toc-text">node不支持ES6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#import-require"><span class="toc-text">import/require</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublime卡顿现象"><span class="toc-text">sublime卡顿现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#char-varchar"><span class="toc-text">char/varchar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库无法存数组"><span class="toc-text">数据库无法存数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-text">join()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为项目添加demo"><span class="toc-text">为项目添加demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#retina"><span class="toc-text">retina</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublime无法安装插件"><span class="toc-text">sublime无法安装插件</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-sringify"><span class="toc-text">JSON.sringify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-on"><span class="toc-text">app.on</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异步函数"><span class="toc-text">异步函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步-异步"><span class="toc-text">同步/异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#token"><span class="toc-text">token</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#params"><span class="toc-text">params</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可枚举性"><span class="toc-text">可枚举性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node不支持ES6"><span class="toc-text">node不支持ES6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#import-require"><span class="toc-text">import/require</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#char-varchar"><span class="toc-text">char/varchar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库无法存数组"><span class="toc-text">数据库无法存数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-text">join()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为项目添加demo"><span class="toc-text">为项目添加demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#retina"><span class="toc-text">retina</span></a></li></ol>
     </div>
   </div>
 
@@ -278,9 +278,6 @@
 <h3 id="import-require"><a href="#import-require" class="headerlink" title="import/require"></a>import/require</h3><p>require/exports是 JavaScript 社区中的开发者自己草拟的规则，得到了大家的承认或者广泛的应用。比如 CommonJS等属于野生规范。</p>
 <p>import/export 则是名门正派。TC39 制定的新的 ECMAScript 版本，即 ES6（ES2015）中包含进来。</p>
 <p>CommonJS 作为 Node.js 的规范，一直沿用至今。<strong>（2018.2.10）</strong></p>
-<h3 id="sublime卡顿现象"><a href="#sublime卡顿现象" class="headerlink" title="sublime卡顿现象"></a>sublime卡顿现象</h3><p>最近发现如果用sublime编辑有装git的项目文件会出现卡顿的现象。后来发现是GitGutter这个插件的原因，于是我从<strong>首选项(N)/插件控制(C)/删除插件/GitGutter</strong>进行删除。不过出现了如下警告：</p>
-<p><img src="/2018/02/04/日常学习自问自答/4.jpg" alt="4"></p>
-<p>然后我根据上述的文件路径对GitGutter进行了删除。下次如果再出现sublime卡顿的现象，应对sublime安装的插件进行逐个排查（就是逐个卸载测试）<strong>（2018.2.24）</strong></p>
 <h3 id="char-varchar"><a href="#char-varchar" class="headerlink" title="char/varchar"></a>char/varchar</h3><p>数据库中CHAR和VARCHAR的区别：</p>
 <p>1.CHAR的长度是固定的，而VARCHAR的长度是可以变化的， 比如，存储字符串“abc”，对于CHAR (10)，表示你存储的字符将占10个字节(包括7个空字符)，而同样的VARCHAR (10)则只占用3个字节的长度，10只是最大值，当你存储的字符小于10时，按实际长度存储。</p>
 <p>2.CHAR的效率比VARCHAR的效率稍高。</p>
@@ -299,12 +296,6 @@
 </ul>
 <p><strong>（2018.3.7）</strong></p>
 <h3 id="retina"><a href="#retina" class="headerlink" title="retina"></a>retina</h3><p>一种新型高分辨率的显示标准。把更多的像素点压缩在一块屏幕里，从而达到更高的分辨率。<strong>（2018.3.11）</strong></p>
-<h3 id="sublime无法安装插件"><a href="#sublime无法安装插件" class="headerlink" title="sublime无法安装插件"></a>sublime无法安装插件</h3><p>我用两个晚上才解决了这个问题。我原来的sublime用的是汉化版的没办法安装插件，所以我翻墙去官网下了英文版的。下载的第一天可以安装插件，可是第二天就不行了，当我想通过package control去下载插件时，控制台（Ctrl+` ）就提示<code>No module named &#39;package_control&#39;</code> 。然后我找啊找，终于在package_control的<a href="https://github.com/wbond/package_control/issues/1165" target="_blank" rel="noopener">issue</a>里面找到了答案：</p>
-<p><img src="/2018/02/04/日常学习自问自答/5.jpg" alt="5"></p>
-<p><img src="/2018/02/04/日常学习自问自答/6.jpg" alt="6"></p>
-<p>结合上面两段话，我打开<strong>Preferences-&gt;Settings</strong>把ignored_packages里面的内容都清空以后就可以正常使用package control了</p>
-<p>从这次debug经历我发现现在不翻墙真的是没办法写代码了，不仅没办法正常安装软件，而且我发现百度搜索出来的东西质量没有谷歌的高。就像这次，我起先在百度搜<strong>No module named ‘package_control’</strong>结果根本没找到我要的答案，可是用谷歌一搜，结果就出来了。</p>
-<p><strong>（2018.3.26）</strong></p>
 
       
     </div>

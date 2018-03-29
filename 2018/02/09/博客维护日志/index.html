@@ -257,10 +257,17 @@
 <p>可在sublime的右下角选择<strong>使用空格缩进</strong>在选择<strong>制表符缩进宽度:2</strong>就可以用两个空格缩进了。</p>
 <h3 id="图片弹出层-✔"><a href="#图片弹出层-✔" class="headerlink" title="图片弹出层 ✔"></a>图片弹出层 ✔</h3><p>在<strong>themes/even/_config.yml</strong>下设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">theme:</span><br><span class="line">	fancybox: true</span><br></pre></td></tr></table></figure></p>
 <p>即可开启图片弹出层展示。</p>
-<h2 id="2018-3-28"><a href="#2018-3-28" class="headerlink" title="2018.3.28"></a>2018.3.28</h2><h3 id="文章加密-✔"><a href="#文章加密-✔" class="headerlink" title="文章加密 ✔"></a>文章加密 ✔</h3><p><a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener">插件连接</a></p>
-<p>（1） <code>npm install --save hexo-blog-encrypt</code>安装插件</p>
-<p>（2）在<strong>.config.yml</strong>下添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># Security</span><br><span class="line">##</span><br><span class="line">encrypt:</span><br><span class="line">    enable: true</span><br><span class="line">    default_template:</span><br><span class="line">      &lt;script src=&quot;//cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">                    &lt;div id=&quot;security&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;input-container&quot;&gt;</span><br><span class="line">                            &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pass&quot; /&gt;</span><br><span class="line">                            &lt;div class=&quot;bottom-line&quot;&gt;&lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div id=&quot;encrypt-blog&quot; style=&quot;display:none&quot;&gt;</span><br><span class="line">                        &#123;&#123;content&#125;&#125;</span><br><span class="line">                    &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>目前暂未解决目录的显示问题。</p>
+<h2 id="2018-3-28"><a href="#2018-3-28" class="headerlink" title="2018.3.28"></a>2018.3.28</h2><h3 id="文章加密-✔"><a href="#文章加密-✔" class="headerlink" title="文章加密 ✔"></a>文章加密 ✔</h3><p>（1） <code>npm install --save hexo-blog-encrypt</code>安装插件<a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></p>
+<p>（2）在<strong>.config.yml</strong>下添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Security</span><br><span class="line">##</span><br><span class="line">encrypt:</span><br><span class="line">    enable: true</span><br></pre></td></tr></table></figure></p>
+<p>（3）在需要加密的.md文件头部添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">password: xxx</span><br><span class="line">abstract: xxx</span><br><span class="line">message: xxx</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>password: 是该博客加密使用的密码</li>
+<li>abstract: 是该博客的摘要，会显示在博客的列表页</li>
+<li>message: 这个是博客查看时，密码输入框上面的描述性文字</li>
+</ul>
+<p>刚开始用这个插件的时候博客界面的排版出现了一些问题，不过现在又突然不会了，不知道怎么回事。</p>
+<p>这个插件会让目录没办法正常显示，感觉弄起来有点麻烦，以后再弄吧。</p>
+<p><img src="/2018/02/09/博客维护日志/10.jpg" alt=""></p>
 
       
     </div>

@@ -212,7 +212,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用git在码云或者GitHub上提交代码"><span class="toc-text">用git在码云或者GitHub上提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改提交项目的name和email"><span class="toc-text">修改提交项目的name和email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install"><span class="toc-text">npm install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dependencies-devDependencies"><span class="toc-text">dependencies/devDependencies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告-1"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-add"><span class="toc-text">git add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看仓库当前的状态"><span class="toc-text">查看仓库当前的状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写某个分支的代码"><span class="toc-text">编写某个分支的代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用git在码云或者GitHub上提交代码"><span class="toc-text">用git在码云或者GitHub上提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改提交项目的name和email"><span class="toc-text">修改提交项目的name和email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install"><span class="toc-text">npm install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dependencies-devDependencies"><span class="toc-text">dependencies/devDependencies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告-1"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-add"><span class="toc-text">git add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看仓库当前的状态"><span class="toc-text">查看仓库当前的状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写某个分支的代码"><span class="toc-text">编写某个分支的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多人协作"><span class="toc-text">多人协作</span></a></li></ol>
     </div>
   </div>
 
@@ -295,6 +295,14 @@
 <p><img src="/2018/01/22/git操作总结/1.jpg" alt="1"><br>当前项目中有两个分支，且在工作的是master分支（有*的那个）</p>
 <p>（3） 切换分支：<code>git checkout 分支名</code></p>
 <p>例如<code>git checkout develop</code>就可以切换到develop分支<br><img src="/2018/01/22/git操作总结/2.jpg" alt="2"></p>
+<h2 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h2><p>如果在push你的代码的时候，出现如下报错：</p>
+<p><img src="/2018/01/22/git操作总结/3.jpg" alt="3"></p>
+<p>这是因为远程分支比你的本地的分支先更新（就是其他人先push了代码，而你本地的代码还没更新）。需要先用<code>git pull</code>试图合并，如果有如下报错：</p>
+<p><img src="/2018/01/22/git操作总结/4.jpg" alt="4"></p>
+<p>是因为没有指定本地dev分支与远程origin/dev分支的链接,可根据提示输入<code>git branch --set-upstream-to= origin/dev dev</code>。再输入<code>git pull</code>，会弹出如下界面：</p>
+<p><img src="/2018/01/22/git操作总结/5.jpg" alt="5"></p>
+<p>这是要输入一个提交信息来说明你这此合并（黄色的那部分文字就是提交说明）。如果有需要可按键盘上字母i，进入insert模式去修改黄色的那部分文字。然后在输入<code>:wq</code>保存退出即可。如果不需要修改，则输入<code>:q</code>直接退出。</p>
+<p>然后git上会显示远程分支比你本地分支先更新的部分。如果有冲突可在本地进行修改。修改完后输入<code>git commit -m &quot;提交说明&quot;</code>再输入<code>git push origin dev</code></p>
 
       
     </div>

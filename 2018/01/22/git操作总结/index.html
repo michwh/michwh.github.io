@@ -212,7 +212,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用git在码云或者GitHub上提交代码"><span class="toc-text">用git在码云或者GitHub上提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改提交项目的name和email"><span class="toc-text">修改提交项目的name和email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install"><span class="toc-text">npm install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dependencies-devDependencies"><span class="toc-text">dependencies/devDependencies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告-1"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-add"><span class="toc-text">git add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看仓库当前的状态"><span class="toc-text">查看仓库当前的状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写某个分支的代码"><span class="toc-text">编写某个分支的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多人协作"><span class="toc-text">多人协作</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用git在码云或者GitHub上提交代码"><span class="toc-text">用git在码云或者GitHub上提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改提交项目的name和email"><span class="toc-text">修改提交项目的name和email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install"><span class="toc-text">npm install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dependencies-devDependencies"><span class="toc-text">dependencies/devDependencies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git警告-1"><span class="toc-text">git警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-add"><span class="toc-text">git add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看仓库当前的状态"><span class="toc-text">查看仓库当前的状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写某个分支的代码"><span class="toc-text">编写某个分支的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多人协作"><span class="toc-text">多人协作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忽略特殊文件"><span class="toc-text">忽略特殊文件</span></a></li></ol>
     </div>
   </div>
 
@@ -303,6 +303,15 @@
 <p><img src="/2018/01/22/git操作总结/5.jpg" alt="5"></p>
 <p>这是要输入一个提交信息来说明你这此合并（黄色的那部分文字就是提交说明）。如果有需要可按键盘上字母i，进入insert模式去修改黄色的那部分文字。然后在输入<code>:wq</code>保存退出即可。如果不需要修改，则输入<code>:q</code>直接退出。</p>
 <p>然后git上会显示远程分支比你本地分支先更新的部分。如果有冲突可在本地进行修改。修改完后输入<code>git commit -m &quot;提交说明&quot;</code>再输入<code>git push origin dev</code></p>
+<h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><ul>
+<li><p>生成<strong>.gitignore</strong>文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .gitignore</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<strong>.gitignore</strong>文件里输入你要忽略的文件夹及其文件，例：</p>
+</li>
+</ul>
+<p><img src="/2018/01/22/git操作总结/6.jpg" alt="6"></p>
+<p>注意：如果你不慎在创建.gitignore文件之前就push了项目，那么即使你在.gitignore文件中写入新的过滤规则，这些规则也不会起作用，Git仍然会对所有文件进行版本管理。</p>
 
       
     </div>

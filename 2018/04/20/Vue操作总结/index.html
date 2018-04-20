@@ -17,12 +17,12 @@
 
 
 
-  <meta name="description" content="sublime常见问题总结"/>
+  <meta name="description" content="Vue操作总结"/>
 
 
 
 
-  <meta name="keywords" content="总结, sublime, 凡沸" />
+  <meta name="keywords" content="总结, Vue, 凡沸" />
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="https://wenhui-huang.github.io/2018/03/29/sublime常见问题总结/"/>
+<link rel="canonical" href="https://wenhui-huang.github.io/2018/04/20/Vue操作总结/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -89,7 +89,7 @@
 
 
 
-    <title> sublime常见问题总结 - 凡沸 </title>
+    <title> Vue操作总结 - 凡沸 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -187,20 +187,20 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          sublime常见问题总结
+          Vue操作总结
         
       </h1>
 
       <div class="post-meta">
         
         <span class="post-time">
-          2018-03-29
+          2018-04-20
         </span>
         
         
         <div class="post-visits"
-             data-url="/2018/03/29/sublime常见问题总结/"
-             data-title="sublime常见问题总结">
+             data-url="/2018/04/20/Vue操作总结/"
+             data-title="Vue操作总结">
             阅读次数
           </div>
         
@@ -212,26 +212,22 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#卡顿现象"><span class="toc-text">卡顿现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无法安装插件"><span class="toc-text">无法安装插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdownediting左侧大部分留白"><span class="toc-text">markdownediting左侧大部分留白</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用v-if时报错变量未定义"><span class="toc-text">用v-if时报错变量未定义</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>在用sublime过程中碰到的问题及解决方案<br><a id="more"></a></p>
-<h2 id="卡顿现象"><a href="#卡顿现象" class="headerlink" title="卡顿现象"></a>卡顿现象</h2><p>最近发现如果用sublime编辑有装git的项目文件会出现卡顿的现象。后来发现是GitGutter这个插件的原因，于是我从<strong>首选项(N)/插件控制(C)/删除插件/GitGutter</strong>进行删除。不过出现了如下警告：</p>
-<p><img src="/2018/03/29/sublime常见问题总结/4.jpg" alt="4"></p>
-<p>然后我根据上述的文件路径对GitGutter进行了删除。下次如果再出现sublime卡顿的现象，应对sublime安装的插件进行逐个排查（就是逐个卸载测试）</p>
-<h2 id="无法安装插件"><a href="#无法安装插件" class="headerlink" title="无法安装插件"></a>无法安装插件</h2><p>我用两个晚上才解决了这个问题。我原来的sublime用的是汉化版的没办法安装插件，所以我翻墙去官网下了英文版的。下载的第一天可以安装插件，可是第二天就不行了，当我想通过package control去下载插件时，控制台（Ctrl+` ）就提示<code>No module named &#39;package_control&#39;</code> 。然后我找啊找，终于在package_control的<a href="https://github.com/wbond/package_control/issues/1165" target="_blank" rel="noopener">issue</a>里面找到了答案：</p>
-<p><img src="/2018/03/29/sublime常见问题总结/5.jpg" alt="5"></p>
-<p><img src="/2018/03/29/sublime常见问题总结/6.jpg" alt="6"></p>
-<p>结合上面两段话，我打开<strong>Preferences-&gt;Settings</strong>把ignored_packages里面的内容都清空以后就可以正常使用package control了</p>
-<p>从这次debug经历我发现现在不翻墙真的是没办法写代码了，不仅没办法正常安装软件，而且我发现百度搜索出来的东西质量没有谷歌的高。就像这次，我起先在百度搜<strong>No module named ‘package_control’</strong>结果根本没找到我要的答案，可是用谷歌一搜，结果就出来了。</p>
-<h2 id="markdownediting左侧大部分留白"><a href="#markdownediting左侧大部分留白" class="headerlink" title="markdownediting左侧大部分留白"></a>markdownediting左侧大部分留白</h2><p>markdownediting是sublime里面写markdown的插件。不过安装这个插件后.md文件左侧会有一大块留白。在<strong>preference-&gt;package settings-&gt;markdown editing-&gt;markdown GFM settings - Default</strong>下有一段代码：</p>
-<p><img src="/2018/03/29/sublime常见问题总结/3.jpg" alt="3"></p>
-<p>layout就是显示界面的一些设置。其中<code>&quot;draw_centered&quot;</code>表示的是.md文件是否居中显示，如果把<code>&quot;draw_centered&quot;</code>设置为<code>false</code>就不会有左侧一大块留白的现象。<code>&quot;wrap_width&quot;</code>表示的是.md文件显示的宽度。<br>打开<strong>preference-&gt;package settings-&gt;markdown editing-&gt;markdown GFM settings - user</strong>可根据自己的需求去设置不同的参数，例如：</p>
-<p><img src="/2018/03/29/sublime常见问题总结/2.jpg" alt="2"></p>
+        <p>在用vue过程中碰到的问题及解决方案</p>
+<a id="more"></a>
+<h2 id="用v-if时报错变量未定义"><a href="#用v-if时报错变量未定义" class="headerlink" title="用v-if时报错变量未定义"></a>用v-if时报错变量未定义</h2><p>我要弄一个收藏按钮，通过click事件来控制collected的值，从而通过v-if根据collected的值来显示不同的图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//伪代码</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;option collect&quot; @click=&quot;collect()&quot;&gt;</span><br><span class="line">  &lt;img src=&quot;../assets/images/favor_fill.png&quot; v-if=&quot;collected&quot;&gt;</span><br><span class="line">  &lt;img src=&quot;../assets/images/favor2.png&quot; v-else&gt;</span><br><span class="line">  &lt;span&gt;收藏&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">date () &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    collected:false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  collect:function() &#123;</span><br><span class="line">    this.collected = !this.collected</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当我执行上述代码时会有如下报错：</p>
+<p><img src="/2018/04/20/Vue操作总结/1.jpg" alt="1"></p>
+<p>就是说我collected没有定义，可是我明明在data里面定义了啊。其实，我这段代码有两个错误：</p>
+<p>（1）v-if在起作用时data里面的变量其实还没有开始定义，所以v-if根本不知道collected是什么。</p>
+<p>（2）v-if只进行一次判断。也就是当v-if进行第一次判断时，它就认定了这时候collected的值，不管后面collected的值 如何改变，v-if都不会再进行判断。所以无论我们怎么点，虽然collected的值也在一直改变，但页面显示的永远是v-else的那张图片。</p>
 
       
     </div>
@@ -247,7 +243,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="https://wenhui-huang.github.io/2018/03/29/sublime常见问题总结/">https://wenhui-huang.github.io/2018/03/29/sublime常见问题总结/</a>
+      <a href="https://wenhui-huang.github.io/2018/04/20/Vue操作总结/">https://wenhui-huang.github.io/2018/04/20/Vue操作总结/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -269,7 +265,7 @@
             
               <a href="/tags/总结/">总结</a>
             
-              <a href="/tags/sublime/">sublime</a>
+              <a href="/tags/Vue/">Vue</a>
             
           </div>
         
@@ -277,15 +273,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/04/20/Vue操作总结/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Vue操作总结</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2018/03/11/HTML标签和CSS属性总结/">
-        <span class="next-text nav-default">HTML标签和CSS属性总结</span>
+      <a class="next" href="/2018/03/29/sublime常见问题总结/">
+        <span class="next-text nav-default">sublime常见问题总结</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>

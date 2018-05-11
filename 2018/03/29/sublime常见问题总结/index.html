@@ -212,7 +212,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#卡顿现象"><span class="toc-text">卡顿现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无法安装插件"><span class="toc-text">无法安装插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdownediting左侧大部分留白"><span class="toc-text">markdownediting左侧大部分留白</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体放大缩小"><span class="toc-text">字体放大缩小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码格式化"><span class="toc-text">代码格式化</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#卡顿现象"><span class="toc-text">卡顿现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无法安装插件"><span class="toc-text">无法安装插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdownediting左侧大部分留白"><span class="toc-text">markdownediting左侧大部分留白</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体放大缩小"><span class="toc-text">字体放大缩小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码格式化"><span class="toc-text">代码格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sublime更新后vue插件的问题"><span class="toc-text">sublime更新后vue插件的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-package-‘XXX’-is-not-available"><span class="toc-text">The package ‘XXX’ is not available</span></a></li></ol>
     </div>
   </div>
 
@@ -234,6 +234,23 @@
 <p><img src="/2018/03/29/sublime常见问题总结/2.jpg" alt="2"></p>
 <h2 id="字体放大缩小"><a href="#字体放大缩小" class="headerlink" title="字体放大缩小"></a>字体放大缩小</h2><p>ctrl+<code>+</code> 放大<br>ctrl+<code>-</code> 放大</p>
 <h2 id="代码格式化"><a href="#代码格式化" class="headerlink" title="代码格式化"></a>代码格式化</h2><p>选中文本，选择sublime菜单栏的“edit”-“line”-“reindent”选项</p>
+<h2 id="sublime更新后vue插件的问题"><a href="#sublime更新后vue插件的问题" class="headerlink" title="sublime更新后vue插件的问题"></a>sublime更新后vue插件的问题</h2><p>最近更新了sublime后.vue文件里面的部分代码无法高亮，而且出现了如下报错:</p>
+<p><img src="/2018/03/29/sublime常见问题总结/7.jpg" alt="7"></p>
+<p>解决方案：</p>
+<ul>
+<li><p>先翻墙 </p>
+</li>
+<li><p>打开Perferences–&gt;Browse Packages</p>
+</li>
+<li><p>把Vue文件夹里面的文件都删了</p>
+</li>
+<li><p>从<a href="https://github.com/vuejs/vue-syntax-highlight" target="_blank" rel="noopener">vue-syntax-highlight</a>下载最新插件，解压后放入Vue文件夹</p>
+</li>
+<li><p>sublime中使用快捷键Ctrl+Shift+P,输入vue，选中Set Syntax:Vue Component</p>
+</li>
+</ul>
+<p>切记重新安装vue插件时一定要翻墙，不然不成功</p>
+<h2 id="The-package-‘XXX’-is-not-available"><a href="#The-package-‘XXX’-is-not-available" class="headerlink" title="The package ‘XXX’ is not available"></a>The package ‘XXX’ is not available</h2><p>最近一打开sublime就会弹出几个警告框，内容都是<code>The package &#39;XXX&#39; is not available</code>这样的。这时候只需要打开Perferences–&gt;Browse Packages，新建XXX文件夹就行了。</p>
 
       
     </div>

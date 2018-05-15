@@ -17,8 +17,12 @@
 
 
 
+  <meta name="description" content="微信web协议分析"/>
 
 
+
+
+  <meta name="keywords" content="微信, http, 项目, 凡沸" />
 
 
 
@@ -38,7 +42,7 @@
 
 
 
-<link rel="canonical" href="https://wenhui-huang.github.io/tags/html/"/>
+<link rel="canonical" href="https://wenhui-huang.github.io/2018/05/15/微信web协议分析/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -85,11 +89,7 @@
 
 
 
-    <title>
-  
-    html · 凡沸
-  
-</title>
+    <title> 微信web协议分析 - 凡沸 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -183,43 +183,118 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
-    
-      
-        <div class="archive-title tag">
-          <h2 class="archive-name">html</h2>
-        </div>
-      
-    
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          微信web协议分析
+        
+      </h1>
 
-    
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2018-03-11
-          
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-05-15
         </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/11/HTML标签和CSS属性总结/" class="archive-post-link">
-            HTML标签和CSS属性总结
-          </a>
-        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/05/15/微信web协议分析/"
+             data-title="微信web协议分析">
+            阅读次数
+          </div>
+        
       </div>
-    
-  </section>
+    </header>
 
-  
-  <nav class="pagination">
     
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#执行流程"><span class="toc-text">执行流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体分析"><span class="toc-text">具体分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获得uuid"><span class="toc-text">获得uuid</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>项目地址：<a href="https://github.com/java-oops/wechat" target="_blank" rel="noopener">https://github.com/java-oops/wechat</a></p>
+<h2 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h2><p><img src="/2018/05/15/微信web协议分析/1.png" alt="执行流程"></p>
+<p>1.打开页面后，向服务器发送一个get请求，服务器会返回一个uuid</p>
+<p>2.凭借这个uuid就可以获得用于登录的二维码</p>
+<p>3.在获取到二维码和用户扫描二维码并确认登录之间，客户端会每隔一段时间向服务器发送一个get请求来查看这个二维码是否被扫描。如果二维码被扫描，返回<code>window.code=201;</code>，否则返回<code>window.code=408;</code>。如果这个二维码长时间没有被扫描，那么这个二维码就会失效。另外，如果二维码被扫描了，但是用户一直没有在手机上点确定登录，那么一段时间后，服务器也会返回<code>window.code=408;</code>。一旦用户点了确定登录，那么服务器就会返回<code>window.code=200;</code>。</p>
+<p>4.登录后，客户端会向服务器请求到<code>cookie</code>、<code>pass_ticket</code>这类东西用来标识用户。</p>
+<p>5.客户端就凭借着上面这些东西向服务器请求用户信息和联系人列表。</p>
+<p>6.接着，客户端开启状态通知，每隔一段时间就向服务器发送请求，以此来确定客户端当前状态，比如是否有新的消息或者用户已经登出了微信。</p>
+<h2 id="具体分析"><a href="#具体分析" class="headerlink" title="具体分析"></a>具体分析</h2><h3 id="获得uuid"><a href="#获得uuid" class="headerlink" title="获得uuid"></a>获得uuid</h3>
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://wenhui-huang.github.io">Wenhui Huang</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://wenhui-huang.github.io/2018/05/15/微信web协议分析/">https://wenhui-huang.github.io/2018/05/15/微信web协议分析/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/微信/">微信</a>
+            
+              <a href="/tags/http/">http</a>
+            
+              <a href="/tags/项目/">项目</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/03/29/sublime常见问题总结/">
+        <span class="next-text nav-default">sublime常见问题总结</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
       </main>

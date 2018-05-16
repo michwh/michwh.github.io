@@ -219,10 +219,9 @@
 
     <div class="post-content">
       
-        <p>在用sublime过程中碰到的问题及解决方案<br><a id="more"></a></p>
-<h2 id="卡顿现象"><a href="#卡顿现象" class="headerlink" title="卡顿现象"></a>卡顿现象</h2><p>最近发现如果用sublime编辑有装git的项目文件会出现卡顿的现象。后来发现是GitGutter这个插件的原因，于是我从<strong>首选项(N)/插件控制(C)/删除插件/GitGutter</strong>进行删除。不过出现了如下警告：</p>
+        <h2 id="卡顿现象"><a href="#卡顿现象" class="headerlink" title="卡顿现象"></a>卡顿现象</h2><p>最近发现如果用sublime编辑有装git的项目文件会出现卡顿的现象。后来发现是GitGutter这个插件的原因，于是我从<strong>首选项(N)/插件控制(C)/删除插件/GitGutter</strong>进行删除。不过出现了如下警告：</p>
 <p><img src="/2018/03/29/sublime常见问题总结/4.jpg" alt="4"></p>
-<p>然后我根据上述的文件路径对GitGutter进行了删除。下次如果再出现sublime卡顿的现象，应对sublime安装的插件进行逐个排查（就是逐个卸载测试）</p>
+<p>然后我根据上述的文件路径对GitGutter进行了删除。下次如果再出现sublime卡顿的现象，应对sublime安装的插件进行逐个排查（就是逐个卸载测试）<br><a id="more"></a></p>
 <h2 id="无法安装插件"><a href="#无法安装插件" class="headerlink" title="无法安装插件"></a>无法安装插件</h2><p>我用两个晚上才解决了这个问题。我原来的sublime用的是汉化版的没办法安装插件，所以我翻墙去官网下了英文版的。下载的第一天可以安装插件，可是第二天就不行了，当我想通过package control去下载插件时，控制台（Ctrl+` ）就提示<code>No module named &#39;package_control&#39;</code> 。然后我找啊找，终于在package_control的<a href="https://github.com/wbond/package_control/issues/1165" target="_blank" rel="noopener">issue</a>里面找到了答案：</p>
 <p><img src="/2018/03/29/sublime常见问题总结/5.jpg" alt="5"></p>
 <p><img src="/2018/03/29/sublime常见问题总结/6.jpg" alt="6"></p>

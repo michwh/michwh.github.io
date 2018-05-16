@@ -219,9 +219,7 @@
 
     <div class="post-content">
       
-        <p>自己在写项目的过程中用过的git命令和碰到的问题总结。</p>
-<a id="more"></a>
-<h2 id="用git在码云或者GitHub上提交代码"><a href="#用git在码云或者GitHub上提交代码" class="headerlink" title="用git在码云或者GitHub上提交代码"></a>用git在码云或者GitHub上提交代码</h2><p>（这种是把代码提交到master分支）</p>
+        <h2 id="用git在码云或者GitHub上提交代码"><a href="#用git在码云或者GitHub上提交代码" class="headerlink" title="用git在码云或者GitHub上提交代码"></a>用git在码云或者GitHub上提交代码</h2><p>（这种是把代码提交到master分支）</p>
 <ul>
 <li><p>在本地建一个与码云/GitHub上同名的项目文件夹</p>
 </li>
@@ -240,9 +238,10 @@
 <li><p>输入 <code>git commit -m &quot;修改说明&quot;</code></p>
 </li>
 <li><p>再输入 <code>git push origin master</code></p>
-</li>
+<a id="more"></a>
+<h2 id="修改提交项目的name和email"><a href="#修改提交项目的name和email" class="headerlink" title="修改提交项目的name和email"></a>修改提交项目的name和email</h2></li>
 </ul>
-<h2 id="修改提交项目的name和email"><a href="#修改提交项目的name和email" class="headerlink" title="修改提交项目的name和email"></a>修改提交项目的name和email</h2><p>　最近发现用git提交代码，GitHub上的contributions老是没有记录。于是我按照百度上面的步骤，随便打开一个项目的本地文件夹，在<strong>git bash</strong>输入 <code>git log</code> 发现提交邮箱写错了。于是我修改了提交作者和邮箱：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 设置全局</span><br><span class="line">git config --global user.name <span class="string">"Author Name"</span></span><br><span class="line">git config --global user.email <span class="string">"Author Email"</span></span><br><span class="line"></span><br><span class="line">// 或者设置本地项目库配置</span><br><span class="line">git config user.name <span class="string">"Author Name"</span></span><br><span class="line">git config user.email <span class="string">"Author Email"</span></span><br></pre></td></tr></table></figure></p>
+<p>　最近发现用git提交代码，GitHub上的contributions老是没有记录。于是我按照百度上面的步骤，随便打开一个项目的本地文件夹，在<strong>git bash</strong>输入 <code>git log</code> 发现提交邮箱写错了。于是我修改了提交作者和邮箱：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 设置全局</span><br><span class="line">git config --global user.name <span class="string">"Author Name"</span></span><br><span class="line">git config --global user.email <span class="string">"Author Email"</span></span><br><span class="line"></span><br><span class="line">// 或者设置本地项目库配置</span><br><span class="line">git config user.name <span class="string">"Author Name"</span></span><br><span class="line">git config user.email <span class="string">"Author Email"</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h2><p><strong>npm install moduleName</strong></p>
 <ol>
 <li>安装模块到项目node_modules目录下。</li>

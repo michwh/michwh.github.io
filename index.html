@@ -267,17 +267,15 @@
       
         
         
+          
+        
 
         
           <p>项目地址：<a href="https://github.com/java-oops/wechat" target="_blank" rel="noopener">https://github.com/java-oops/wechat</a></p>
-<h2 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h2><p><img src="/2018/05/15/微信web协议分析/1.png" alt="执行流程"></p>
-<p>1.打开页面后，向服务器发送一个get请求，服务器会返回一个uuid</p>
-<p>2.凭借这个uuid就可以获得用于登录的二维码</p>
-<p>3.在获取到二维码和用户扫描二维码并确认登录之间，客户端会每隔一段时间向服务器发送一个get请求来查看这个二维码是否被扫描。如果二维码被扫描，返回<code>window.code=201;</code>，否则返回<code>window.code=408;</code>。如果这个二维码长时间没有被扫描，那么这个二维码就会失效。另外，如果二维码被扫描了，但是用户一直没有在手机上点确定登录，那么一段时间后，服务器也会返回<code>window.code=408;</code>。一旦用户点了确定登录，那么服务器就会返回<code>window.code=200;</code>。</p>
-<p>4.登录后，客户端会向服务器请求到<code>cookie</code>、<code>pass_ticket</code>这类东西用来标识用户。</p>
-<p>5.客户端就凭借着上面这些东西向服务器请求用户信息和联系人列表。</p>
-<p>6.接着，客户端开启状态通知，每隔一段时间就向服务器发送请求，以此来确定客户端当前状态，比如是否有新的消息或者用户已经登出了微信。</p>
-<h2 id="具体分析"><a href="#具体分析" class="headerlink" title="具体分析"></a>具体分析</h2><h3 id="获得uuid"><a href="#获得uuid" class="headerlink" title="获得uuid"></a>获得uuid</h3>
+<h2 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h2><p><img src="/2018/05/15/微信web协议分析/1.png" alt="执行流程"><br></p>
+          <div class="read-more">
+            <a href="/2018/05/15/微信web协议分析/" class="read-more-link">阅读更多</a>
+          </div>
         
       
     </div>
@@ -325,7 +323,9 @@
         
 
         
-          <p>在用sublime过程中碰到的问题及解决方案<br></p>
+          <h2 id="卡顿现象"><a href="#卡顿现象" class="headerlink" title="卡顿现象"></a>卡顿现象</h2><p>最近发现如果用sublime编辑有装git的项目文件会出现卡顿的现象。后来发现是GitGutter这个插件的原因，于是我从<strong>首选项(N)/插件控制(C)/删除插件/GitGutter</strong>进行删除。不过出现了如下警告：</p>
+<p><img src="/2018/03/29/sublime常见问题总结/4.jpg" alt="4"></p>
+<p>然后我根据上述的文件路径对GitGutter进行了删除。下次如果再出现sublime卡顿的现象，应对sublime安装的插件进行逐个排查（就是逐个卸载测试）<br></p>
           <div class="read-more">
             <a href="/2018/03/29/sublime常见问题总结/" class="read-more-link">阅读更多</a>
           </div>
@@ -376,7 +376,20 @@
         
 
         
-          <p>记录自己不熟悉的HTML标签和CSS属性。<br></p>
+          <h3 id="width"><a href="#width" class="headerlink" title="width"></a>width</h3><h4 id="width-auto"><a href="#width-auto" class="headerlink" title="width:auto"></a>width:auto</h4><ul>
+<li><p>子元素（包括content+padding+border+margin）撑满整个父元素的content区域。</p>
+</li>
+<li><p>子元素有margin、border、padding时，会减去子元素content区域相对应的width值</p>
+</li>
+<li><p>父元素的content = 子元素（content + padding + border + margin )</p>
+</li>
+</ul>
+<h4 id="width-100"><a href="#width-100" class="headerlink" title="width:100%"></a>width:100%</h4><ul>
+<li><p>强制将子元素的content区域 撑满 父元素的content区域</p>
+</li>
+<li><p>子元素有margin、border、padding时，不改变子元素content区域的width，而是溢出父盒子，保持原有值</p>
+</li>
+<li><p>父元素的content = 子元素的content</p></li></ul>
           <div class="read-more">
             <a href="/2018/03/11/HTML标签和CSS属性总结/" class="read-more-link">阅读更多</a>
           </div>
@@ -428,6 +441,8 @@
 
         
           <p>记录自己的新想法以及目前要完成的任务。新想法不一定要立马完成，只是存储创意，等到自己想做一个新项目时可以拿出来参考。</p>
+<h3 id="1-完成二手交易应用"><a href="#1-完成二手交易应用" class="headerlink" title="1.完成二手交易应用"></a>1.完成二手交易应用</h3><p>项目地址：<a href="https://github.com/wenhui-huang/nothing-left" target="_blank" rel="noopener">nothing-left</a></p>
+<h3 id="2-看完《CSS世界》"><a href="#2-看完《CSS世界》" class="headerlink" title="2.看完《CSS世界》"></a>2.看完《CSS世界》</h3><h3 id="3-开发一款日历应用"><a href="#3-开发一款日历应用" class="headerlink" title="3.开发一款日历应用"></a>3.开发一款日历应用</h3><p>我们平常手机上的日历应用都附带了很多功能，比如天气、倒计时和星座运势等等。可是很多功能我们都用不到，但是这些功能仍然占据着我们的内存。所以我想开发一款日历应用，最开始的应用只有看日历的功能，然后用户根据自己的需求去下载其他功能（也就是把功能模块化，用户根据自己的需求去拼装一个属于自己的应用）。<br></p>
           <div class="read-more">
             <a href="/2018/03/11/计划表/" class="read-more-link">阅读更多</a>
           </div>
@@ -529,7 +544,11 @@
         
 
         
-          <p>在使用博客的过程中遇到的问题及解决方案。</p>
+          <h2 id="2018-2-4"><a href="#2018-2-4" class="headerlink" title="2018.2.4"></a>2018.2.4</h2><h3 id="显示代码语言-✔"><a href="#显示代码语言-✔" class="headerlink" title="显示代码语言 ✔"></a>显示代码语言 ✔</h3><p>当我在博客中引入代码时：</p>
+<p><img src="/2018/02/09/博客维护日志/20180204-1.jpg" alt=""></p>
+<p>出来的效果是这样的：</p>
+<p><img src="/2018/02/09/博客维护日志/2.jpg" alt=""></p>
+<p>虽然代码会高亮，但是Code不会显示成JavaScript。后来我发现在<strong>/even/source/css/_variables.scss</strong>下的代码：<br></p>
           <div class="read-more">
             <a href="/2018/02/09/博客维护日志/" class="read-more-link">阅读更多</a>
           </div>
@@ -580,7 +599,10 @@
         
 
         
-          <p>最近在学node.js，碰到了很多es6的语法。现在写一篇es6常用语法的简单小结，帮助自己更好地学习node.js。</p>
+          <h2 id="1-const和let"><a href="#1-const和let" class="headerlink" title="1.const和let"></a>1.const和let</h2><h3 id="1-1-函数变量提升"><a href="#1-1-函数变量提升" class="headerlink" title="1.1 函数变量提升"></a>1.1 函数变量提升</h3><p>用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    <span class="keyword">var</span> test = <span class="string">'hello'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(test);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相当于：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> test; <span class="comment">//变量提升</span></span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    test = <span class="string">'hello'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//此处访问test，值为undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(test);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//此处访问test，值为undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2018/02/08/ES6常用知识点总结/" class="read-more-link">阅读更多</a>
           </div>
@@ -631,7 +653,24 @@
         
 
         
-          <p>搭建博客过程中的总结。</p>
+          <h2 id="1-搭建博客"><a href="#1-搭建博客" class="headerlink" title="1.搭建博客"></a>1.搭建博客</h2><ul>
+<li><p>在GitHub上建一个名为  <strong>GitHub用户名.github.io</strong>  的项目</p>
+</li>
+<li><p>电脑上安装了Node.js和Git</p>
+</li>
+<li><p>打开git命令，输入 <code>npm install -g hexo-cli</code> 开始安装Hexo</p>
+</li>
+<li><p>安装成功后输入 <code>hexo -v</code> 会显示hexo的版本</p>
+</li>
+<li><p>在本地磁盘上建一个文件夹（比如blog)</p>
+</li>
+<li><p>打开blog文件夹，鼠标右键，选择 Git Bash Here</p>
+</li>
+<li><p>输入 <code>hexo init</code> 将blog文件夹初始化成一个博客文件夹</p>
+</li>
+<li><p>输入 <code>npm install</code> 安装依赖包</p>
+</li>
+<li><p>获取GitHub上项目的链接</p></li></ul>
           <div class="read-more">
             <a href="/2018/01/22/如何用Hexo在GitHub上搭建博客/" class="read-more-link">阅读更多</a>
           </div>
@@ -682,7 +721,25 @@
         
 
         
-          <p>自己在写项目的过程中用过的git命令和碰到的问题总结。</p>
+          <h2 id="用git在码云或者GitHub上提交代码"><a href="#用git在码云或者GitHub上提交代码" class="headerlink" title="用git在码云或者GitHub上提交代码"></a>用git在码云或者GitHub上提交代码</h2><p>（这种是把代码提交到master分支）</p>
+<ul>
+<li><p>在本地建一个与码云/GitHub上同名的项目文件夹</p>
+</li>
+<li><p>打开本地的这个文件夹，鼠标右键，选择 “Git Bash Here”</p>
+</li>
+<li><p>在git命令窗口输入 <code>git init</code></p>
+</li>
+<li><p>再输入 <code>git remote add origin 项目地址</code> 这样本地文件夹就和码云/GitHub上的项目连接了</p>
+</li>
+<li><p>再输入 <code>git pull origin master</code>  码云/GitHub上的代码就会全部复制到本地</p>
+</li>
+<li><p>在本地文件夹内进行代码修改</p>
+</li>
+<li><p>修改完后，在git命令中输入 <code>git add .</code></p>
+</li>
+<li><p>输入 <code>git commit -m &quot;修改说明&quot;</code></p>
+</li>
+<li><p>再输入 <code>git push origin master</code></p></li></ul>
           <div class="read-more">
             <a href="/2018/01/22/git操作总结/" class="read-more-link">阅读更多</a>
           </div>

@@ -212,7 +212,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#执行流程"><span class="toc-text">执行流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体分析"><span class="toc-text">具体分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获得uuid"><span class="toc-text">获得uuid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得二维码"><span class="toc-text">获得二维码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检查二维码扫描状态"><span class="toc-text">检查二维码扫描状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登录获取cookie"><span class="toc-text">登录获取cookie</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#执行流程"><span class="toc-text">执行流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体分析"><span class="toc-text">具体分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获得uuid"><span class="toc-text">获得uuid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得二维码"><span class="toc-text">获得二维码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检查二维码扫描状态"><span class="toc-text">检查二维码扫描状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登录获取cookie"><span class="toc-text">登录获取cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启状态通知"><span class="toc-text">开启状态通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取联系人列表"><span class="toc-text">获取联系人列表</span></a></li></ol></li></ol>
     </div>
   </div>
 
@@ -295,7 +295,7 @@
 </tbody>
 </table>
 <p>响应：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//二维码未被扫描或者二维码被扫描但用户未点击确认登录时</span><br><span class="line">window.code=408;</span><br><span class="line"></span><br><span class="line">//二维码被扫描时</span><br><span class="line">window.code=201;window.userAvatar = &apos;xxx&apos;;</span><br><span class="line"></span><br><span class="line">//用户点击确认登录时</span><br><span class="line">window.code=200;</span><br><span class="line">window.redirect_uri=&quot;xxx&quot;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//二维码未被扫描或者二维码被扫描但用户长时间未点击确认登录时</span><br><span class="line">window.code=408;</span><br><span class="line"></span><br><span class="line">//二维码被扫描时</span><br><span class="line">window.code=201;window.userAvatar = &apos;xxx&apos;;</span><br><span class="line"></span><br><span class="line">//用户点击确认登录时</span><br><span class="line">window.code=200;</span><br><span class="line">window.redirect_uri=&quot;xxx&quot;;</span><br></pre></td></tr></table></figure>
 <h3 id="登录获取cookie"><a href="#登录获取cookie" class="headerlink" title="登录获取cookie"></a>登录获取cookie</h3><table>
 <thead>
 <tr>
@@ -318,7 +318,83 @@
 </tr>
 </tbody>
 </table>
-<p>响应：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;error&gt;</span><br><span class="line">    &lt;ret&gt;0&lt;/ret&gt;</span><br><span class="line">    &lt;message&gt;OK&lt;/message&gt;</span><br><span class="line">    &lt;skey&gt;xxx&lt;/skey&gt;</span><br><span class="line">    &lt;wxsid&gt;xxx&lt;/wxsid&gt;</span><br><span class="line">    &lt;wxuin&gt;xxx&lt;/wxuin&gt;</span><br><span class="line">    &lt;pass_ticket&gt;xxx&lt;/pass_ticket&gt;</span><br><span class="line">    &lt;isgrayscale&gt;1&lt;/isgrayscale&gt;</span><br><span class="line">&lt;/error&gt;</span><br></pre></td></tr></table></figure></p>
+<p>响应：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">error</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ret</span>&gt;</span>0<span class="tag">&lt;/<span class="name">ret</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">message</span>&gt;</span>OK<span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">skey</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">skey</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">wxsid</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">wxsid</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">wxuin</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">wxuin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pass_ticket</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">pass_ticket</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">isgrayscale</span>&gt;</span>1<span class="tag">&lt;/<span class="name">isgrayscale</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">error</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><table>
+<thead>
+<tr>
+<th>API</th>
+<th>初始化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit?r=xxx&amp;pass_ticket=xxx" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit?r=xxx&amp;pass_ticket=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>post</td>
+</tr>
+<tr>
+<td>params</td>
+<td><code>{&quot;BaseRequest&quot;:{&quot;Uin&quot;:&quot;xxx&quot;,&quot;Sid&quot;:&quot;xxx&quot;,&quot;Skey&quot;:&quot;xxx&quot;,&quot;DeviceID&quot;:&quot;xxx&quot;}}</code></td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>Content-Type  application/json;charset=utf-8</td>
+</tr>
+<tr>
+<td>说明</td>
+<td><code>DeviceID</code>就随便抄一个吧</td>
+</tr>
+</tbody>
+</table>
+<p>响应：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"BaseResponse"</span>: &#123;</span><br><span class="line">        <span class="attr">"Ret"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"ErrMsg"</span>: <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"Count"</span>: <span class="number">11</span>,</span><br><span class="line">    <span class="attr">"ContactList"</span>: [...],</span><br><span class="line">    <span class="attr">"SyncKey"</span>: &#123;</span><br><span class="line">        <span class="attr">"Count"</span>: <span class="number">4</span>,</span><br><span class="line">        <span class="attr">"List"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"Key"</span>: <span class="number">1</span>,</span><br><span class="line">                <span class="attr">"Val"</span>: <span class="number">635705559</span></span><br><span class="line">            &#125;,</span><br><span class="line">            ...</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"User"</span>: &#123;</span><br><span class="line">        <span class="attr">"Uin"</span>: xxx,</span><br><span class="line">        <span class="attr">"UserName"</span>: xxx,</span><br><span class="line">        <span class="attr">"NickName"</span>: xxx,</span><br><span class="line">        <span class="attr">"HeadImgUrl"</span>: xxx,</span><br><span class="line">        <span class="attr">"RemarkName"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"PYInitial"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"PYQuanPin"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"RemarkPYInitial"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"RemarkPYQuanPin"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"HideInputBarFlag"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"StarFriend"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"Sex"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"Signature"</span>: <span class="string">"Apt-get install B"</span>,</span><br><span class="line">        <span class="attr">"AppAccountFlag"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"VerifyFlag"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"ContactFlag"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"WebWxPluginSwitch"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"HeadImgFlag"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"SnsFlag"</span>: <span class="number">17</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"ChatSet"</span>: xxx,</span><br><span class="line">    <span class="attr">"SKey"</span>: xxx,</span><br><span class="line">    <span class="attr">"ClientVersion"</span>: <span class="number">369297683</span>,</span><br><span class="line">    <span class="attr">"SystemTime"</span>: <span class="number">1453124908</span>,</span><br><span class="line">    <span class="attr">"GrayScale"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"InviteStartCount"</span>: <span class="number">40</span>,</span><br><span class="line">    <span class="attr">"MPSubscribeMsgCount"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">"MPSubscribeMsgList"</span>: [...],</span><br><span class="line">    <span class="attr">"ClickReportInterval"</span>: <span class="number">600000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="开启状态通知"><a href="#开启状态通知" class="headerlink" title="开启状态通知"></a>开启状态通知</h3><table>
+<thead>
+<tr>
+<th>API</th>
+<th>开启状态通知</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxstatusnotify?pass_ticket=xxx" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxstatusnotify?pass_ticket=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>post</td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>Content-Type  application/json;charset=utf-8</td>
+</tr>
+</tbody>
+</table>
+<p>params:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"BaseRequest"</span>: </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"Uin"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"Sid"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"Skey"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"DeviceID"</span>: <span class="string">"xxx"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"ClientMsgId"</span>: <span class="string">"时间戳"</span>,</span><br><span class="line">  <span class="attr">"Code"</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">"FromUserName"</span>: <span class="string">"自己的ID"</span>,</span><br><span class="line">  <span class="attr">"ToUserName"</span>: <span class="string">"自己的ID"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>响应：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"BaseResponse"</span>: &#123;</span><br><span class="line">        <span class="attr">"Ret"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"ErrMsg"</span>: <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"MsgID"</span>:xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取联系人列表"><a href="#获取联系人列表" class="headerlink" title="获取联系人列表"></a>获取联系人列表</h3><table>
+<thead>
+<tr>
+<th>API</th>
+<th>获取联系人列表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxgetcontact?pass_ticket=xxx&amp;r=xxx&amp;seq=0&amp;skey=xxx" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxgetcontact?pass_ticket=xxx&amp;r=xxx&amp;seq=0&amp;skey=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>get</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>

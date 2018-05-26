@@ -212,14 +212,14 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-搭建博客"><span class="toc-text">1.搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-写博客"><span class="toc-text">2.写博客</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建博客"><span class="toc-text">搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写博客"><span class="toc-text">写博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo的一些命令"><span class="toc-text">hexo的一些命令</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <h2 id="1-搭建博客"><a href="#1-搭建博客" class="headerlink" title="1.搭建博客"></a>1.搭建博客</h2><ul>
+        <h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><ul>
 <li><p>在GitHub上建一个名为  <strong>GitHub用户名.github.io</strong>  的项目</p>
 </li>
 <li><p>电脑上安装了Node.js和Git</p>
@@ -253,19 +253,19 @@
 <li><p>回到 Git Bash。输入 <code>hexo g -d</code> 就可以了</p>
 </li>
 </ul>
-<h2 id="2-写博客"><a href="#2-写博客" class="headerlink" title="2.写博客"></a>2.写博客</h2><ul>
+<h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><ul>
 <li><p>在 Git Bash 里，所在路径还是blog文件夹下。输入 <code>hexo new &quot;博客名&quot;</code> 新建一篇博客</p>
 </li>
 <li><p>在 blog\source\ _posts 路径下，会有一个 <strong>博客名.md</strong> 的文件。 编辑这个文件，然后保存。</p>
 </li>
-<li><p>回到 Git Bash，输入 <code>hexo g</code> 再输入 <code>hexo s</code> 就可以在本地 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 上查看效果了</p>
+<li><p>回到 Git Bash，输入 <code>hexo s</code> 就可以在本地 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 上查看效果了</p>
 </li>
 <li><p>觉得效果可以了，就回到 Git Bash，按 Ctrl+C 结束</p>
 </li>
-<li><p>输入 <code>hexo g -d</code> 打开自己的博客，博客就更新了</p>
+<li><p>输入 <code>hexo generate</code> <code>hexo deploy</code> 打开自己的博客，博客就更新了</p>
 </li>
 </ul>
-
+<h2 id="hexo的一些命令"><a href="#hexo的一些命令" class="headerlink" title="hexo的一些命令"></a>hexo的一些命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Commands:</span><br><span class="line">  clean     Remove generated files and cache.</span><br><span class="line">  config    Get or set configurations.</span><br><span class="line">  deploy    Deploy your website.</span><br><span class="line">  generate  Generate static files.</span><br><span class="line">  help      Get help on a command.</span><br><span class="line">  init      Create a new Hexo folder.</span><br><span class="line">  list      List the information of the site</span><br><span class="line">  migrate   Migrate your site from other system to Hexo.</span><br><span class="line">  new       Create a new post.</span><br><span class="line">  publish   Moves a draft post from _drafts to _posts folder.</span><br><span class="line">  render    Render files with renderer plugins.</span><br><span class="line">  server    Start the server.</span><br><span class="line">  version   Display version information.</span><br></pre></td></tr></table></figure>
       
     </div>
 

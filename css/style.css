@@ -563,7 +563,8 @@ h6 {
     .post .post-header .post-meta .post-visits {
       display: inline-block;
       font-size: 14px;
-      color: #8a8a8a; }
+      color: #8a8a8a;
+      visibility: hidden; }
       .post .post-header .post-meta .post-visits::before {
         content: '·'; }
   .post .post-toc {
@@ -644,16 +645,20 @@ h6 {
   .post .post-content img {
     display: inline-block;
     max-width: 100%; }
-  .post .post-content > table {
-    max-width: 100%;
-    margin: 10px 0;
-    border-spacing: 0;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125); }
-    .post .post-content > table thead {
-      background: #f8f5ec; }
-    .post .post-content > table th, .post .post-content > table td {
-      padding: 5px 15px;
-      border: 1px double #f4efe1; }
+  .post .post-content .table-responsive {
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: auto; }
+    .post .post-content .table-responsive table {
+      width: 100%;
+      max-width: 100%;
+      border-spacing: 0;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125); }
+      .post .post-content .table-responsive table thead {
+        background: #f8f5ec; }
+      .post .post-content .table-responsive table th, .post .post-content .table-responsive table td {
+        padding: 5px 15px;
+        border: 1px double #f4efe1; }
   .post .post-content code, .post .post-content pre {
     padding: 7px;
     font-size: 13px;

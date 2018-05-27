@@ -648,8 +648,7 @@ h6 {
   .post .post-content .table-responsive {
     width: 100%;
     margin-bottom: 20px;
-    overflow: auto;
-    border: 3px double #f4efe1; }
+    overflow: auto; }
     .post .post-content .table-responsive table {
       width: 100%;
       max-width: 100%;

@@ -240,6 +240,121 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/06/05/Element-UI使用小技巧/">Element UI使用小技巧</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-06-05
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/06/05/Element-UI使用小技巧/"
+             data-title="Element UI使用小技巧">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h1 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h1><p>element中预设了五个响应尺寸：<code>xs</code>、<code>sm</code>、<code>md</code>、<code>lg</code> 和 <code>xl</code>，可以在element的<code>&lt;el-col&gt;&lt;/el-col&gt;</code>组件中设置它们的值，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-col :xs=&quot;8&quot; :sm=&quot;6&quot; :md=&quot;4&quot; :lg=&quot;3&quot; :xl=&quot;1&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;/el-col&gt;</span><br></pre></td></tr></table></figure>
+<p>在element中是把一个界面竖着分成了24块，这些响应尺寸的值就是指在这24块中占了几块。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/05/28/理解Cookie和Sessin机制/">理解Cookie和Sessin机制</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-05-28
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/05/28/理解Cookie和Sessin机制/"
+             data-title="理解Cookie和Sessin机制">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>常用的会话跟踪技术是Cookie与Session。Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份。</p>
+<h1 id="Cookie执行机制"><a href="#Cookie执行机制" class="headerlink" title="Cookie执行机制"></a>Cookie执行机制</h1><p>1.当用户使用浏览器访问一个支持Cookie的网站的时候，用户会提供包括用户名在内的个人信息并且提交至服务器</p>
+<p>2.服务器向客户端回传相应的超文本并在HTTP响应头（Response Header）里发回用户的个人信息。在响应头里面会有一个Set-Cookie字段，这是用来指示客户端建立一个cookie</p>
+<p>3.客户端浏览器接收来自服务器的响应，并将这些信息存放在一个统一的位置，这个位置可能是内存也有可能是硬盘。</p>
+<p>4.当客户端要再向服务器发送请求时，就会在HTTP的请求头里加入cookie（一小段的文本信息）</p>
+<p>5.服务器就根据cookie来识别客户端的身份，从而动态生成与该客户端相对应的内容。</p>
+<p><img src="/2018/05/28/理解Cookie和Sessin机制/1.jpg" alt="1"></p>
+<h1 id="Cookie属性"><a href="#Cookie属性" class="headerlink" title="Cookie属性"></a>Cookie属性</h1><p><code>String name</code>：cookie名称</p>
+<p><code>Object value</code>：cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码。 </p>
+<p><code>int maxAge</code>：cookie的失效时间，单位为秒。如果为正数，则该Cookie在&gt;maxAge秒之后失效,这时无论客户关闭了浏览器还是电脑，只要还在maxAge秒之前，登录网站时该Cookie仍然有效。。如果为负数，该Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为–1。</p>
+<p><code>boolean secure</code>：该cookie是否使用安全传输协议，默认为false</p>
+<p><code>String path</code>：cookie使用路径。如果设置为<code>/sessionWeb/</code>，则只有contextPath为<code>/sessionWeb</code>的程序可以访问该Cookie。如果设置为<code>/</code>，则本域名下contextPath都可以访问该Cookie。注意最后一个字符必须为<code>/</code>。</p>
+<p><code>String comment</code>：cookie用处说明</p>
+<p><code>int version</code>：cookie版本号</p>
+<p><code>String domain</code>：可以访问该Cookie的域名。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie</p>
+<h1 id="Cookie的不可跨域名性"><a href="#Cookie的不可跨域名性" class="headerlink" title="Cookie的不可跨域名性"></a>Cookie的不可跨域名性</h1><p>例如，Google会向客户端颁发Cookie，Baidu也会向客户端颁发Cookie。浏览器访问Google只会携带Google的Cookie，而不会携带Baidu的Cookie。Google也只能操作Google的Cookie，而不能操作Baidu的Cookie。浏览器判断一个网站是否能操作另一个网站Cookie的依据是域名。Google与Baidu的域名不一样，因此Google不能操作Baidu的Cookie。</p>
+<p>正常情况下，同一个一级域名下的两个二级域名如www.helloweenvsfei.com和images.helloweenvsfei.com也不能交互使用Cookie，因为二者的域名并不严格相同。如果想所有helloweenvsfei.com名下的二级域名都可以使用该Cookie，需要把Cookie的domain参数设置成<code>.helloweenvsfei.com</code></p>
+<h1 id="Cookie的修改、删除"><a href="#Cookie的修改、删除" class="headerlink" title="Cookie的修改、删除"></a>Cookie的修改、删除</h1><p>修改：新建一个同名的Cookie，添加到response中覆盖原来的Cookie。</p>
+<p>删除：新建一个同名的Cookie，将maxAge设置为0，并添加到response中覆盖原来的Cookie。</p>
+<p>注意：修改、删除Cookie时，新建的Cookie除value、maxAge之外的所有属性，例如name、path、domain等，都要与原Cookie完全一样。否则，浏览器将视为两个不同的Cookie不予覆盖。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/05/15/web版微信协议分析/">web版微信协议分析</a>
         
       </h1>
@@ -271,8 +386,7 @@
         
 
         
-          <p>项目地址：<a href="https://github.com/java-oops/wechat" target="_blank" rel="noopener">https://github.com/java-oops/wechat</a></p>
-<h1 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h1><p><img src="/2018/05/15/web版微信协议分析/1.png" alt="执行流程"><br></p>
+          <h1 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h1><p><img src="/2018/05/15/web版微信协议分析/1.png" alt="执行流程"><br></p>
           <div class="read-more">
             <a href="/2018/05/15/web版微信协议分析/" class="read-more-link">阅读更多</a>
           </div>
@@ -617,148 +731,16 @@
   </article>
 
     
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/01/22/如何用Hexo在GitHub上搭建博客/">如何用Hexo在GitHub上搭建博客</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        
-        <span class="post-time">
-          2018-01-22
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2018/01/22/如何用Hexo在GitHub上搭建博客/"
-             data-title="如何用Hexo在GitHub上搭建博客">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><ul>
-<li><p>在GitHub上建一个名为  <strong>GitHub用户名.github.io</strong>  的项目</p>
-</li>
-<li><p>电脑上安装了Node.js和Git</p>
-</li>
-<li><p>打开git命令，输入 <code>npm install -g hexo-cli</code> 开始安装Hexo</p>
-</li>
-<li><p>安装成功后输入 <code>hexo -v</code> 会显示hexo的版本</p>
-</li>
-<li><p>在本地磁盘上建一个文件夹（比如blog)</p>
-</li>
-<li><p>打开blog文件夹，鼠标右键，选择 Git Bash Here</p>
-</li>
-<li><p>输入 <code>hexo init</code> 将blog文件夹初始化成一个博客文件夹</p>
-</li>
-<li><p>输入 <code>npm install</code> 安装依赖包</p>
-</li>
-<li><p>获取GitHub上项目的链接</p></li></ul>
-          <div class="read-more">
-            <a href="/2018/01/22/如何用Hexo在GitHub上搭建博客/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/01/22/git操作总结/">git操作总结</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        
-        <span class="post-time">
-          2018-01-22
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2018/01/22/git操作总结/"
-             data-title="git操作总结">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="用git在码云或者GitHub上提交代码"><a href="#用git在码云或者GitHub上提交代码" class="headerlink" title="用git在码云或者GitHub上提交代码"></a>用git在码云或者GitHub上提交代码</h2><p>（这种是把代码提交到master分支）</p>
-<ul>
-<li><p>在本地建一个与码云/GitHub上同名的项目文件夹</p>
-</li>
-<li><p>打开本地的这个文件夹，鼠标右键，选择 “Git Bash Here”</p>
-</li>
-<li><p>在git命令窗口输入 <code>git init</code></p>
-</li>
-<li><p>再输入 <code>git remote add origin 项目地址</code> 这样本地文件夹就和码云/GitHub上的项目连接了</p>
-</li>
-<li><p>再输入 <code>git pull origin master</code>  码云/GitHub上的代码就会全部复制到本地</p>
-</li>
-<li><p>在本地文件夹内进行代码修改</p>
-</li>
-<li><p>修改完后，在git命令中输入 <code>git add .</code></p>
-</li>
-<li><p>输入 <code>git commit -m &quot;修改说明&quot;</code></p>
-</li>
-<li><p>再输入 <code>git push origin master</code></p></li></ul>
-          <div class="read-more">
-            <a href="/2018/01/22/git操作总结/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
   </section>
 
   
   <nav class="pagination">
     
+    
+      <a class="next" href="/page/2/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
@@ -773,10 +755,6 @@
 
   <div class="social-links">
     
-      
-        
-          <a href="mailto:fjsxhwh@163.com" class="iconfont icon-email" title="email"></a>
-        
       
     
       

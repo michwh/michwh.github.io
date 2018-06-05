@@ -219,8 +219,7 @@
 
     <div class="post-content">
       
-        <p>项目地址：<a href="https://github.com/java-oops/wechat" target="_blank" rel="noopener">https://github.com/java-oops/wechat</a></p>
-<h1 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h1><p><img src="/2018/05/15/web版微信协议分析/1.png" alt="执行流程"><br><a id="more"></a><br>1.打开页面后，向服务器发送一个get请求，服务器会返回一个uuid</p>
+        <h1 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h1><p><img src="/2018/05/15/web版微信协议分析/1.png" alt="执行流程"><br><a id="more"></a><br>1.打开页面后，向服务器发送一个get请求，服务器会返回一个uuid</p>
 <p>2.凭借这个uuid就可以获得用于登录的二维码</p>
 <p>3.在获取到二维码和用户扫描二维码并确认登录之间，客户端会每隔一段时间向服务器发送一个get请求来查看这个二维码是否被扫描。如果二维码被扫描，返回<code>window.code=201;</code>，否则返回<code>window.code=408;</code>。如果这个二维码长时间没有被扫描，那么这个二维码就会失效。另外，如果二维码被扫描了，但是用户一直没有在手机上点确定登录，那么一段时间后，服务器也会返回<code>window.code=408;</code>。一旦用户点了确定登录，那么服务器就会返回<code>window.code=200;</code>。</p>
 <p>4.登录后，客户端会向服务器请求到<code>cookie</code>、<code>pass_ticket</code>这类东西用来标识用户。</p>
@@ -556,6 +555,12 @@
         
   <nav class="post-nav">
     
+      <a class="prev" href="/2018/05/28/理解Cookie和Sessin机制/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">理解Cookie和Sessin机制</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
     
       <a class="next" href="/2018/03/29/sublime常见问题总结/">
         <span class="next-text nav-default">sublime常见问题总结</span>
@@ -585,10 +590,6 @@
 
   <div class="social-links">
     
-      
-        
-          <a href="mailto:fjsxhwh@163.com" class="iconfont icon-email" title="email"></a>
-        
       
     
       

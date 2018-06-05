@@ -212,7 +212,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#卡顿现象"><span class="toc-text">卡顿现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无法安装插件"><span class="toc-text">无法安装插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdownediting左侧大部分留白"><span class="toc-text">markdownediting左侧大部分留白</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体放大缩小"><span class="toc-text">字体放大缩小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码格式化"><span class="toc-text">代码格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sublime更新后vue插件的问题"><span class="toc-text">sublime更新后vue插件的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-package-‘XXX’-is-not-available"><span class="toc-text">The package ‘XXX’ is not available</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#卡顿现象"><span class="toc-text">卡顿现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无法安装插件"><span class="toc-text">无法安装插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdownediting左侧大部分留白"><span class="toc-text">markdownediting左侧大部分留白</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体放大缩小"><span class="toc-text">字体放大缩小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码格式化"><span class="toc-text">代码格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sublime更新后vue插件的问题"><span class="toc-text">sublime更新后vue插件的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-package-‘XXX’-is-not-available"><span class="toc-text">The package ‘XXX’ is not available</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue语法无法正常高亮"><span class="toc-text">Vue语法无法正常高亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置默认缩进"><span class="toc-text">设置默认缩进</span></a></li></ol>
     </div>
   </div>
 
@@ -250,6 +250,10 @@
 </ul>
 <p>切记重新安装vue插件时一定要翻墙，不然不成功</p>
 <h2 id="The-package-‘XXX’-is-not-available"><a href="#The-package-‘XXX’-is-not-available" class="headerlink" title="The package ‘XXX’ is not available"></a>The package ‘XXX’ is not available</h2><p>最近一打开sublime就会弹出几个警告框，内容都是<code>The package &#39;XXX&#39; is not available</code>这样的。这时候只需要打开Perferences–&gt;Browse Packages，新建XXX文件夹就行了。</p>
+<h2 id="Vue语法无法正常高亮"><a href="#Vue语法无法正常高亮" class="headerlink" title="Vue语法无法正常高亮"></a>Vue语法无法正常高亮</h2><p><img src="/2018/03/29/sublime常见问题总结/8.jpg" alt="8"></p>
+<p>实际上是JS方面，而不是vue方面。该语法认为JavaScript部分尚未结束，。通常在分析结束时用分号export修复它。另一件适用于这种情况的方法是切换到Babel扩展。安装babel语法，并禁用内置的JavaScript扩展。具体情况可看<a href="https://github.com/vuejs/vue-syntax-highlight/issues/145" target="_blank" rel="noopener">#145</a></p>
+<h2 id="设置默认缩进"><a href="#设置默认缩进" class="headerlink" title="设置默认缩进"></a>设置默认缩进</h2><p>打开<strong>Preferences-&gt;Settings</strong>加入如下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"tab_size": 2,//插入的空格数</span><br><span class="line">"translate_tabs_to_spaces": true//如果为true，按tab键将会输入空格替代，而不是tab字符</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -330,10 +334,6 @@
 
   <div class="social-links">
     
-      
-        
-          <a href="mailto:fjsxhwh@163.com" class="iconfont icon-email" title="email"></a>
-        
       
     
       

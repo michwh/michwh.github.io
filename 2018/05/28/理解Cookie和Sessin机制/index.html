@@ -17,12 +17,12 @@
 
 
 
-  <meta name="description" content="如何用Hexo在GitHub上搭建博客"/>
+  <meta name="description" content="理解Cookie和Sessin机制"/>
 
 
 
 
-  <meta name="keywords" content="总结, 博客, hexo, 凡沸" />
+  <meta name="keywords" content="读书笔记, http, cookie, session, 凡沸" />
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="https://wenhui-huang.github.io/2018/01/22/如何用Hexo在GitHub上搭建博客/"/>
+<link rel="canonical" href="https://wenhui-huang.github.io/2018/05/28/理解Cookie和Sessin机制/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -89,7 +89,7 @@
 
 
 
-    <title> 如何用Hexo在GitHub上搭建博客 - 凡沸 </title>
+    <title> 理解Cookie和Sessin机制 - 凡沸 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -187,20 +187,20 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          如何用Hexo在GitHub上搭建博客
+          理解Cookie和Sessin机制
         
       </h1>
 
       <div class="post-meta">
         
         <span class="post-time">
-          2018-01-22
+          2018-05-28
         </span>
         
         
         <div class="post-visits"
-             data-url="/2018/01/22/如何用Hexo在GitHub上搭建博客/"
-             data-title="如何用Hexo在GitHub上搭建博客">
+             data-url="/2018/05/28/理解Cookie和Sessin机制/"
+             data-title="理解Cookie和Sessin机制">
             阅读次数
           </div>
         
@@ -212,64 +212,34 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建博客"><span class="toc-text">搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写博客"><span class="toc-text">写博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo的一些命令"><span class="toc-text">hexo的一些命令</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie执行机制"><span class="toc-text">Cookie执行机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie属性"><span class="toc-text">Cookie属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie的不可跨域名性"><span class="toc-text">Cookie的不可跨域名性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie的修改、删除"><span class="toc-text">Cookie的修改、删除</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><ul>
-<li><p>在GitHub上建一个名为  <strong>GitHub用户名.github.io</strong>  的项目</p>
-</li>
-<li><p>电脑上安装了Node.js和Git</p>
-</li>
-<li><p>打开git命令，输入 <code>npm install -g hexo-cli</code> 开始安装Hexo</p>
-</li>
-<li><p>安装成功后输入 <code>hexo -v</code> 会显示hexo的版本</p>
-</li>
-<li><p>在本地磁盘上建一个文件夹（比如blog)</p>
-</li>
-<li><p>打开blog文件夹，鼠标右键，选择 Git Bash Here</p>
-</li>
-<li><p>输入 <code>hexo init</code> 将blog文件夹初始化成一个博客文件夹</p>
-</li>
-<li><p>输入 <code>npm install</code> 安装依赖包</p>
-</li>
-<li><p>获取GitHub上项目的链接</p>
-<a id="more"></a></li>
-<li><p>打开blog文件夹下的 _config.md 文件，找到 #Deployment ,填入以下内容并保存文件：<br>deploy:<br>type: git<br>repository: 项目链接<br>branch: master</p>
-</li>
-<li><p>在Git Bash上输入 <code>npm install hexo-deployer-git --save</code> 安装 hexo-deployer-git </p>
-</li>
-<li><p>输入 <code>hexo d</code> 得到 INFO Deploy done: git 即为部署成功</p>
-</li>
-<li><p>在网上找一个自己喜欢的hexo的主题，我用的主题是 <a href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">even</a> </p>
-</li>
-<li><p>根据README.md上的指示安装主题</p>
-</li>
-<li><p>打开blog/_config.yml，找到 <code>theme:</code> 把 Hexo 默认的 lanscape 修改成你的主题名称。 例 <code>theme: even</code> 找到 <code># Site</code> ，添加博客名称，作者名字等。在 <code>language</code> 后面填入 en 或者 zh-cn，选择英文或者中文。找到 <code># URL</code> , 填入 博客地址</p>
-</li>
-<li><p>回到 Git Bash。输入 <code>hexo g -d</code> 就可以了</p>
-</li>
-</ul>
-<h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><ul>
-<li><p>在 Git Bash 里，所在路径还是blog文件夹下。输入 <code>hexo new &quot;博客名&quot;</code> 新建一篇博客</p>
-</li>
-<li><p>在 blog\source\ _posts 路径下，会有一个 <strong>博客名.md</strong> 的文件。 编辑这个文件，然后保存。</p>
-</li>
-<li><p>回到 Git Bash，输入 <code>hexo s</code> 就可以在本地 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 上查看效果了</p>
-</li>
-<li><p>觉得效果可以了，就回到 Git Bash，按 Ctrl+C 结束</p>
-</li>
-<li><p>输入<code>hexo clean</code> 删除本地静态文件（Public目录）。如果没有执行这一步就去执行下一步，那么原来删除掉的文章依然会存放在public文件夹中。</p>
-</li>
-<li><p>输入 <code>hexo generate</code> 生成本地静态文件（Public目录）</p>
-</li>
-<li><p>输入<code>hexo deploy</code> 将本地静态文件推送至github。打开自己的博客，博客就更新了</p>
-</li>
-</ul>
-<h2 id="hexo的一些命令"><a href="#hexo的一些命令" class="headerlink" title="hexo的一些命令"></a>hexo的一些命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Commands:</span><br><span class="line">  clean     Remove generated files and cache.</span><br><span class="line">  config    Get or set configurations.</span><br><span class="line">  deploy    Deploy your website.</span><br><span class="line">  generate  Generate static files.</span><br><span class="line">  help      Get help on a command.</span><br><span class="line">  init      Create a new Hexo folder.</span><br><span class="line">  list      List the information of the site</span><br><span class="line">  migrate   Migrate your site from other system to Hexo.</span><br><span class="line">  new       Create a new post.</span><br><span class="line">  publish   Moves a draft post from _drafts to _posts folder.</span><br><span class="line">  render    Render files with renderer plugins.</span><br><span class="line">  server    Start the server.</span><br><span class="line">  version   Display version information.</span><br></pre></td></tr></table></figure>
+        <p>常用的会话跟踪技术是Cookie与Session。Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份。</p>
+<h1 id="Cookie执行机制"><a href="#Cookie执行机制" class="headerlink" title="Cookie执行机制"></a>Cookie执行机制</h1><p>1.当用户使用浏览器访问一个支持Cookie的网站的时候，用户会提供包括用户名在内的个人信息并且提交至服务器</p>
+<p>2.服务器向客户端回传相应的超文本并在HTTP响应头（Response Header）里发回用户的个人信息。在响应头里面会有一个Set-Cookie字段，这是用来指示客户端建立一个cookie</p>
+<p>3.客户端浏览器接收来自服务器的响应，并将这些信息存放在一个统一的位置，这个位置可能是内存也有可能是硬盘。</p>
+<p>4.当客户端要再向服务器发送请求时，就会在HTTP的请求头里加入cookie（一小段的文本信息）</p>
+<p>5.服务器就根据cookie来识别客户端的身份，从而动态生成与该客户端相对应的内容。</p>
+<p><img src="/2018/05/28/理解Cookie和Sessin机制/1.jpg" alt="1"></p>
+<h1 id="Cookie属性"><a href="#Cookie属性" class="headerlink" title="Cookie属性"></a>Cookie属性</h1><p><code>String name</code>：cookie名称</p>
+<p><code>Object value</code>：cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码。 </p>
+<p><code>int maxAge</code>：cookie的失效时间，单位为秒。如果为正数，则该Cookie在&gt;maxAge秒之后失效,这时无论客户关闭了浏览器还是电脑，只要还在maxAge秒之前，登录网站时该Cookie仍然有效。。如果为负数，该Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为–1。</p>
+<p><code>boolean secure</code>：该cookie是否使用安全传输协议，默认为false</p>
+<p><code>String path</code>：cookie使用路径。如果设置为<code>/sessionWeb/</code>，则只有contextPath为<code>/sessionWeb</code>的程序可以访问该Cookie。如果设置为<code>/</code>，则本域名下contextPath都可以访问该Cookie。注意最后一个字符必须为<code>/</code>。</p>
+<p><code>String comment</code>：cookie用处说明</p>
+<p><code>int version</code>：cookie版本号</p>
+<p><code>String domain</code>：可以访问该Cookie的域名。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie</p>
+<h1 id="Cookie的不可跨域名性"><a href="#Cookie的不可跨域名性" class="headerlink" title="Cookie的不可跨域名性"></a>Cookie的不可跨域名性</h1><p>例如，Google会向客户端颁发Cookie，Baidu也会向客户端颁发Cookie。浏览器访问Google只会携带Google的Cookie，而不会携带Baidu的Cookie。Google也只能操作Google的Cookie，而不能操作Baidu的Cookie。浏览器判断一个网站是否能操作另一个网站Cookie的依据是域名。Google与Baidu的域名不一样，因此Google不能操作Baidu的Cookie。</p>
+<p>正常情况下，同一个一级域名下的两个二级域名如www.helloweenvsfei.com和images.helloweenvsfei.com也不能交互使用Cookie，因为二者的域名并不严格相同。如果想所有helloweenvsfei.com名下的二级域名都可以使用该Cookie，需要把Cookie的domain参数设置成<code>.helloweenvsfei.com</code></p>
+<h1 id="Cookie的修改、删除"><a href="#Cookie的修改、删除" class="headerlink" title="Cookie的修改、删除"></a>Cookie的修改、删除</h1><p>修改：新建一个同名的Cookie，添加到response中覆盖原来的Cookie。</p>
+<p>删除：新建一个同名的Cookie，将maxAge设置为0，并添加到response中覆盖原来的Cookie。</p>
+<p>注意：修改、删除Cookie时，新建的Cookie除value、maxAge之外的所有属性，例如name、path、domain等，都要与原Cookie完全一样。否则，浏览器将视为两个不同的Cookie不予覆盖。</p>
+
       
     </div>
 
@@ -284,7 +254,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="https://wenhui-huang.github.io/2018/01/22/如何用Hexo在GitHub上搭建博客/">https://wenhui-huang.github.io/2018/01/22/如何用Hexo在GitHub上搭建博客/</a>
+      <a href="https://wenhui-huang.github.io/2018/05/28/理解Cookie和Sessin机制/">https://wenhui-huang.github.io/2018/05/28/理解Cookie和Sessin机制/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -304,11 +274,13 @@
         
           <div class="post-tags">
             
-              <a href="/tags/总结/">总结</a>
+              <a href="/tags/读书笔记/">读书笔记</a>
             
-              <a href="/tags/博客/">博客</a>
+              <a href="/tags/http/">http</a>
             
-              <a href="/tags/hexo/">hexo</a>
+              <a href="/tags/cookie/">cookie</a>
+            
+              <a href="/tags/session/">session</a>
             
           </div>
         
@@ -316,15 +288,15 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/02/04/日常学习自问自答/">
+      <a class="prev" href="/2018/06/05/Element-UI使用小技巧/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">日常学习自问自答</span>
+        <span class="prev-text nav-default">Element UI使用小技巧</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
-      <a class="next" href="/2018/01/22/git操作总结/">
-        <span class="next-text nav-default">git操作总结</span>
+      <a class="next" href="/2018/05/15/web版微信协议分析/">
+        <span class="next-text nav-default">web版微信协议分析</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>

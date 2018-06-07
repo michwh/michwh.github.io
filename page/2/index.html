@@ -185,6 +185,115 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/02/09/博客维护日志/">博客维护日志</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-02-09
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/02/09/博客维护日志/"
+             data-title="博客维护日志">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="2018-2-4"><a href="#2018-2-4" class="headerlink" title="2018.2.4"></a>2018.2.4</h2><h3 id="显示代码语言-✔"><a href="#显示代码语言-✔" class="headerlink" title="显示代码语言 ✔"></a>显示代码语言 ✔</h3><p>当我在博客中引入代码时：</p>
+<p><img src="/2018/02/09/博客维护日志/20180204-1.jpg" alt=""></p>
+<p>出来的效果是这样的：</p>
+<p><img src="/2018/02/09/博客维护日志/2.jpg" alt=""></p>
+<p>虽然代码会高亮，但是Code不会显示成JavaScript。后来我发现在<strong>/even/source/css/_variables.scss</strong>下的代码：<br></p>
+          <div class="read-more">
+            <a href="/2018/02/09/博客维护日志/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/02/08/ES6常用知识点总结/">ES6常用知识点总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-02-08
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/02/08/ES6常用知识点总结/"
+             data-title="ES6常用知识点总结">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="1-const和let"><a href="#1-const和let" class="headerlink" title="1.const和let"></a>1.const和let</h2><h3 id="1-1-函数变量提升"><a href="#1-1-函数变量提升" class="headerlink" title="1.1 函数变量提升"></a>1.1 函数变量提升</h3><p>用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    <span class="keyword">var</span> test = <span class="string">'hello'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(test);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相当于：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> test; <span class="comment">//变量提升</span></span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    test = <span class="string">'hello'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//此处访问test，值为undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(test);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//此处访问test，值为undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2018/02/08/ES6常用知识点总结/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/01/22/如何用Hexo在GitHub上搭建博客/">如何用Hexo在GitHub上搭建博客</a>
         
       </h1>

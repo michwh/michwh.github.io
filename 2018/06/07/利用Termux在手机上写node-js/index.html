@@ -229,29 +229,28 @@
 <li><p>程序创建一个目录并切换到这个目录：<code>mkdir test-node &amp;&amp; cd test-node</code></p>
 </li>
 <li><p>创建文件<strong>server.js</strong>：<code>touch server.js</code></p>
-</li>
+<a id="more"></a></li>
 <li><p>输入<code>npm init</code>对test-node文件夹进行初始化。在这过程中会问你一堆问题，然后为你写一个<strong>package.json</strong>文件。</p>
 </li>
 <li><p>要用Vim编辑这个文件，只需输入：<code>vim server.js</code></p>
-<a id="more"></a>
 </li>
 </ul>
 <h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>用vim打开server.js后，你会看到如下界面：</p>
-<p><img src="/2018/06/07/利用Termux在手机上写node-js/利用Termux在手机上写node.js/1.jpg" alt="1"></p>
+<p><img src="/2018/06/07/利用Termux在手机上写node-js/1.jpg" alt="1"></p>
 <p>Vim的行为有所不同，取决于你所处的模式。开始时，你处于所谓的命令模式。你应该在第一行看到光标，在其他行看到（〜），并在最下面看到文件的名称。如果你想进入编辑模式，那么就要输入<code>i</code>。进入编辑模式后你可以下左下角看到<strong>INSERT</strong>字样</p>
-<p><img src="/2018/06/07/利用Termux在手机上写node-js/利用Termux在手机上写node.js/2.jpg" alt="2"></p>
+<p><img src="/2018/06/07/利用Termux在手机上写node-js/2.jpg" alt="2"></p>
 <p>现在，我们就可以对<strong>server.js</strong>文件进行编辑了，比如我们输入<code>console.log（&#39;hello world&#39;）</code></p>
 <p>编辑完后我们需要按<esc> 回到命令模式，然后你可以选择：</esc></p>
 <ol>
-<li><p>输入  <code>：w</code>并按<enter>保存（写入）更改。</enter></p>
+<li><p>输入<code>：w</code>并按<enter>保存（写入）更改。</enter></p>
 </li>
-<li><p>输入  <code>：wq</code>并按<enter>保存更改并退出。</enter></p>
+<li><p>输入<code>：wq</code>并按<enter>保存更改并退出。</enter></p>
 </li>
-<li><p>输入  <code>：q！</code>然后按<enter>退出而不保存更改。</enter></p>
+<li><p>输入<code>：q！</code>然后按<enter>退出而不保存更改。</enter></p>
 </li>
 </ol>
 <h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>回到Termux界面后输入<code>node server.js</code>运行server.js，就可以看到如下效果</p>
-<p><img src="/2018/06/07/利用Termux在手机上写node-js/利用Termux在手机上写node.js/3.jpg" alt="3"></p>
+<p><img src="/2018/06/07/利用Termux在手机上写node-js/3.jpg" alt="3"></p>
 <p>感觉Termux的功能蛮强大的，以后再慢慢研究吧</p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
 <li><p><a href="https://medium.freecodecamp.org/building-a-node-js-application-on-android-part-1-termux-vim-and-node-js-dfa90c28958f" target="_blank" rel="noopener">Building a Node.js application on Android - Part 1: Termux, Vim and Node.js</a></p>

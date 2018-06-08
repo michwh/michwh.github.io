@@ -240,13 +240,13 @@
 <p>Vim的行为有所不同，取决于你所处的模式。开始时，你处于所谓的命令模式。你应该在第一行看到光标，在其他行看到（〜），并在最下面看到文件的名称。如果你想进入编辑模式，那么就要输入<code>i</code>。进入编辑模式后你可以下左下角看到<strong>INSERT</strong>字样</p>
 <p><img src="/2018/06/07/利用Termux在手机上写node-js/2.jpg" alt="2"></p>
 <p>现在，我们就可以对<strong>server.js</strong>文件进行编辑了，比如我们输入<code>console.log（&#39;hello world&#39;）</code></p>
-<p>编辑完后我们需要按<esc> 回到命令模式，然后你可以选择：</esc></p>
+<p>编辑完后我们需要按<code>&lt;Esc&gt;</code> 回到命令模式，然后你可以选择：</p>
 <ol>
-<li><p>输入<code>：w</code>并按<enter>保存（写入）更改。</enter></p>
+<li><p>输入<code>：w</code>并按<code>&lt;Enter&gt;</code>保存（写入）更改。</p>
 </li>
-<li><p>输入<code>：wq</code>并按<enter>保存更改并退出。</enter></p>
+<li><p>输入<code>：wq</code>并按<code>&lt;Enter&gt;</code>保存更改并退出。</p>
 </li>
-<li><p>输入<code>：q！</code>然后按<enter>退出而不保存更改。</enter></p>
+<li><p>输入<code>：q！</code>然后按<code>&lt;Enter&gt;</code>退出而不保存更改。</p>
 </li>
 </ol>
 <h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>回到Termux界面后输入<code>node server.js</code>运行server.js，就可以看到如下效果</p>

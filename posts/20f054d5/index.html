@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="web版微信协议分析"/>
+
+
+
+
+  <meta name="keywords" content="项目, 微信, http, 凡沸" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="凡沸">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://wenhui-huang.github.io/posts/20f054d5/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "lLG89O9D8SmVSrls704BIUXy-gzGzoHsz",
+      appKey: "QAmzov7kvfh1xzhbMKwEJ7hs"
+    });
+  </script>
+
+
+
+
+<link rel="manifest" href="/manifest.json">
+
+
+<link rel="icon" href="/images/icons/144x144.png">
+<!-- theme-color defines the top bar color (blue in my case)-->
+<meta name="theme-color" content="#c05b4d"/>
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="Alex Jover Blog"/>
+<link rel="apple-touch-icon" href="/images/icons/144x144.png"/>
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/images/icons/144x144.png"/>
+<meta name="msapplication-TileColor" content="#000000"/>
+
+    <title> web版微信协议分析 - 凡沸 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">凡沸</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/tags/">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">凡沸</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          web版微信协议分析
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-05-15
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/posts/20f054d5/"
+             data-title="web版微信协议分析">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#执行流程"><span class="toc-text">执行流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#具体分析"><span class="toc-text">具体分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#获得uuid"><span class="toc-text">获得uuid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获得二维码"><span class="toc-text">获得二维码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查二维码扫描状态"><span class="toc-text">检查二维码扫描状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登录获取cookie"><span class="toc-text">登录获取cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启状态通知"><span class="toc-text">开启状态通知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取联系人信息"><span class="toc-text">获取联系人信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#心跳检查"><span class="toc-text">心跳检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取最新消息"><span class="toc-text">获取最新消息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发送消息"><span class="toc-text">发送消息</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章-项目"><span class="toc-text">参考文章/项目</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h1 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h1><p><img src="/posts/20f054d5/web版微信协议分析/1.png" alt="执行流程"><br><a id="more"></a><br>1.打开页面后，向服务器发送一个get请求，服务器会返回一个uuid</p>
+<p>2.凭借这个uuid就可以获得用于登录的二维码</p>
+<p>3.在获取到二维码和用户扫描二维码并确认登录之间，客户端会每隔一段时间向服务器发送一个get请求来查看这个二维码是否被扫描。如果二维码被扫描，返回<code>window.code=201;</code>，否则返回<code>window.code=408;</code>。如果这个二维码长时间没有被扫描，那么这个二维码就会失效。另外，如果二维码被扫描了，但是用户一直没有在手机上点确定登录，那么一段时间后，服务器也会返回<code>window.code=408;</code>。一旦用户点了确定登录，那么服务器就会返回<code>window.code=200;</code>。</p>
+<p>4.登录后，客户端会向服务器请求到<code>cookie</code>、<code>pass_ticket</code>这类东西用来标识用户。</p>
+<p>5.客户端就凭借着上面这些东西向服务器请求用户信息和联系人列表。</p>
+<p>6.接着，客户端开启状态通知，每隔一段时间就向服务器发送请求，以此来确定客户端当前状态，比如是否有新的消息或者用户已经登出了微信。</p>
+<h1 id="具体分析"><a href="#具体分析" class="headerlink" title="具体分析"></a>具体分析</h1><h2 id="获得uuid"><a href="#获得uuid" class="headerlink" title="获得uuid"></a>获得uuid</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>获取uuid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://login.wx.qq.com/jslogin?appid=wx782c26e4c19acffb&amp;redirect_uri=https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage&amp;fun=new&amp;lang=zh_CN&amp;_=xxx" target="_blank" rel="noopener">https://login.wx.qq.com/jslogin?appid=wx782c26e4c19acffb&amp;redirect_uri=https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage&amp;fun=new&amp;lang=zh_CN&amp;_=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>get</td>
+</tr>
+<tr>
+<td>说明</td>
+<td><code>_</code>:时间戳</td>
+</tr>
+</tbody>
+</table>
+<p>响应：</p>
+<p><code>window.QRLogin.code = 200; window.QRLogin.uuid = &quot;xxx&quot;;</code></p>
+<h2 id="获得二维码"><a href="#获得二维码" class="headerlink" title="获得二维码"></a>获得二维码</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>获得二维码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://login.weixin.qq.com/qrcode/uuid" target="_blank" rel="noopener">https://login.weixin.qq.com/qrcode/uuid</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>get</td>
+</tr>
+<tr>
+<td>说明</td>
+<td><code>uuid</code>即为上面获得的uuid</td>
+</tr>
+</tbody>
+</table>
+<h2 id="检查二维码扫描状态"><a href="#检查二维码扫描状态" class="headerlink" title="检查二维码扫描状态"></a>检查二维码扫描状态</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>检查二维码扫描状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://login.wx.qq.com/cgi-bin/mmwebwx-bin/login?loginicon=true&amp;uuid=xxx&amp;tip=1&amp;r=xxx&amp;_=xxx" target="_blank" rel="noopener">https://login.wx.qq.com/cgi-bin/mmwebwx-bin/login?loginicon=true&amp;uuid=xxx&amp;tip=1&amp;r=xxx&amp;_=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>get</td>
+</tr>
+<tr>
+<td>说明</td>
+<td><code>_</code>和<code>r</code>好像都是时间戳,不过不发<code>r</code>好像也没关系</td>
+</tr>
+</tbody>
+</table>
+<p>响应：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//二维码未被扫描或者二维码被扫描但用户长时间未点击确认登录时</span><br><span class="line">window.code=408;</span><br><span class="line"></span><br><span class="line">//二维码被扫描时</span><br><span class="line">window.code=201;window.userAvatar = &apos;xxx&apos;;</span><br><span class="line"></span><br><span class="line">//用户点击确认登录时</span><br><span class="line">window.code=200;</span><br><span class="line">window.redirect_uri=&quot;xxx&quot;;</span><br></pre></td></tr></table></figure>
+<h2 id="登录获取cookie"><a href="#登录获取cookie" class="headerlink" title="登录获取cookie"></a>登录获取cookie</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>登录获取cookie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage?ticket=xxx&amp;uuid=xxx&amp;lang=zh_CN&amp;scan=xxx&amp;fun=new&amp;version=v2&amp;lang=zh_CN" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage?ticket=xxx&amp;uuid=xxx&amp;lang=zh_CN&amp;scan=xxx&amp;fun=new&amp;version=v2&amp;lang=zh_CN</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>get</td>
+</tr>
+<tr>
+<td>说明</td>
+<td><code>ticket</code> <code>scan</code>在<code>window.redirect_uri=&quot;xxx&quot;;</code>里面</td>
+</tr>
+</tbody>
+</table>
+<p>响应：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">error</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ret</span>&gt;</span>0<span class="tag">&lt;/<span class="name">ret</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">message</span>&gt;</span>OK<span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">skey</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">skey</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">wxsid</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">wxsid</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">wxuin</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">wxuin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pass_ticket</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">pass_ticket</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">isgrayscale</span>&gt;</span>1<span class="tag">&lt;/<span class="name">isgrayscale</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">error</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>初始化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit?r=xxx&amp;pass_ticket=xxx" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit?r=xxx&amp;pass_ticket=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>post</td>
+</tr>
+<tr>
+<td>params</td>
+<td><code>{&quot;BaseRequest&quot;:{&quot;Uin&quot;:&quot;xxx&quot;,&quot;Sid&quot;:&quot;xxx&quot;,&quot;Skey&quot;:&quot;xxx&quot;,&quot;DeviceID&quot;:&quot;xxx&quot;}}</code></td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>Content-Type  application/json;charset=utf-8</td>
+</tr>
+<tr>
+<td>说明</td>
+<td><code>DeviceID</code>是e后面跟着一个15字节的随机数，例：e159973572418266</td>
+</tr>
+</tbody>
+</table>
+<p>响应：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"BaseResponse"</span>: &#123;</span><br><span class="line">        <span class="attr">"Ret"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"ErrMsg"</span>: <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"Count"</span>: <span class="number">11</span>,</span><br><span class="line">    <span class="attr">"ContactList"</span>: [...],</span><br><span class="line">    <span class="attr">"SyncKey"</span>: &#123;</span><br><span class="line">        <span class="attr">"Count"</span>: <span class="number">4</span>,</span><br><span class="line">        <span class="attr">"List"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"Key"</span>: <span class="number">1</span>,</span><br><span class="line">                <span class="attr">"Val"</span>: <span class="number">635705559</span></span><br><span class="line">            &#125;,</span><br><span class="line">            ...</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"User"</span>: &#123;</span><br><span class="line">        <span class="attr">"Uin"</span>: xxx,</span><br><span class="line">        <span class="attr">"UserName"</span>: xxx,</span><br><span class="line">        <span class="attr">"NickName"</span>: xxx,</span><br><span class="line">        <span class="attr">"HeadImgUrl"</span>: xxx,</span><br><span class="line">        <span class="attr">"RemarkName"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"PYInitial"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"PYQuanPin"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"RemarkPYInitial"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"RemarkPYQuanPin"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"HideInputBarFlag"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"StarFriend"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"Sex"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"Signature"</span>: <span class="string">"Apt-get install B"</span>,</span><br><span class="line">        <span class="attr">"AppAccountFlag"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"VerifyFlag"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"ContactFlag"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"WebWxPluginSwitch"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"HeadImgFlag"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"SnsFlag"</span>: <span class="number">17</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"ChatSet"</span>: xxx,</span><br><span class="line">    <span class="attr">"SKey"</span>: xxx,</span><br><span class="line">    <span class="attr">"ClientVersion"</span>: <span class="number">369297683</span>,</span><br><span class="line">    <span class="attr">"SystemTime"</span>: <span class="number">1453124908</span>,</span><br><span class="line">    <span class="attr">"GrayScale"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"InviteStartCount"</span>: <span class="number">40</span>,</span><br><span class="line">    <span class="attr">"MPSubscribeMsgCount"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">"MPSubscribeMsgList"</span>: [...],</span><br><span class="line">    <span class="attr">"ClickReportInterval"</span>: <span class="number">600000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="开启状态通知"><a href="#开启状态通知" class="headerlink" title="开启状态通知"></a>开启状态通知</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>开启状态通知</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxstatusnotify?pass_ticket=xxx" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxstatusnotify?pass_ticket=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>post</td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>Content-Type:application/json;charset=utf-8</td>
+</tr>
+</tbody>
+</table>
+<p>params:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"BaseRequest"</span>: </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"Uin"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"Sid"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"Skey"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"DeviceID"</span>: <span class="string">"xxx"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"ClientMsgId"</span>: <span class="string">"时间戳"</span>,</span><br><span class="line">  <span class="attr">"Code"</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">"FromUserName"</span>: <span class="string">"自己的ID"</span>,</span><br><span class="line">  <span class="attr">"ToUserName"</span>: <span class="string">"自己的ID"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>响应：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"BaseResponse"</span>: &#123;</span><br><span class="line">        <span class="attr">"Ret"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"ErrMsg"</span>: <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"MsgID"</span>:xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取联系人信息"><a href="#获取联系人信息" class="headerlink" title="获取联系人信息"></a>获取联系人信息</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>获取联系人信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxgetcontact?pass_ticket=xxx&amp;r=xxx&amp;seq=0&amp;skey=xxx" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxgetcontact?pass_ticket=xxx&amp;r=xxx&amp;seq=0&amp;skey=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>get</td>
+</tr>
+</tbody>
+</table>
+<p>响应：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"BaseResponse"</span>: &#123;</span><br><span class="line">        <span class="attr">"Ret"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"ErrMsg"</span>: <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"MemberCount"</span>: <span class="number">334</span>,</span><br><span class="line">    <span class="attr">"MemberList"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"Uin"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"UserName"</span>: xxx,</span><br><span class="line">            <span class="attr">"NickName"</span>: <span class="string">"Urinx"</span>,</span><br><span class="line">            <span class="attr">"HeadImgUrl"</span>: xxx,</span><br><span class="line">            <span class="attr">"ContactFlag"</span>: <span class="number">3</span>,</span><br><span class="line">            <span class="attr">"MemberCount"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"MemberList"</span>: [],</span><br><span class="line">            <span class="attr">"RemarkName"</span>: <span class="string">""</span>,</span><br><span class="line">            <span class="attr">"HideInputBarFlag"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"Sex"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"Signature"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">            <span class="attr">"VerifyFlag"</span>: <span class="number">8</span>,</span><br><span class="line">            <span class="attr">"OwnerUin"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"PYInitial"</span>: <span class="string">"URINX"</span>,</span><br><span class="line">            <span class="attr">"PYQuanPin"</span>: <span class="string">"Urinx"</span>,</span><br><span class="line">            <span class="attr">"RemarkPYInitial"</span>: <span class="string">""</span>,</span><br><span class="line">            <span class="attr">"RemarkPYQuanPin"</span>: <span class="string">""</span>,</span><br><span class="line">            <span class="attr">"StarFriend"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"AppAccountFlag"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"Statues"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"AttrStatus"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"Province"</span>: <span class="string">""</span>,</span><br><span class="line">            <span class="attr">"City"</span>: <span class="string">""</span>,</span><br><span class="line">            <span class="attr">"Alias"</span>: <span class="string">"Urinxs"</span>,</span><br><span class="line">            <span class="attr">"SnsFlag"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"UniFriend"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"DisplayName"</span>: <span class="string">""</span>,</span><br><span class="line">            <span class="attr">"ChatRoomId"</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">"KeyWord"</span>: <span class="string">"gh_"</span>,</span><br><span class="line">            <span class="attr">"EncryChatRoomId"</span>: <span class="string">""</span></span><br><span class="line">        &#125;,</span><br><span class="line">        ...</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"Seq"</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>获取联系人信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxbatchgetcontact?type=ex&amp;r=xxx0&amp;pass_ticket=xxx" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxbatchgetcontact?type=ex&amp;r=xxx0&amp;pass_ticket=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>post</td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>Content-Type:application/json;charset=utf-8</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>UserName是要查询具体信息的用户名，EncryChatRoomId是该用户所属的群用户名。</td>
+</tr>
+</tbody>
+</table>
+<p>params:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"BaseRequest"</span>: &#123;</span><br><span class="line">  <span class="attr">"Uin"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">  <span class="attr">"Sid"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">  <span class="attr">"Skey"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">  <span class="attr">"DeviceID"</span>: <span class="string">"xxx"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"Count"</span>:xx,</span><br><span class="line">  <span class="attr">"List"</span>:&#123;</span><br><span class="line">    0:&#123;</span><br><span class="line">      "EncryChatRoomId":</span><br><span class="line">      "UserName":"xxx"</span><br><span class="line">    &#125;,</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这两种方法的区别在于webwxbatchgetcontact返回的数据中会有群成员信息</p>
+<h2 id="心跳检查"><a href="#心跳检查" class="headerlink" title="心跳检查"></a>心跳检查</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>心跳检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://webpush.wx.qq.com/cgi-bin/mmwebwx-bin/synccheck?r=xxx&amp;skey=xxx&amp;sid=xxx&amp;deviceid=xxx&amp;synckey=xxx&amp;_=xxx" target="_blank" rel="noopener">https://webpush.wx.qq.com/cgi-bin/mmwebwx-bin/synccheck?r=xxx&amp;skey=xxx&amp;sid=xxx&amp;deviceid=xxx&amp;synckey=xxx&amp;_=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>get</td>
+</tr>
+</tbody>
+</table>
+<p>要把初始化中得到的SyncKey整理成key_val|key_val这种格式，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1_694411380|2_694413141|3_694412799|1000_1526698782</span><br></pre></td></tr></table></figure></p>
+<p>响应（String）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">window.synccheck=&#123;retcode:&quot;xxx&quot;,selector:&quot;xxx&quot;&#125;</span><br><span class="line"></span><br><span class="line">retcode:</span><br><span class="line">    0 正常</span><br><span class="line">    1100 失败/登出微信</span><br><span class="line">selector:</span><br><span class="line">    0 正常</span><br><span class="line">    2 新的消息</span><br><span class="line">    7 进入/离开聊天界面</span><br></pre></td></tr></table></figure>
+<h2 id="获取最新消息"><a href="#获取最新消息" class="headerlink" title="获取最新消息"></a>获取最新消息</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>获取最新消息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsync?sid=xxx&amp;skey=xxx&amp;lang=zh_CN&amp;pass_ticket=xxx" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsync?sid=xxx&amp;skey=xxx&amp;lang=zh_CN&amp;pass_ticket=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>post</td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>Content-Type:application/json;charset=utf-8</td>
+</tr>
+<tr>
+<td>说明</td>
+<td><code>rr</code>:时间戳取反。</td>
+</tr>
+</tbody>
+</table>
+<p>params:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"BaseRequest"</span>: &#123;</span><br><span class="line">    <span class="attr">"Uin"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"Sid"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"Skey"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"DeviceID"</span>: <span class="string">"xxx"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"rr"</span>:xx,</span><br><span class="line">    <span class="attr">"SyncKey"</span>:&#123;</span><br><span class="line">      <span class="attr">"Count"</span>:xx,</span><br><span class="line">      <span class="attr">"List"</span>:&#123;</span><br><span class="line">        0:&#123;</span><br><span class="line">          "Key":xx</span><br><span class="line">          "Val":xx</span><br><span class="line">        &#125;,</span><br><span class="line">        ...</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>响应:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BaseResponse</span><br><span class="line">AddMsgCount:新增消息数</span><br><span class="line">AddMsgList：新增消息列表</span><br><span class="line">ModContactCount: 变更联系人数目</span><br><span class="line">ModContactList: 变更联系人列表</span><br><span class="line">SyncKey:新的synckey列表</span><br></pre></td></tr></table></figure>
+<p>当webwxsync发送完后会发送一个syncheck请求向服务器表示webwxsync响应已经收到了，这时syncheck用的<code>synckey</code>是发送webwxsync时收到的。若synccheck返回为<code>window.synccheck={retcode:&quot;0&quot;,selector:&quot;0&quot;}</code>，则继续发出相同请求。若返回不为以上返回值，继续POST请求webwxsync。</p>
+<h2 id="发送消息"><a href="#发送消息" class="headerlink" title="发送消息"></a>发送消息</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>发送消息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><a href="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsendmsg?lang=zh_CN&amp;pass_ticket=xxx" target="_blank" rel="noopener">https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsendmsg?lang=zh_CN&amp;pass_ticket=xxx</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>post</td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>Content-Type:application/json;charset=utf-8</td>
+</tr>
+</tbody>
+</table>
+<p>params:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"BaseRequest"</span>: &#123;</span><br><span class="line">    <span class="attr">"Uin"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"Sid"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"Skey"</span>: <span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attr">"DeviceID"</span>: <span class="string">"xxx"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"Msg"</span>:&#123;</span><br><span class="line">    <span class="attr">"Type"</span>: <span class="number">1</span> 文字消息, </span><br><span class="line">    <span class="attr">"Content"</span>: 要发送的消息, </span><br><span class="line">    <span class="attr">"FromUserName"</span>: 自己的ID, </span><br><span class="line">    <span class="attr">"ToUserName"</span>: 好友的ID, </span><br><span class="line">    <span class="attr">"LocalID"</span>: 与clientMsgId相同, </span><br><span class="line">    <span class="attr">"ClientMsgId"</span>: 时间戳左移<span class="number">4</span>位随后补上<span class="number">4</span>位随机数 </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"Scene"</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>响应：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"BaseResponse"</span>: &#123;</span><br><span class="line"><span class="attr">"Ret"</span>: <span class="number">0</span>,</span><br><span class="line"><span class="attr">"ErrMsg"</span>: <span class="string">""</span></span><br><span class="line">&#125;</span><br><span class="line">,</span><br><span class="line"><span class="attr">"MsgID"</span>: <span class="string">"xxx"</span>,</span><br><span class="line"><span class="attr">"LocalID"</span>: <span class="string">"xxx"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="参考文章-项目"><a href="#参考文章-项目" class="headerlink" title="参考文章/项目"></a>参考文章/项目</h1><ul>
+<li><p><a href="https://blog.csdn.net/github_33226586/article/details/50717089" target="_blank" rel="noopener">微信web协议分析和实现微信机器人</a></p>
+</li>
+<li><p><a href="http://reverland.org/javascript/2016/01/15/webchat-user-bot/" target="_blank" rel="noopener">Web 微信与基于Node的微信机器人实现</a></p>
+</li>
+<li><p><a href="https://github.com/biezhi/wechat-api" target="_blank" rel="noopener">wechat-api</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://wenhui-huang.github.io">Fan Fei</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://wenhui-huang.github.io/posts/20f054d5/">https://wenhui-huang.github.io/posts/20f054d5/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/项目/">项目</a>
+            
+              <a href="/tags/微信/">微信</a>
+            
+              <a href="/tags/http/">http</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/posts/7ce6ecd2/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">理解Cookie和Sessin机制</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/posts/52311e6f/">
+        <span class="next-text nav-default">sublime常见问题总结</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="container"></div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:fjsxhwh@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/wenhui-huang" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Fan Fei</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+// import 'gitment/style/default.css'
+// import Gitment from 'gitment'
+const gitment = new Gitment({
+id: '', // optional
+owner: 'wenhui-huang',
+repo: 'blog-comment',
+oauth: {
+  client_id: 'c78aa0f63c653cc85c66',
+  client_secret: '3e3a8dfb8a6b8a02f84263430b216fe8df2d783e',
+},
+})
+gitment.render('container');
+</script>
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

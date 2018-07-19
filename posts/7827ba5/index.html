@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Koa+JSON-WEB-TOKEN+bcrypt实现登录注册"/>
+
+
+
+
+  <meta name="keywords" content="vue, koa, jwt, bcryptjs, 项目, mysql, 凡沸" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="凡沸">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://wenhui-huang.github.io/posts/7827ba5/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "lLG89O9D8SmVSrls704BIUXy-gzGzoHsz",
+      appKey: "QAmzov7kvfh1xzhbMKwEJ7hs"
+    });
+  </script>
+
+
+
+
+<link rel="manifest" href="/manifest.json">
+
+
+<link rel="icon" href="/images/icons/144x144.png">
+<!-- theme-color defines the top bar color (blue in my case)-->
+<meta name="theme-color" content="#c05b4d"/>
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="Alex Jover Blog"/>
+<link rel="apple-touch-icon" href="/images/icons/144x144.png"/>
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/images/icons/144x144.png"/>
+<meta name="msapplication-TileColor" content="#000000"/>
+
+    <title> Koa+JSON-WEB-TOKEN+bcrypt实现登录注册 - 凡沸 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">凡沸</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/tags/">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">凡沸</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Koa+JSON-WEB-TOKEN+bcrypt实现登录注册
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-06-08
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/posts/7827ba5/"
+             data-title="Koa+JSON-WEB-TOKEN+bcrypt实现登录注册">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目结构"><span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目依赖"><span class="toc-text">项目依赖</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#app-js"><span class="toc-text">app.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建数据库"><span class="toc-text">搭建数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#models"><span class="toc-text">models</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#controllers"><span class="toc-text">controllers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#定义路由"><span class="toc-text">定义路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跳转拦截"><span class="toc-text">跳转拦截</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解析token"><span class="toc-text">解析token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考项目-文章"><span class="toc-text">参考项目/文章</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>前端我用的是vue+axios，项目地址<a href="https://github.com/wenhui-huang/nothing-left" target="_blank" rel="noopener">nothing-left</a></p>
+<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><p>在用vue-cli构建项目脚手架的基础上新建一个app.js和server文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">├─ app.js//koa入口文件</span><br><span class="line">└─ server//后端</span><br><span class="line">       ├─ config      //数据库配置</span><br><span class="line">       │    └─ db.js</span><br><span class="line">       ├─ controllers //对models里面的方法进行选择性的组装，来响应前端不同的请求</span><br><span class="line">       │    └─ users.js</span><br><span class="line">       ├─ models      //为controllers提供一些方法</span><br><span class="line">       │    └─ users.js</span><br><span class="line">       ├─ routes      //定义路由，把前端不同的请求分配给controllers相对应的方法</span><br><span class="line">       │    └─ auth.js</span><br><span class="line">       └─ schema      //数据库表结构</span><br><span class="line">            └─ users.js</span><br></pre></td></tr></table></figure>
+<h1 id="项目依赖"><a href="#项目依赖" class="headerlink" title="项目依赖"></a>项目依赖</h1><p><strong>koa-router</strong>：对路由进行控制<br><a id="more"></a><br><strong>koa-logger</strong>：日志模块，当前后端进行交互时会在控制台打印相关信息</p>
+<p><strong>koa-bodyparser</strong>：当前端发送post请求时，把请求里面的数据解析到ctx.request.body中</p>
+<p><strong>sequelize</strong>：用于后端操纵数据库</p>
+<p><strong>koa-jwt</strong>：用于实现基于JSON-WEB-TOKEN的登录验证</p>
+<p><strong>bcryptjs</strong>：用bcrypt的方式对密码进行加密和解密</p>
+<h1 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h1><p>app.js作为koa的启动文件。在app.js中，我们需要：</p>
+<p>1.引入koa</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br></pre></td></tr></table></figure>
+<p>2.创建一个koa对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br></pre></td></tr></table></figure>
+<p>3.引入koa中间件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koaRouter = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"><span class="keyword">const</span> logger = <span class="built_in">require</span>(<span class="string">'koa-logger'</span>);</span><br><span class="line"><span class="keyword">const</span> jwt =  <span class="built_in">require</span>(<span class="string">'koa-jwt'</span>);</span><br><span class="line"><span class="keyword">const</span> bodyparser = <span class="built_in">require</span>(<span class="string">'koa-bodyparser'</span>);</span><br></pre></td></tr></table></figure>
+<p>4.在koa对象中注册各中间件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(bodyparser());</span><br><span class="line">app.use(logger());</span><br><span class="line"><span class="keyword">const</span> router = koaRouter();</span><br><span class="line">app.use(router.routes());</span><br></pre></td></tr></table></figure>
+<p>5.设置监听端口</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.listen(<span class="number">3001</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Koa is listening in 3001'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>6.将app暴露出去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports =  app;</span><br></pre></td></tr></table></figure>
+<h1 id="搭建数据库"><a href="#搭建数据库" class="headerlink" title="搭建数据库"></a>搭建数据库</h1><p>1.我采用可视化工具HediSQL来操作MySQL。在HediSQL上，我们先创建一个名为<code>nothing-left</code>的数据库，并创建一张用于存储用户信息的<code>users</code>表：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>数据类型</th>
+<th>长度</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>10</td>
+<td>用户的id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>VARCHAR</td>
+<td>50</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td>VARCHAR</td>
+<td>128</td>
+<td>密码</td>
+</tr>
+</tbody>
+</table>
+<p>2.接着，我们将<code>users</code>表导出到server文件夹下，形成users.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">sequelize, DataTypes</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> sequelize.define(<span class="string">'users'</span>, &#123;</span><br><span class="line">    username: &#123;</span><br><span class="line">      type: DataTypes.STRING(<span class="number">50</span>),</span><br><span class="line">      allowNull: <span class="literal">false</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    password: &#123;</span><br><span class="line">      type: DataTypes.STRING(<span class="number">128</span>),</span><br><span class="line">      allowNull: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    id: &#123;</span><br><span class="line">      type: DataTypes.INTEGER(<span class="number">10</span>),</span><br><span class="line">      primaryKey: <span class="literal">true</span>,</span><br><span class="line">      allowNull: <span class="literal">false</span>,</span><br><span class="line">      autoIncrement: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    tableName: <span class="string">'users'</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>3.在config下新建db.js用于初始化Sequelize和数据库的连接。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Sequelize = <span class="built_in">require</span>(<span class="string">'sequelize'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//xxx为数据库密码</span></span><br><span class="line"><span class="keyword">const</span> NothingLeft = <span class="keyword">new</span> Sequelize(<span class="string">`mysql://root:xxx@localhost/nothing-left`</span>,&#123;</span><br><span class="line">  define:&#123;</span><br><span class="line">    timestamps:<span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  NothingLeft</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="models"><a href="#models" class="headerlink" title="models"></a>models</h1><p>在models文件夹下我们新建users.js用于定义一些对数据库进行各种操作的方法。在users.js文件里，我们需要定义两个方法，一个是通过用户名查找到某个用户的信息，另一个是创建新的用户。</p>
+<p>1.首先，我们需要在users.js里引入数据库和<code>users</code>表，并用sequelize去实例化一个Users对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> db = <span class="built_in">require</span>(<span class="string">'../config/db.js'</span>);</span><br><span class="line"><span class="keyword">const</span> usersModel = <span class="string">'../schema/users.js'</span>;</span><br><span class="line"><span class="keyword">const</span> NothingLeftDB = db.NothingLeft;</span><br><span class="line"><span class="keyword">const</span> Users = NothingLeftDB.import(usersModel);</span><br></pre></td></tr></table></figure>
+<p>2.接着，我们来定义一个通过用户名查找用户信息的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getUserByName = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> userInfo = <span class="keyword">await</span> Users.findOne(&#123;</span><br><span class="line">    where:&#123;</span><br><span class="line">      username:name</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> userInfo;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> <code>async</code>表示函数里有异步操作，<code>await</code>表示紧跟在后面的表达式需要等待结果。</p>
+</blockquote>
+<p>对于其中牵涉到的<code>promise</code>和<code>Generator</code>方面的知识，暂时理解还不够。</p>
+<p>3.定义一个用于创建新用户的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bcrypt = <span class="built_in">require</span>(<span class="string">'bcryptjs'</span>)</span><br><span class="line"><span class="keyword">const</span> createUser = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> password = bcrypt.hashSync(data.password, bcrypt.genSaltSync(<span class="number">10</span>))</span><br><span class="line">  <span class="keyword">await</span> Users.create(&#123;</span><br><span class="line">    id: <span class="number">1</span>,</span><br><span class="line">    username: data.userName,</span><br><span class="line">    password: password</span><br><span class="line">  &#125;)    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">200</span><span class="comment">//注册成功 </span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在这里，我们需要引入bcryptjs为我们的密码在存入数据库前进行加密</p>
+<p>4.将方法们暴露出去供controllers调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  createUser,</span><br><span class="line">  getUserByName</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="controllers"><a href="#controllers" class="headerlink" title="controllers"></a>controllers</h1><p>1.引入相关依赖和models/users.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> users = <span class="built_in">require</span>(<span class="string">'../models/users.js'</span>);</span><br><span class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">'jsonwebtoken'</span>); </span><br><span class="line"><span class="keyword">const</span> bcrypt = <span class="built_in">require</span>(<span class="string">'bcryptjs'</span>);</span><br></pre></td></tr></table></figure>
+<p>2.实现登录</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> postUserAuth = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">ctx</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> data = ctx.request.body; <span class="comment">// post过来的数据存在request.body里</span></span><br><span class="line">  <span class="keyword">const</span> userInfo = <span class="keyword">await</span> users.getUserByName(data.name)</span><br><span class="line">  <span class="keyword">if</span> (userInfo != <span class="literal">null</span>) &#123; <span class="comment">// 如果查无此用户会返回null</span></span><br><span class="line">    <span class="keyword">if</span> (!bcrypt.compareSync(data.password, userInfo.password)) &#123;</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">      code: <span class="number">202</span>, </span><br><span class="line">      info: <span class="string">'密码错误！'</span></span><br><span class="line">    &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> userToken = &#123;</span><br><span class="line">        name: userInfo.username,</span><br><span class="line">        id: userInfo.id</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">const</span> secret = <span class="string">'nothing-left'</span> <span class="comment">// 指定密钥</span></span><br><span class="line">      <span class="keyword">const</span> token = jwt.sign(userToken, secret) <span class="comment">// 签发token</span></span><br><span class="line">      ctx.body = &#123;</span><br><span class="line">        code: <span class="number">200</span>,</span><br><span class="line">        token: token <span class="comment">// 返回token</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">    code: <span class="number">201</span>,</span><br><span class="line">    info: <span class="string">'用户不存在！'</span> <span class="comment">// 如果用户不存在返回用户不存在</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当postUserAuth接收到前端post过来的数据时，会调用models里面的方法查看该用户名是否存在。如果不存在，则返回相关信息。若存在，postUserAuth会将前端post过来的密码和数据库中该用户名对应的密码进行比较，若密码一致，就签发token，否则返回相关信息。</p>
+<p>3.实现注册</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> register = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">ctx</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> data = ctx.request.body</span><br><span class="line">  <span class="keyword">const</span> sameUserName = <span class="keyword">await</span> users.getUserByName(data.userName)</span><br><span class="line">  <span class="keyword">if</span>(sameUserName == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">await</span> users.createUser(data)</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">      code: <span class="number">200</span><span class="comment">//注册成功</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">      code: <span class="number">201</span><span class="comment">//该用户名已被注册</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>4.将方法导出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  register,</span><br><span class="line">  postUserAuth</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="定义路由"><a href="#定义路由" class="headerlink" title="定义路由"></a>定义路由</h1><p>在routes文件夹下新建auth.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> auth = <span class="built_in">require</span>(<span class="string">'../controllers/users.js'</span>);</span><br><span class="line"><span class="keyword">const</span> koaRouter = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"><span class="keyword">const</span> router = koaRouter();</span><br><span class="line"></span><br><span class="line">router.post(<span class="string">'/users'</span>, auth.postUserAuth)</span><br><span class="line">router.post(<span class="string">'/users/register'</span>, auth.register)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    router</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="跳转拦截"><a href="#跳转拦截" class="headerlink" title="跳转拦截"></a>跳转拦截</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main.js</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> token = sessionStorage.getItem(<span class="string">'demo-token'</span>)</span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">'/'</span>) &#123; <span class="comment">// 如果是跳转到登录页的</span></span><br><span class="line">    <span class="keyword">if</span> (token !== <span class="string">'null'</span> &amp;&amp; token !== <span class="literal">null</span>) &#123;</span><br><span class="line">      next(<span class="string">'/home'</span>)  <span class="comment">// 如果有token就转向home不返回登录页</span></span><br><span class="line">    &#125;</span><br><span class="line">    next() <span class="comment">// 否则跳转回登录页</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (token !== <span class="string">'null'</span> &amp;&amp; token !== <span class="literal">null</span> || to.path === <span class="string">'/register'</span>) &#123;</span><br><span class="line">      Vue.prototype.$http.defaults.headers.common[<span class="string">'Authorization'</span>] = <span class="string">'Bearer '</span> + token <span class="comment">// 注意Bearer后有个空格</span></span><br><span class="line">      next() <span class="comment">// 如果有token就正常转向</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next(<span class="string">'/'</span>) </span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个时候，从后端给我们传回来的token就派上大用处。有token就说明我们的身份是经过验证的，否则就是非法的。<br>vue-router提供了页面跳转的钩子，我们可以在router跳转前进行验证，如果token存在就跳转，如果不存在就返回登录页。</p>
+</blockquote>
+<h1 id="解析token"><a href="#解析token" class="headerlink" title="解析token"></a>解析token</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//app.js</span></span><br><span class="line">router.use(<span class="string">'/api'</span>, jwt(&#123;<span class="attr">secret</span>: <span class="string">'nothing-left'</span>&#125;), api.router.routes());</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  components/login.vue</span></span><br><span class="line"></span><br><span class="line">login: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">this</span>.checkMessage()) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;      </span><br><span class="line">  <span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="keyword">this</span>.cellphone,</span><br><span class="line">    password: <span class="keyword">this</span>.password</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">this</span>.$http.post(<span class="string">'/auth/users'</span>, obj);</span><br><span class="line">  result.then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">switch</span>(res.data.code) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="number">200</span>:</span><br><span class="line">    <span class="keyword">this</span>.isLoading=<span class="literal">true</span>;</span><br><span class="line">    sessionStorage.setItem(<span class="string">'demo-token'</span>, res.data.token)</span><br><span class="line">    <span class="keyword">this</span>.$router.push(<span class="string">'/home'</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="number">201</span>:</span><br><span class="line">    <span class="keyword">this</span>.showSnackbar(<span class="string">"用户名不存在！"</span>);</span><br><span class="line">    sessionStorage.setItem(<span class="string">'demo-token'</span>, <span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="number">202</span>:</span><br><span class="line">    <span class="keyword">this</span>.showSnackbar(<span class="string">"密码不正确！"</span>);</span><br><span class="line">    sessionStorage.setItem(<span class="string">'demo-token'</span>, <span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  &#125;         </span><br><span class="line">  &#125;, (err) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">            sessionStorage.setItem(<span class="string">'demo-token'</span>, <span class="literal">null</span>) <span class="comment">// 将token清空</span></span><br><span class="line">            &#125;)</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line">          &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  components/register.vue</span></span><br><span class="line">regist: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;                </span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">this</span>.checkMessage()) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> obj = &#123;</span><br><span class="line">    userName: <span class="keyword">this</span>.cellphone,</span><br><span class="line">    email: <span class="keyword">this</span>.code,</span><br><span class="line">    password: <span class="keyword">this</span>.firstPassword</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">this</span>.$http.post(<span class="string">'/auth/users/register'</span>, obj)</span><br><span class="line">  result.then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">switch</span>(res.data.code) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">200</span>:</span><br><span class="line">    <span class="keyword">this</span>.showSnackbar(<span class="string">"注册成功"</span>)</span><br><span class="line">    <span class="keyword">this</span>.$router.push(<span class="string">'/'</span>)</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="number">201</span>:</span><br><span class="line">    <span class="keyword">this</span>.showSnackbar(<span class="string">"该用户名已被注册"</span>)</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  &#125;</span><br><span class="line">  &#125;, (err) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考项目-文章"><a href="#参考项目-文章" class="headerlink" title="参考项目/文章"></a>参考项目/文章</h1><ul>
+<li><p><a href="https://github.com/Molunerfinn/vue-koa-demo" target="_blank" rel="noopener">vue-koa-demo</a></p>
+</li>
+<li><p><a href="https://molunerfinn.com/Vue+Koa/" target="_blank" rel="noopener">全栈开发实战：用Vue2+Koa1开发完整的前后端项目（更新Koa2）</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://wenhui-huang.github.io">Fan Fei</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://wenhui-huang.github.io/posts/7827ba5/">https://wenhui-huang.github.io/posts/7827ba5/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/vue/">vue</a>
+            
+              <a href="/tags/koa/">koa</a>
+            
+              <a href="/tags/jwt/">jwt</a>
+            
+              <a href="/tags/bcryptjs/">bcryptjs</a>
+            
+              <a href="/tags/项目/">项目</a>
+            
+              <a href="/tags/mysql/">mysql</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/posts/bdbaeaa4/">
+        <span class="next-text nav-default">利用Termux在手机上写node.js</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="container"></div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:fjsxhwh@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/wenhui-huang" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Fan Fei</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+// import 'gitment/style/default.css'
+// import Gitment from 'gitment'
+const gitment = new Gitment({
+id: '', // optional
+owner: 'wenhui-huang',
+repo: 'blog-comment',
+oauth: {
+  client_id: 'c78aa0f63c653cc85c66',
+  client_secret: '3e3a8dfb8a6b8a02f84263430b216fe8df2d783e',
+},
+})
+gitment.render('container');
+</script>
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

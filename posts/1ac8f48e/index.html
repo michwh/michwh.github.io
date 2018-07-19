@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="ES6常用知识点总结"/>
+
+
+
+
+  <meta name="keywords" content="总结, es6, 凡沸" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="凡沸">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://wenhui-huang.github.io/posts/1ac8f48e/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "lLG89O9D8SmVSrls704BIUXy-gzGzoHsz",
+      appKey: "QAmzov7kvfh1xzhbMKwEJ7hs"
+    });
+  </script>
+
+
+
+
+<link rel="manifest" href="/manifest.json">
+
+
+<link rel="icon" href="/images/icons/144x144.png">
+<!-- theme-color defines the top bar color (blue in my case)-->
+<meta name="theme-color" content="#c05b4d"/>
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="Alex Jover Blog"/>
+<link rel="apple-touch-icon" href="/images/icons/144x144.png"/>
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/images/icons/144x144.png"/>
+<meta name="msapplication-TileColor" content="#000000"/>
+
+    <title> ES6常用知识点总结 - 凡沸 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">凡沸</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/tags/">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">凡沸</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          ES6常用知识点总结
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-02-08
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/posts/1ac8f48e/"
+             data-title="ES6常用知识点总结">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-const和let"><span class="toc-text">1.const和let</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-函数变量提升"><span class="toc-text">1.1 函数变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-let和const"><span class="toc-text">1.2 let和const</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字符串模板"><span class="toc-text">2.字符串模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数"><span class="toc-text">3.函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-拓展的对象功能"><span class="toc-text">4.拓展的对象功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-对象的初始化简写"><span class="toc-text">4.1 对象的初始化简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Object-assign"><span class="toc-text">4.2 Object.assign()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-解构"><span class="toc-text">5.解构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Spread-Operator展开运算符"><span class="toc-text">6.Spread Operator展开运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1组装数组或对象"><span class="toc-text">6.1组装数组或对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2获取数组或对象的某几项"><span class="toc-text">6.2获取数组或对象的某几项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3组成新的Object"><span class="toc-text">6.3组成新的Object</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-import-export"><span class="toc-text">7.import/export</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="1-const和let"><a href="#1-const和let" class="headerlink" title="1.const和let"></a>1.const和let</h2><h3 id="1-1-函数变量提升"><a href="#1-1-函数变量提升" class="headerlink" title="1.1 函数变量提升"></a>1.1 函数变量提升</h3><p>用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    <span class="keyword">var</span> test = <span class="string">'hello'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(test);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相当于：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> test; <span class="comment">//变量提升</span></span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    test = <span class="string">'hello'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//此处访问test，值为undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(test);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//此处访问test，值为undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>即无论有没有执行if语句，test这个变量都会被创建。</p>
+<h3 id="1-2-let和const"><a href="#1-2-let和const" class="headerlink" title="1.2 let和const"></a>1.2 let和const</h3><p>若用let和const声明，let表示变量，const表示常量。let和const都是块级作用域，即在{}大括号内起作用。</p>
+<p>（1）let</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    <span class="keyword">let</span> test = <span class="string">'hello'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//test在此处访问不到</span></span><br><span class="line">    <span class="built_in">console</span>.log(test);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>test的作用域只在if条件语句中。</p>
+<p>（2）const</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'lux'</span>;</span><br><span class="line">name = <span class="string">'joe'</span>;<span class="comment">//再次赋值此时会报错</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-字符串模板"><a href="#2-字符串模板" class="headerlink" title="2.字符串模板"></a>2.字符串模板</h2><p>（1） 字符串拼接</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'lux'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`hello <span class="subst">$&#123;name&#125;</span>`</span>) <span class="comment">//hello lux</span></span><br></pre></td></tr></table></figure>
+<p>（2）用反引号进行多行字符串拼接：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> template = <span class="string">`&lt;div&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;hello world&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;`</span></span><br></pre></td></tr></table></figure>
+<p>（3）字符串常用方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.includes：判断是否包含然后直接返回布尔值</span></span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">'hahay'</span></span><br><span class="line">    <span class="built_in">console</span>.log(str.includes(<span class="string">'y'</span>)) <span class="comment">// true</span></span><br><span class="line">    <span class="comment">// 2.repeat: 获取字符串重复n次</span></span><br><span class="line">    <span class="keyword">let</span> s = <span class="string">'he'</span></span><br><span class="line">    <span class="built_in">console</span>.log(s.repeat(<span class="number">3</span>)) <span class="comment">// 'hehehe'</span></span><br><span class="line">    <span class="comment">//如果你带入小数, Math.floor(num) 来处理</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-函数"><a href="#3-函数" class="headerlink" title="3.函数"></a>3.函数</h2><p>（1）为函数参数提供默认值</p>
+<p>ES6为参数提供了默认值。在定义函数时便初始化了这个参数，以便在参数没有被传递进去时使用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">action</span>(<span class="params">num = <span class="number">200</span></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">  &#125;</span><br><span class="line">action() <span class="comment">//200</span></span><br><span class="line">action(<span class="number">300</span>) <span class="comment">//300</span></span><br></pre></td></tr></table></figure>
+<p>（2）箭头函数</p>
+<p>箭头函数特点：</p>
+<ul>
+<li><p>不需要function关键字来创建函数</p>
+</li>
+<li><p>省略return关键字</p>
+</li>
+<li><p>继承当前上下文的 this 关键字</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例如：</span></span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map( <span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span> )</span><br><span class="line">    </span><br><span class="line"><span class="comment">//等同于：</span></span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map((<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line">    &#125;).bind(<span class="keyword">this</span>))</span><br></pre></td></tr></table></figure>
+<p>当函数有且仅有一个参数的时候，可以省略掉括号。当函数返回有且仅有一个表达式的时候可以省略{}；例如:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> people = <span class="function"><span class="params">name</span> =&gt;</span> <span class="string">'hello'</span> + name</span><br><span class="line"><span class="comment">//参数name就没有括号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> people = <span class="function">(<span class="params">name, age</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> fullName = <span class="string">'h'</span> + name</span><br><span class="line">  <span class="keyword">return</span> fullName</span><br><span class="line"> <span class="comment">//如果缺少()或者&#123;&#125;就会报错 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-拓展的对象功能"><a href="#4-拓展的对象功能" class="headerlink" title="4.拓展的对象功能"></a>4.拓展的对象功能</h2><h3 id="4-1-对象的初始化简写"><a href="#4-1-对象的初始化简写" class="headerlink" title="4.1 对象的初始化简写"></a>4.1 对象的初始化简写</h3><p>（1）键值对重名</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">people</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name, <span class="comment">//相当于name:name,</span></span><br><span class="line">    ger <span class="comment">//相当于age:age</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（2）为对象添加方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">  name:<span class="string">'lux'</span>,</span><br><span class="line">  getName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相当于<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">  name:<span class="string">'lux'</span>,</span><br><span class="line">  getName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-2-Object-assign"><a href="#4-2-Object-assign" class="headerlink" title="4.2 Object.assign()"></a>4.2 Object.assign()</h3><p><code>const obj = Object.assign(target,...source)</code></p>
+<p>target:目标对象，source:源对象</p>
+<p>用于把一个或多个源对象的可枚举属性复制到目标对象中（浅复制），返回值为目标对象。</p>
+<p>在实际项目中，我们为了不改变源对象，一般会把目标对象传为{}。即：<code>const obj = Object.assign({},...source)</code></p>
+<h2 id="5-解构"><a href="#5-解构" class="headerlink" title="5.解构"></a>5.解构</h2><p>将一个数据结构分解为更小的部分的过程。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> [first, second, third] = someArray;</span><br><span class="line"></span><br><span class="line"><span class="comment">//相当于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> first = someArray[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> second = someArray[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> third = someArray[<span class="number">2</span>];</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">  name: <span class="string">'lux'</span>,</span><br><span class="line">  age: <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123; name, age &#125; = people</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span> --- <span class="subst">$&#123;age&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//相当于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">  name: <span class="string">'lux'</span>,</span><br><span class="line">  age: <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> name = people.name</span><br><span class="line"><span class="keyword">const</span> age = people.age</span><br><span class="line"><span class="built_in">console</span>.log(name + <span class="string">' --- '</span> + age)</span><br></pre></td></tr></table></figure>
+<h2 id="6-Spread-Operator展开运算符"><a href="#6-Spread-Operator展开运算符" class="headerlink" title="6.Spread Operator展开运算符"></a>6.Spread Operator展开运算符</h2><p>展开运算符（spread)是三个点（…)，可以将数组转为用逗号分隔的参数序列。</p>
+<h3 id="6-1组装数组或对象"><a href="#6-1组装数组或对象" class="headerlink" title="6.1组装数组或对象"></a>6.1组装数组或对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组</span></span><br><span class="line">    <span class="keyword">const</span> color = [<span class="string">'red'</span>, <span class="string">'yellow'</span>]</span><br><span class="line">    <span class="keyword">const</span> colorful = [...color, <span class="string">'green'</span>, <span class="string">'pink'</span>]</span><br><span class="line">    <span class="built_in">console</span>.log(colorful) <span class="comment">//[red, yellow, green, pink]</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//对象</span></span><br><span class="line">    <span class="keyword">const</span> alp = &#123; <span class="attr">fist</span>: <span class="string">'a'</span>, <span class="attr">second</span>: <span class="string">'b'</span>&#125;</span><br><span class="line">    <span class="keyword">const</span> alphabets = &#123; ...alp, <span class="attr">third</span>: <span class="string">'c'</span> &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(alphabets) <span class="comment">//&#123; "fist": "a", "second": "b", "third": "c"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-2获取数组或对象的某几项"><a href="#6-2获取数组或对象的某几项" class="headerlink" title="6.2获取数组或对象的某几项"></a>6.2获取数组或对象的某几项</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组</span></span><br><span class="line">    <span class="keyword">const</span> number = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">    <span class="keyword">const</span> [first, ...rest] = number</span><br><span class="line">    <span class="built_in">console</span>.log(rest) <span class="comment">//2,3,4,5</span></span><br><span class="line">    <span class="comment">//对象</span></span><br><span class="line">    <span class="keyword">const</span> user = &#123;</span><br><span class="line">        username: <span class="string">'lux'</span>,</span><br><span class="line">        gender: <span class="string">'female'</span>,</span><br><span class="line">        age: <span class="number">19</span>,</span><br><span class="line">        address: <span class="string">'peking'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> &#123; username, ...rest &#125; = user</span><br><span class="line">    <span class="built_in">console</span>.log(rest) <span class="comment">//&#123;"address": "peking", "age": 19, "gender": "female"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-3组成新的Object"><a href="#6-3组成新的Object" class="headerlink" title="6.3组成新的Object"></a>6.3组成新的Object</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> first = &#123;</span><br><span class="line">        a: <span class="number">1</span>,</span><br><span class="line">        b: <span class="number">2</span>,</span><br><span class="line">        c: <span class="number">6</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> second = &#123;</span><br><span class="line">        c: <span class="number">3</span>,</span><br><span class="line">        d: <span class="number">4</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> total = &#123; ...first, ...second &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(total) <span class="comment">// &#123; a: 1, b: 2, c: 3, d: 4 &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-import-export"><a href="#7-import-export" class="headerlink" title="7.import/export"></a>7.import/export</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//全部导入</span></span><br><span class="line"><span class="keyword">import</span> people <span class="keyword">from</span> <span class="string">'./example'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//有一种特殊情况，即允许你将整个模块当作单一对象进行导入</span></span><br><span class="line"><span class="comment">//该模块的所有导出都会作为对象的属性存在</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> example <span class="keyword">from</span> <span class="string">"./example.js"</span></span><br><span class="line"><span class="built_in">console</span>.log(example.name)</span><br><span class="line"><span class="built_in">console</span>.log(example.age)</span><br><span class="line"><span class="built_in">console</span>.log(example.getName())</span><br><span class="line"></span><br><span class="line"><span class="comment">//导入部分</span></span><br><span class="line"><span class="keyword">import</span> &#123;name, age&#125; <span class="keyword">from</span> <span class="string">'./example'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 导出默认, 有且只有一个默认</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br><span class="line"></span><br><span class="line"><span class="comment">// 部分导出</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="title">extend</span> <span class="title">Component</span> </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>1.当用export default people导出时，就用 import people 导入（不带大括号）</p>
+<p>2.一个文件里，有且只能有一个export default。但可以有多个export。</p>
+<p>3.当用export name 时，就用import { name }导入（记得带上大括号）</p>
+<p>4.当一个文件里，既有一个export default people, 又有多个export name 或者 export age时，导入就用 import people, { name, age } </p>
+<p>5.当一个文件里出现n多个 export 导出很多模块，导入时除了一个一个导入，也可以用import * as example</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://www.jianshu.com/p/287e0bb867ae" target="_blank" rel="noopener">ES6这些就够了</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://wenhui-huang.github.io">Fan Fei</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://wenhui-huang.github.io/posts/1ac8f48e/">https://wenhui-huang.github.io/posts/1ac8f48e/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/总结/">总结</a>
+            
+              <a href="/tags/es6/">es6</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/posts/61f87199/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">博客维护日志</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/posts/b1924472/">
+        <span class="next-text nav-default">日常学习自问自答</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="container"></div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:fjsxhwh@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/wenhui-huang" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Fan Fei</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+// import 'gitment/style/default.css'
+// import Gitment from 'gitment'
+const gitment = new Gitment({
+id: '', // optional
+owner: 'wenhui-huang',
+repo: 'blog-comment',
+oauth: {
+  client_id: 'c78aa0f63c653cc85c66',
+  client_secret: '3e3a8dfb8a6b8a02f84263430b216fe8df2d783e',
+},
+})
+gitment.render('container');
+</script>
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

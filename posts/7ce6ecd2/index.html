@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="理解Cookie和Sessin机制"/>
+
+
+
+
+  <meta name="keywords" content="http, 读书笔记, cookie, session, 凡沸" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="凡沸">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://wenhui-huang.github.io/posts/7ce6ecd2/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "lLG89O9D8SmVSrls704BIUXy-gzGzoHsz",
+      appKey: "QAmzov7kvfh1xzhbMKwEJ7hs"
+    });
+  </script>
+
+
+
+
+<link rel="manifest" href="/manifest.json">
+
+
+<link rel="icon" href="/images/icons/144x144.png">
+<!-- theme-color defines the top bar color (blue in my case)-->
+<meta name="theme-color" content="#c05b4d"/>
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="Alex Jover Blog"/>
+<link rel="apple-touch-icon" href="/images/icons/144x144.png"/>
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/images/icons/144x144.png"/>
+<meta name="msapplication-TileColor" content="#000000"/>
+
+    <title> 理解Cookie和Sessin机制 - 凡沸 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">凡沸</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/tags/">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">凡沸</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          理解Cookie和Sessin机制
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-05-28
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/posts/7ce6ecd2/"
+             data-title="理解Cookie和Sessin机制">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie执行机制"><span class="toc-text">Cookie执行机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie属性"><span class="toc-text">Cookie属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie的不可跨域名性"><span class="toc-text">Cookie的不可跨域名性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie的修改、删除"><span class="toc-text">Cookie的修改、删除</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>常用的会话跟踪技术是Cookie与Session。Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份。</p>
+<h1 id="Cookie执行机制"><a href="#Cookie执行机制" class="headerlink" title="Cookie执行机制"></a>Cookie执行机制</h1><p>1.当用户使用浏览器访问一个支持Cookie的网站的时候，用户会提供包括用户名在内的个人信息并且提交至服务器</p>
+<p>2.服务器向客户端回传相应的超文本并在HTTP响应头（Response Header）里发回用户的个人信息。在响应头里面会有一个Set-Cookie字段，这是用来指示客户端建立一个cookie</p>
+<p>3.客户端浏览器接收来自服务器的响应，并将这些信息存放在一个统一的位置，这个位置可能是内存也有可能是硬盘。</p>
+<p>4.当客户端要再向服务器发送请求时，就会在HTTP的请求头里加入cookie（一小段的文本信息）</p>
+<p>5.服务器就根据cookie来识别客户端的身份，从而动态生成与该客户端相对应的内容。</p>
+<p><img src="/posts/7ce6ecd2/理解Cookie和Sessin机制/1.jpg" alt="1"><br><a id="more"></a></p>
+<h1 id="Cookie属性"><a href="#Cookie属性" class="headerlink" title="Cookie属性"></a>Cookie属性</h1><p><code>String name</code>：cookie名称</p>
+<p><code>Object value</code>：cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码。 </p>
+<p><code>int maxAge</code>：cookie的失效时间，单位为秒。如果为正数，则该Cookie在&gt;maxAge秒之后失效,这时无论客户关闭了浏览器还是电脑，只要还在maxAge秒之前，登录网站时该Cookie仍然有效。。如果为负数，该Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为–1。</p>
+<p><code>boolean secure</code>：该cookie是否使用安全传输协议，默认为false</p>
+<p><code>String path</code>：cookie使用路径。如果设置为<code>/sessionWeb/</code>，则只有contextPath为<code>/sessionWeb</code>的程序可以访问该Cookie。如果设置为<code>/</code>，则本域名下contextPath都可以访问该Cookie。注意最后一个字符必须为<code>/</code>。</p>
+<p><code>String comment</code>：cookie用处说明</p>
+<p><code>int version</code>：cookie版本号</p>
+<p><code>String domain</code>：可以访问该Cookie的域名。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie</p>
+<h1 id="Cookie的不可跨域名性"><a href="#Cookie的不可跨域名性" class="headerlink" title="Cookie的不可跨域名性"></a>Cookie的不可跨域名性</h1><p>例如，Google会向客户端颁发Cookie，Baidu也会向客户端颁发Cookie。浏览器访问Google只会携带Google的Cookie，而不会携带Baidu的Cookie。Google也只能操作Google的Cookie，而不能操作Baidu的Cookie。浏览器判断一个网站是否能操作另一个网站Cookie的依据是域名。Google与Baidu的域名不一样，因此Google不能操作Baidu的Cookie。</p>
+<p>正常情况下，同一个一级域名下的两个二级域名如www.helloweenvsfei.com和images.helloweenvsfei.com也不能交互使用Cookie，因为二者的域名并不严格相同。如果想所有helloweenvsfei.com名下的二级域名都可以使用该Cookie，需要把Cookie的domain参数设置成<code>.helloweenvsfei.com</code></p>
+<h1 id="Cookie的修改、删除"><a href="#Cookie的修改、删除" class="headerlink" title="Cookie的修改、删除"></a>Cookie的修改、删除</h1><p>修改：新建一个同名的Cookie，添加到response中覆盖原来的Cookie。</p>
+<p>删除：新建一个同名的Cookie，将maxAge设置为0，并添加到response中覆盖原来的Cookie。</p>
+<p>注意：修改、删除Cookie时，新建的Cookie除value、maxAge之外的所有属性，例如name、path、domain等，都要与原Cookie完全一样。否则，浏览器将视为两个不同的Cookie不予覆盖。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://wenhui-huang.github.io">Fan Fei</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://wenhui-huang.github.io/posts/7ce6ecd2/">https://wenhui-huang.github.io/posts/7ce6ecd2/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/http/">http</a>
+            
+              <a href="/tags/读书笔记/">读书笔记</a>
+            
+              <a href="/tags/cookie/">cookie</a>
+            
+              <a href="/tags/session/">session</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/posts/2ed5396a/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Element UI使用小技巧</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/posts/20f054d5/">
+        <span class="next-text nav-default">web版微信协议分析</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="container"></div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:fjsxhwh@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/wenhui-huang" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Fan Fei</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+// import 'gitment/style/default.css'
+// import Gitment from 'gitment'
+const gitment = new Gitment({
+id: '', // optional
+owner: 'wenhui-huang',
+repo: 'blog-comment',
+oauth: {
+  client_id: 'c78aa0f63c653cc85c66',
+  client_secret: '3e3a8dfb8a6b8a02f84263430b216fe8df2d783e',
+},
+})
+gitment.render('container');
+</script>
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

@@ -596,6 +596,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="container"></div>
+    
   </div>
 
 
@@ -606,6 +608,10 @@
 
   <div class="social-links">
     
+      
+        
+          <a href="mailto:fjsxhwh@gmail.com" class="iconfont icon-email" title="email"></a>
+        
       
     
       
@@ -681,18 +687,19 @@
   
 
   
-  <div id="container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-var gitment = new Gitment({
-  id: '', // 可选。默认为 location.href
-  owner: 'wenhui-huang',
-  repo: 'blog-comment',
-  oauth: {
-    client_id: 'c78aa0f63c653cc85c66',
-    client_secret: '3e3a8dfb8a6b8a02f84263430b216fe8df2d783e',
-  },
+// import 'gitment/style/default.css'
+// import Gitment from 'gitment'
+const gitment = new Gitment({
+id: '', // optional
+owner: 'wenhui-huang',
+repo: 'blog-comment',
+oauth: {
+  client_id: 'c78aa0f63c653cc85c66',
+  client_secret: '3e3a8dfb8a6b8a02f84263430b216fe8df2d783e',
+},
 })
 gitment.render('container');
 </script>

@@ -91,7 +91,7 @@
 <link rel="manifest" href="/manifest.json">
 
 
-<link rel="icon" href="/images/icons/icon-152x152.png">
+<link rel="icon" href="/images/icons/144x144.png">
 <!-- theme-color defines the top bar color (blue in my case)-->
 <meta name="theme-color" content="#c05b4d"/>
 
@@ -99,12 +99,19 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
 <meta name="apple-mobile-web-app-title" content="Alex Jover Blog"/>
-<link rel="apple-touch-icon" href="/images/icons/icon-152x152.png"/>
+<link rel="apple-touch-icon" href="/images/icons/144x144.png"/>
 
 <!-- Add to home screen for Windows-->
-<meta name="msapplication-TileImage" content="/images/icons/icon-152x152.png"/>
+<meta name="msapplication-TileImage" content="/images/icons/144x144.png"/>
 <meta name="msapplication-TileColor" content="#000000"/>
 
+
+<script>
+window.addEventListener('beforeinstallprompt', event => {
+  event.userChoice.then(result => {console.log(result.outcome)
+  })
+});
+</script>
 
     <title> ES6常用知识点总结 - 凡沸 </title>
   </head>

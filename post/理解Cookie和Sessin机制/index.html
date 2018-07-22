@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="http, 读书笔记, cookie, session, 凡沸" />
+  <meta name="keywords" content="读书笔记, http, cookie, session, 凡沸" />
 
 
 
@@ -241,7 +241,7 @@
 <p>3.客户端浏览器接收来自服务器的响应，并将这些信息存放在一个统一的位置，这个位置可能是内存也有可能是硬盘。</p>
 <p>4.当客户端要再向服务器发送请求时，就会在HTTP的请求头里加入cookie（一小段的文本信息）</p>
 <p>5.服务器就根据cookie来识别客户端的身份，从而动态生成与该客户端相对应的内容。</p>
-<p><img src="/post/理解Cookie和Sessin机制/7ce6ecd2/1.jpg" alt="1"><br><a id="more"></a></p>
+<p><img src="/post/理解Cookie和Sessin机制/1.jpg" alt="1"><br><a id="more"></a></p>
 <h1 id="Cookie属性"><a href="#Cookie属性" class="headerlink" title="Cookie属性"></a>Cookie属性</h1><p><code>String name</code>：cookie名称</p>
 <p><code>Object value</code>：cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码。 </p>
 <p><code>int maxAge</code>：cookie的失效时间，单位为秒。如果为正数，则该Cookie在&gt;maxAge秒之后失效,这时无论客户关闭了浏览器还是电脑，只要还在maxAge秒之前，登录网站时该Cookie仍然有效。。如果为负数，该Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为–1。</p>
@@ -290,9 +290,9 @@
         
           <div class="post-tags">
             
-              <a href="/tags/http/">http</a>
-            
               <a href="/tags/读书笔记/">读书笔记</a>
+            
+              <a href="/tags/http/">http</a>
             
               <a href="/tags/cookie/">cookie</a>
             
@@ -328,8 +328,6 @@
           </div>
           
   <div class="comments" id="comments">
-    
-      <div id="container"></div>
     
   </div>
 
@@ -420,22 +418,6 @@
   
 
   
-  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-// import 'gitment/style/default.css'
-// import Gitment from 'gitment'
-const gitment = new Gitment({
-id: window.location.pathname, // optional
-owner: 'michwh',
-repo: 'blog-comment',
-oauth: {
-  client_id: '68ea03bfc633f15bf186',
-  client_secret: 'a6c5dbae5113f2d987b0261765419e936bf7fabd',
-},
-})
-gitment.render('container');
-</script>
 
 
 

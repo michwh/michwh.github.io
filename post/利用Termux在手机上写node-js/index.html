@@ -252,9 +252,9 @@
 </li>
 </ul>
 <h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>用vim打开server.js后，你会看到如下界面：</p>
-<p><img src="/post/利用Termux在手机上写node-js/bdbaeaa4/1.jpg" alt="1"></p>
+<p><img src="/post/利用Termux在手机上写node-js/1.jpg" alt="1"></p>
 <p>Vim的行为有所不同，取决于你所处的模式。开始时，你处于所谓的命令模式。你应该在第一行看到光标，在其他行看到（〜），并在最下面看到文件的名称。如果你想进入编辑模式，那么就要输入<code>i</code>。进入编辑模式后你可以下左下角看到<strong>INSERT</strong>字样</p>
-<p><img src="/post/利用Termux在手机上写node-js/bdbaeaa4/2.jpg" alt="2"></p>
+<p><img src="/post/利用Termux在手机上写node-js/2.jpg" alt="2"></p>
 <p>现在，我们就可以对<strong>server.js</strong>文件进行编辑了，比如我们输入<code>console.log（&#39;hello world&#39;）</code></p>
 <p>编辑完后我们需要按<code>&lt;Esc&gt;</code> 回到命令模式，然后你可以选择：</p>
 <ol>
@@ -266,7 +266,7 @@
 </li>
 </ol>
 <h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>回到Termux界面后输入<code>node server.js</code>运行server.js，就可以看到如下效果</p>
-<p><img src="/post/利用Termux在手机上写node-js/bdbaeaa4/3.jpg" alt="3"></p>
+<p><img src="/post/利用Termux在手机上写node-js/3.jpg" alt="3"></p>
 <p>感觉Termux的功能蛮强大的，以后再慢慢研究吧</p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
 <li><p><a href="https://medium.freecodecamp.org/building-a-node-js-application-on-android-part-1-termux-vim-and-node-js-dfa90c28958f" target="_blank" rel="noopener">Building a Node.js application on Android - Part 1: Termux, Vim and Node.js</a></p>
@@ -347,8 +347,6 @@
           </div>
           
   <div class="comments" id="comments">
-    
-      <div id="container"></div>
     
   </div>
 
@@ -439,22 +437,6 @@
   
 
   
-  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-// import 'gitment/style/default.css'
-// import Gitment from 'gitment'
-const gitment = new Gitment({
-id: window.location.pathname, // optional
-owner: 'michwh',
-repo: 'blog-comment',
-oauth: {
-  client_id: '68ea03bfc633f15bf186',
-  client_secret: 'a6c5dbae5113f2d987b0261765419e936bf7fabd',
-},
-})
-gitment.render('container');
-</script>
 
 
 

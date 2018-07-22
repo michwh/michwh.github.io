@@ -255,12 +255,12 @@
 </li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.width</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#cd0000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav-a</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">9px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#b70000</span>;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#de3636</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav-a</span><span class="selector-pseudo">:first-child</span> &#123; <span class="attribute">border-top</span>: <span class="number">0</span>; &#125;</span><br><span class="line"><span class="selector-class">.nav-a</span> + <span class="selector-class">.nav-a</span> + <span class="selector-class">.nav-a</span> &#123; <span class="attribute">border-bottom</span>: <span class="number">0</span>;&#125;</span><br></pre></td></tr></table></figure>
-<p>就会产生如下效果：<br><img src="/post/HTML标签和CSS属性总结/e4079704/1.jpg" alt=""></p>
+<p>就会产生如下效果：<br><img src="/post/HTML标签和CSS属性总结/1.jpg" alt=""></p>
 <h3 id="white-space"><a href="#white-space" class="headerlink" title="white-space"></a>white-space</h3><p>设置如何处理元素内的空白</p>
 <p><code>white-space:nowrap;</code>：文本会在同一行上继续，知道遇到<code>&lt;br&gt;</code><br><code>white-space:pre;</code>：空白会被浏览器保留。其行为方式类似 HTML 中的 <code>&lt;pre&gt;</code> 标签。</p>
 <h3 id="lt-pre-gt-lt-pre-gt"><a href="#lt-pre-gt-lt-pre-gt" class="headerlink" title="&lt;pre&gt;&lt;/pre&gt;"></a><code>&lt;pre&gt;&lt;/pre&gt;</code></h3><p>定义预格式化的文本。被包围在 pre 元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体。常见应用就是用来表示计算机的源代码。</p>
 <h3 id="before"><a href="#before" class="headerlink" title=":before"></a><code>:before</code></h3><p>在被选元素的内容前面插入内容。使用 content 属性来指定要插入的内容。例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HTML:</span><br><span class="line"></span><br><span class="line">&lt;p&gt;我是唐老鸭。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">CSS:</span><br><span class="line"></span><br><span class="line">p:before</span><br><span class="line">&#123;</span><br><span class="line">content:&quot;台词：&quot;;</span><br><span class="line">background-color:yellow;</span><br><span class="line">color:red;</span><br><span class="line">font-weight:bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>效果：<br><img src="/post/HTML标签和CSS属性总结/e4079704/2.jpg" alt="2"></p>
+<p>效果：<br><img src="/post/HTML标签和CSS属性总结/2.jpg" alt="2"></p>
 <h3 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h3><p>设置元素的垂直对齐方式。</p>
 <table>
 <thead>
@@ -297,10 +297,10 @@
 </tbody>
 </table>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CSS:</span><br><span class="line">img.top &#123;vertical-align:text-top&#125;</span><br><span class="line">img.bottom &#123;vertical-align:text-bottom&#125;</span><br><span class="line"></span><br><span class="line">HTML:</span><br><span class="line">&lt;p&gt;</span><br><span class="line">这是一幅&lt;img class=&quot;top&quot;/&gt;位于段落中的图像。</span><br><span class="line">&lt;/p&gt; </span><br><span class="line"></span><br><span class="line">&lt;p&gt;</span><br><span class="line">这是一幅&lt;img class=&quot;bottom&quot;/&gt;位于段落中的图像。</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/post/HTML标签和CSS属性总结/e4079704/3.jpg" alt="3"></p>
+<p><img src="/post/HTML标签和CSS属性总结/3.jpg" alt="3"></p>
 <h3 id="lt-label-gt-lt-label-gt"><a href="#lt-label-gt-lt-label-gt" class="headerlink" title="&lt;label&gt;&lt;/label&gt;"></a><code>&lt;label&gt;&lt;/label&gt;</code></h3><p><code>&lt;label&gt;</code> 标签为 input 元素定义标注。label 元素不会向用户呈现任何特殊效果。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。<code>&lt;label&gt;</code>标签的 for 属性应当与相关元素的 id 属性相同。</p>
 <p>例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"check"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"check"</span> <span class="attr">class</span>=<span class="string">"check-in"</span>&gt;</span>更多↓<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"check"</span> <span class="attr">class</span>=<span class="string">"check-out"</span>&gt;</span>收起↑<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="/post/HTML标签和CSS属性总结/e4079704/5.jpg" alt=""><br><img src="/post/HTML标签和CSS属性总结/e4079704/6.jpg" alt=""></p>
+<p><img src="/post/HTML标签和CSS属性总结/5.jpg" alt=""><br><img src="/post/HTML标签和CSS属性总结/6.jpg" alt=""></p>
 <p>当点击更多↓或者收起↑时，选择框的状态就会改变（是否被选中）。</p>
 <h3 id="关系选择器"><a href="#关系选择器" class="headerlink" title="关系选择器"></a>关系选择器</h3><ul>
 <li><p>后代选择器：选择所有合乎规则的后代元素。空格连接。</p>
@@ -383,8 +383,6 @@
           </div>
           
   <div class="comments" id="comments">
-    
-      <div id="container"></div>
     
   </div>
 
@@ -475,22 +473,6 @@
   
 
   
-  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-// import 'gitment/style/default.css'
-// import Gitment from 'gitment'
-const gitment = new Gitment({
-id: window.location.pathname, // optional
-owner: 'michwh',
-repo: 'blog-comment',
-oauth: {
-  client_id: '68ea03bfc633f15bf186',
-  client_secret: 'a6c5dbae5113f2d987b0261765419e936bf7fabd',
-},
-})
-gitment.render('container');
-</script>
 
 
 

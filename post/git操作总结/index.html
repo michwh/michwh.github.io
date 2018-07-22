@@ -307,15 +307,15 @@
 <h2 id="编写某个分支的代码"><a href="#编写某个分支的代码" class="headerlink" title="编写某个分支的代码"></a>编写某个分支的代码</h2><p>（1） 将这个分支pull到本地</p>
 <p><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code>例如：<code>git pull origin master:master</code>就是把origin主机的master分支与本地的master分支合并。如果远程分支是与当前分支合并，则冒号后面的部分可以省略:<code>git pull origin master</code></p>
 <p>（2） 通过<code>git branch</code>查看分支情况，例：</p>
-<p><img src="/post/git操作总结/d9df616e/1.jpg" alt="1"><br>当前项目中有两个分支，且在工作的是master分支（有*的那个）</p>
+<p><img src="/post/git操作总结/1.jpg" alt="1"><br>当前项目中有两个分支，且在工作的是master分支（有*的那个）</p>
 <p>（3） 切换分支：<code>git checkout 分支名</code></p>
-<p>例如<code>git checkout develop</code>就可以切换到develop分支<br><img src="/post/git操作总结/d9df616e/2.jpg" alt="2"></p>
+<p>例如<code>git checkout develop</code>就可以切换到develop分支<br><img src="/post/git操作总结/2.jpg" alt="2"></p>
 <h2 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h2><p>如果在push你的代码的时候，出现如下报错：</p>
-<p><img src="/post/git操作总结/d9df616e/3.jpg" alt="3"></p>
+<p><img src="/post/git操作总结/3.jpg" alt="3"></p>
 <p>这是因为远程分支比你的本地的分支先更新（就是其他人先push了代码，而你本地的代码还没更新）。需要先用<code>git pull</code>试图合并，如果有如下报错：</p>
-<p><img src="/post/git操作总结/d9df616e/4.jpg" alt="4"></p>
+<p><img src="/post/git操作总结/4.jpg" alt="4"></p>
 <p>是因为没有指定本地dev分支与远程origin/dev分支的链接,可根据提示输入<code>git branch --set-upstream-to= origin/dev dev</code>。再输入<code>git pull</code>，会弹出如下界面：</p>
-<p><img src="/post/git操作总结/d9df616e/5.jpg" alt="5"></p>
+<p><img src="/post/git操作总结/5.jpg" alt="5"></p>
 <p>这是要输入一个提交信息来说明你这此合并（黄色的那部分文字就是提交说明）。如果有需要可按键盘上字母i，进入insert模式去修改黄色的那部分文字。然后在输入<code>:wq</code>保存退出即可。如果不需要修改，则输入<code>:q</code>直接退出。</p>
 <p>然后git上会显示远程分支比你本地分支先更新的部分。如果有冲突可在本地进行修改。修改完后输入<code>git commit -m &quot;提交说明&quot;</code>再输入<code>git push origin dev</code></p>
 <h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><ul>
@@ -325,7 +325,7 @@
 <li><p>在<strong>.gitignore</strong>文件里输入你要忽略的文件夹及其文件，例：</p>
 </li>
 </ul>
-<p><img src="/post/git操作总结/d9df616e/6.jpg" alt="6"></p>
+<p><img src="/post/git操作总结/6.jpg" alt="6"></p>
 <p>注意：如果你不慎在创建.gitignore文件之前就push了项目，那么即使你在.gitignore文件中写入新的过滤规则，这些规则也不会起作用，Git仍然会对所有文件进行版本管理。</p>
 <h2 id="vue-cli搭建项目流程"><a href="#vue-cli搭建项目流程" class="headerlink" title="vue-cli搭建项目流程"></a>vue-cli搭建项目流程</h2><ul>
 <li><p><code>npm install --global vue-cli</code></p>
@@ -398,8 +398,6 @@
           </div>
           
   <div class="comments" id="comments">
-    
-      <div id="container"></div>
     
   </div>
 
@@ -490,22 +488,6 @@
   
 
   
-  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-// import 'gitment/style/default.css'
-// import Gitment from 'gitment'
-const gitment = new Gitment({
-id: window.location.pathname, // optional
-owner: 'michwh',
-repo: 'blog-comment',
-oauth: {
-  client_id: '68ea03bfc633f15bf186',
-  client_secret: 'a6c5dbae5113f2d987b0261765419e936bf7fabd',
-},
-})
-gitment.render('container');
-</script>
 
 
 

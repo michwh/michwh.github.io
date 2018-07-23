@@ -17,12 +17,12 @@
 
 
 
-  <meta name="description" content="理解Cookie和Sessin机制"/>
+  <meta name="description" content="利用Termux在手机上写nodejs"/>
 
 
 
 
-  <meta name="keywords" content="http, 读书笔记, cookie, session, 凡沸" />
+  <meta name="keywords" content="termux, 好玩, node.js, 凡沸" />
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="https://michwh.github.io/post/理解Cookie和Sessin机制/"/>
+<link rel="canonical" href="https://michwh.github.io/post/利用Termux在手机上写nodejs/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -105,7 +105,7 @@
 <meta name="msapplication-TileImage" content="/images/icons/144x144.png"/>
 <meta name="msapplication-TileColor" content="#000000"/>
 
-    <title> 理解Cookie和Sessin机制 - 凡沸 </title>
+    <title> 利用Termux在手机上写nodejs - 凡沸 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -203,20 +203,20 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          理解Cookie和Sessin机制
+          利用Termux在手机上写nodejs
         
       </h1>
 
       <div class="post-meta">
         
         <span class="post-time">
-          2018-05-28
+          2018-06-07
         </span>
         
         
         <div class="post-visits"
-             data-url="/post/理解Cookie和Sessin机制/"
-             data-title="理解Cookie和Sessin机制">
+             data-url="/post/利用Termux在手机上写nodejs/"
+             data-title="利用Termux在手机上写nodejs">
             阅读次数
           </div>
         
@@ -228,33 +228,54 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie执行机制"><span class="toc-text">Cookie执行机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie属性"><span class="toc-text">Cookie属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie的不可跨域名性"><span class="toc-text">Cookie的不可跨域名性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie的修改、删除"><span class="toc-text">Cookie的修改、删除</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#键盘的选择"><span class="toc-text">键盘的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim"><span class="toc-text">vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行"><span class="toc-text">运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>常用的会话跟踪技术是Cookie与Session。Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份。</p>
-<h1 id="Cookie执行机制"><a href="#Cookie执行机制" class="headerlink" title="Cookie执行机制"></a>Cookie执行机制</h1><p>1.当用户使用浏览器访问一个支持Cookie的网站的时候，用户会提供包括用户名在内的个人信息并且提交至服务器</p>
-<p>2.服务器向客户端回传相应的超文本并在HTTP响应头（Response Header）里发回用户的个人信息。在响应头里面会有一个Set-Cookie字段，这是用来指示客户端建立一个cookie</p>
-<p>3.客户端浏览器接收来自服务器的响应，并将这些信息存放在一个统一的位置，这个位置可能是内存也有可能是硬盘。</p>
-<p>4.当客户端要再向服务器发送请求时，就会在HTTP的请求头里加入cookie（一小段的文本信息）</p>
-<p>5.服务器就根据cookie来识别客户端的身份，从而动态生成与该客户端相对应的内容。</p>
-<p><img src="/post/理解Cookie和Sessin机制/1.jpg" alt="1"><br><a id="more"></a></p>
-<h1 id="Cookie属性"><a href="#Cookie属性" class="headerlink" title="Cookie属性"></a>Cookie属性</h1><p><code>String name</code>：cookie名称</p>
-<p><code>Object value</code>：cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码。 </p>
-<p><code>int maxAge</code>：cookie的失效时间，单位为秒。如果为正数，则该Cookie在&gt;maxAge秒之后失效,这时无论客户关闭了浏览器还是电脑，只要还在maxAge秒之前，登录网站时该Cookie仍然有效。。如果为负数，该Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为–1。</p>
-<p><code>boolean secure</code>：该cookie是否使用安全传输协议，默认为false</p>
-<p><code>String path</code>：cookie使用路径。如果设置为<code>/sessionWeb/</code>，则只有contextPath为<code>/sessionWeb</code>的程序可以访问该Cookie。如果设置为<code>/</code>，则本域名下contextPath都可以访问该Cookie。注意最后一个字符必须为<code>/</code>。</p>
-<p><code>String comment</code>：cookie用处说明</p>
-<p><code>int version</code>：cookie版本号</p>
-<p><code>String domain</code>：可以访问该Cookie的域名。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie</p>
-<h1 id="Cookie的不可跨域名性"><a href="#Cookie的不可跨域名性" class="headerlink" title="Cookie的不可跨域名性"></a>Cookie的不可跨域名性</h1><p>例如，Google会向客户端颁发Cookie，Baidu也会向客户端颁发Cookie。浏览器访问Google只会携带Google的Cookie，而不会携带Baidu的Cookie。Google也只能操作Google的Cookie，而不能操作Baidu的Cookie。浏览器判断一个网站是否能操作另一个网站Cookie的依据是域名。Google与Baidu的域名不一样，因此Google不能操作Baidu的Cookie。</p>
-<p>正常情况下，同一个一级域名下的两个二级域名如www.helloweenvsfei.com和images.helloweenvsfei.com也不能交互使用Cookie，因为二者的域名并不严格相同。如果想所有helloweenvsfei.com名下的二级域名都可以使用该Cookie，需要把Cookie的domain参数设置成<code>.helloweenvsfei.com</code></p>
-<h1 id="Cookie的修改、删除"><a href="#Cookie的修改、删除" class="headerlink" title="Cookie的修改、删除"></a>Cookie的修改、删除</h1><p>修改：新建一个同名的Cookie，添加到response中覆盖原来的Cookie。</p>
-<p>删除：新建一个同名的Cookie，将maxAge设置为0，并添加到response中覆盖原来的Cookie。</p>
-<p>注意：修改、删除Cookie时，新建的Cookie除value、maxAge之外的所有属性，例如name、path、domain等，都要与原Cookie完全一样。否则，浏览器将视为两个不同的Cookie不予覆盖。</p>
+        <p>Termux是一款开源且不需要root，运行在Android终端上极其强大的linux模拟器，支持apt管理软件包，完美支持python,ruby,go,nodejs。</p>
+<h2 id="键盘的选择"><a href="#键盘的选择" class="headerlink" title="键盘的选择"></a>键盘的选择</h2><p> 如果使用软键盘的话可以下载<strong>Hacker’s Keyboard</strong>来解决一般的输入法没有Ctrl、Alt、Tab、Esc这些常用控制键的问题。另外，<strong>Hacker’s Keyboard</strong>只有在手机横屏的时候才会显示所有的按键。当然，也可以像我一样使用蓝牙键盘。</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
+<li><p>下载安装完Termux后打开Termux，输入<code>apt update &amp;&amp; apt upgrade</code>并按回车进行升级</p>
+</li>
+<li><p>安装node.js和vim：<code>apt install nodejs vim</code>（Termux带有一个包管理器apt，平常要装什么包都要用apt命令）</p>
+</li>
+<li><p>程序创建一个目录并切换到这个目录：<code>mkdir test-node &amp;&amp; cd test-node</code></p>
+</li>
+<li><p>创建文件<strong>server.js</strong>：<code>touch server.js</code></p>
+<a id="more"></a></li>
+<li><p>输入<code>npm init</code>对test-node文件夹进行初始化。在这过程中会问你一堆问题，然后为你写一个<strong>package.json</strong>文件。</p>
+</li>
+<li><p>要用Vim编辑这个文件，只需输入：<code>vim server.js</code></p>
+</li>
+</ul>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>用vim打开server.js后，你会看到如下界面：</p>
+<p><img src="/post/利用Termux在手机上写nodejs/1.jpg" alt="1"></p>
+<p>Vim的行为有所不同，取决于你所处的模式。开始时，你处于所谓的命令模式。你应该在第一行看到光标，在其他行看到（〜），并在最下面看到文件的名称。如果你想进入编辑模式，那么就要输入<code>i</code>。进入编辑模式后你可以下左下角看到<strong>INSERT</strong>字样</p>
+<p><img src="/post/利用Termux在手机上写nodejs/2.jpg" alt="2"></p>
+<p>现在，我们就可以对<strong>server.js</strong>文件进行编辑了，比如我们输入<code>console.log（&#39;hello world&#39;）</code></p>
+<p>编辑完后我们需要按<code>&lt;Esc&gt;</code> 回到命令模式，然后你可以选择：</p>
+<ol>
+<li><p>输入<code>：w</code>并按<code>&lt;Enter&gt;</code>保存（写入）更改。</p>
+</li>
+<li><p>输入<code>：wq</code>并按<code>&lt;Enter&gt;</code>保存更改并退出。</p>
+</li>
+<li><p>输入<code>：q！</code>然后按<code>&lt;Enter&gt;</code>退出而不保存更改。</p>
+</li>
+</ol>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>回到Termux界面后输入<code>node server.js</code>运行server.js，就可以看到如下效果</p>
+<p><img src="/post/利用Termux在手机上写nodejs/3.jpg" alt="3"></p>
+<p>感觉Termux的功能蛮强大的，以后再慢慢研究吧</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><p><a href="https://medium.freecodecamp.org/building-a-node-js-application-on-android-part-1-termux-vim-and-node-js-dfa90c28958f" target="_blank" rel="noopener">Building a Node.js application on Android - Part 1: Termux, Vim and Node.js</a></p>
+</li>
+<li><p><a href="https://jingsam.github.io/2017/02/07/nodejs-on-android.html" target="_blank" rel="noopener">手机上也可以愉快地搞nodejs开发</a></p>
+</li>
+<li><p><a href="https://simpletutorials.com/c/1238/Simple+Vim+Reference" target="_blank" rel="noopener">Simple VIM Reference</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -270,7 +291,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="https://michwh.github.io/post/理解Cookie和Sessin机制/">https://michwh.github.io/post/理解Cookie和Sessin机制/</a>
+      <a href="https://michwh.github.io/post/利用Termux在手机上写nodejs/">https://michwh.github.io/post/利用Termux在手机上写nodejs/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -290,13 +311,11 @@
         
           <div class="post-tags">
             
-              <a href="/tags/http/">http</a>
+              <a href="/tags/termux/">termux</a>
             
-              <a href="/tags/读书笔记/">读书笔记</a>
+              <a href="/tags/好玩/">好玩</a>
             
-              <a href="/tags/cookie/">cookie</a>
-            
-              <a href="/tags/session/">session</a>
+              <a href="/tags/node-js/">node.js</a>
             
           </div>
         
@@ -304,15 +323,15 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/post/Element-UI使用小技巧/">
+      <a class="prev" href="/post/Koa-JSON-WEB-TOKEN-bcrypt实现登录注册/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Element UI使用小技巧</span>
+        <span class="prev-text nav-default">Koa+JSON-WEB-TOKEN+bcrypt实现登录注册</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
-      <a class="next" href="/post/web版微信协议分析/">
-        <span class="next-text nav-default">web版微信协议分析</span>
+      <a class="next" href="/post/CSS水平垂直居中对齐方法小结/">
+        <span class="next-text nav-default">CSS水平垂直居中对齐方法小结</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>

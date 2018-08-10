@@ -201,6 +201,116 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/post/Element-UI使用小技巧/">Element UI使用小技巧</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-06-05
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/post/Element-UI使用小技巧/"
+             data-title="Element UI使用小技巧">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h1 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h1><p>element中预设了五个响应尺寸：<code>xs</code>、<code>sm</code>、<code>md</code>、<code>lg</code> 和 <code>xl</code>，可以在element的<code>&lt;el-col&gt;&lt;/el-col&gt;</code>组件中设置它们的值，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-col :xs=&quot;8&quot; :sm=&quot;6&quot; :md=&quot;4&quot; :lg=&quot;3&quot; :xl=&quot;1&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;/el-col&gt;</span><br></pre></td></tr></table></figure>
+<p>在element中是把一个界面竖着分成了24块，这些响应尺寸的值就是指在这24块中占了几块。<br></p>
+          <div class="read-more">
+            <a href="/post/Element-UI使用小技巧/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/post/理解Cookie和Sessin机制/">理解Cookie和Sessin机制</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        
+        <span class="post-time">
+          2018-05-28
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/post/理解Cookie和Sessin机制/"
+             data-title="理解Cookie和Sessin机制">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>常用的会话跟踪技术是Cookie与Session。Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份。</p>
+<h1 id="Cookie执行机制"><a href="#Cookie执行机制" class="headerlink" title="Cookie执行机制"></a>Cookie执行机制</h1><p>1.当用户使用浏览器访问一个支持Cookie的网站的时候，用户会提供包括用户名在内的个人信息并且提交至服务器</p>
+<p>2.服务器向客户端回传相应的超文本并在HTTP响应头（Response Header）里发回用户的个人信息。在响应头里面会有一个Set-Cookie字段，这是用来指示客户端建立一个cookie</p>
+<p>3.客户端浏览器接收来自服务器的响应，并将这些信息存放在一个统一的位置，这个位置可能是内存也有可能是硬盘。</p>
+<p>4.当客户端要再向服务器发送请求时，就会在HTTP的请求头里加入cookie（一小段的文本信息）</p>
+<p>5.服务器就根据cookie来识别客户端的身份，从而动态生成与该客户端相对应的内容。</p>
+<p><img src="/post/理解Cookie和Sessin机制/1.jpg" alt="1"><br></p>
+          <div class="read-more">
+            <a href="/post/理解Cookie和Sessin机制/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/post/web版微信协议分析/">web版微信协议分析</a>
         
       </h1>

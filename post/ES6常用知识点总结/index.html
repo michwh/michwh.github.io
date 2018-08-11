@@ -1,240 +1,124 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6常用知识点总结 | 凡沸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.const和let1.1 函数变量提升用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例： 1234567function a() &amp;#123;  if (...) &amp;#123;    var test = &apos;hello&apos;;  &amp;#125; else &amp;#123;    console.log(test);  &amp;#125;&amp;#125; 相当">
+<meta name="keywords" content="总结,es6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6常用知识点总结">
+<meta property="og:url" content="https://michwh.github.io/post/ES6常用知识点总结/index.html">
+<meta property="og:site_name" content="凡沸">
+<meta property="og:description" content="1.const和let1.1 函数变量提升用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例： 1234567function a() &amp;#123;  if (...) &amp;#123;    var test = &apos;hello&apos;;  &amp;#125; else &amp;#123;    console.log(test);  &amp;#125;&amp;#125; 相当">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-07-19T12:21:23.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6常用知识点总结">
+<meta name="twitter:description" content="1.const和let1.1 函数变量提升用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例： 1234567function a() &amp;#123;  if (...) &amp;#123;    var test = &apos;hello&apos;;  &amp;#125; else &amp;#123;    console.log(test);  &amp;#125;&amp;#125; 相当">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
     
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-
-  <meta name="description" content="ES6常用知识点总结"/>
-
-
-
-
-  <meta name="keywords" content="总结, es6, 凡沸" />
-
-
-
-
-
-
-
-
-
-
-  <link rel="alternate" href="/default" title="凡沸">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
-
-
-
-<link rel="canonical" href="https://michwh.github.io/post/ES6常用知识点总结/"/>
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
-
-
-
-
+  
+  <link rel="stylesheet" href="/css/style.css">
   
 
+</head>
 
-
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
-  <script id="leancloud">
-    AV.init({
-      appId: "lLG89O9D8SmVSrls704BIUXy-gzGzoHsz",
-      appKey: "QAmzov7kvfh1xzhbMKwEJ7hs"
-    });
-  </script>
-
-
-
-
-<link rel="manifest" href="/manifest.json">
-
-
-<link rel="icon" href="/images/icons/144x144.png">
-<!-- theme-color defines the top bar color (blue in my case)-->
-<meta name="theme-color" content="#c05b4d"/>
-
-<!-- Add to home screen for Safari on iOS-->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-<meta name="apple-mobile-web-app-title" content="Alex Jover Blog"/>
-<link rel="apple-touch-icon" href="/images/icons/144x144.png"/>
-
-<!-- Add to home screen for Windows-->
-<meta name="msapplication-TileImage" content="/images/icons/144x144.png"/>
-<meta name="msapplication-TileColor" content="#000000"/>
-
-    <title> ES6常用知识点总结 - 凡沸 </title>
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">凡沸</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
+<body>
+  <div id="container">
+    <div id="wrap">
+      <!-- <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
     
-      <a href="/">
-        <li class="mobile-menu-item">
-          
-          
-            首页
-          
-        </li>
-      </a>
-    
-      <a href="/archives/">
-        <li class="mobile-menu-item">
-          
-          
-            归档
-          
-        </li>
-      </a>
-    
-      <a href="/tags/">
-        <li class="mobile-menu-item">
-          
-          
-            标签
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
-
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">凡沸</a>
-</div>
-
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/">
-            
-            
-              首页
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            
-            
-              归档
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/tags/">
-            
-            
-              标签
-            
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
         
-          ES6常用知识点总结
-        
-      </h1>
-
-      <div class="post-meta">
-        
-        <span class="post-time">
-          2018-02-08
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/post/ES6常用知识点总结/"
-             data-title="ES6常用知识点总结">
-            阅读次数
-          </div>
-        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
       </div>
-    </header>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>      
+    </div>
 
-    
-    
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-const和let"><span class="toc-text">1.const和let</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-函数变量提升"><span class="toc-text">1.1 函数变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-let和const"><span class="toc-text">1.2 let和const</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字符串模板"><span class="toc-text">2.字符串模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数"><span class="toc-text">3.函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-拓展的对象功能"><span class="toc-text">4.拓展的对象功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-对象的初始化简写"><span class="toc-text">4.1 对象的初始化简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Object-assign"><span class="toc-text">4.2 Object.assign()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-解构"><span class="toc-text">5.解构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Spread-Operator展开运算符"><span class="toc-text">6.Spread Operator展开运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1组装数组或对象"><span class="toc-text">6.1组装数组或对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2获取数组或对象的某几项"><span class="toc-text">6.2获取数组或对象的某几项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3组成新的Object"><span class="toc-text">6.3组成新的Object</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-import-export"><span class="toc-text">7.import/export</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">凡沸</a>
+      </h1>
+      
     </div>
   </div>
+</header> -->
+      <div class="outer">
+        <section id="main">
+          <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>      
+    </div>
 
-
-    <div class="post-content">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">凡沸</a>
+      </h1>
       
+    </div>
+  </div>
+</header>
+          <article id="post-ES6常用知识点总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+    <a href="/post/ES6常用知识点总结/" class="article-date">
+  <time datetime="2018-02-08T13:40:20.000Z" itemprop="datePublished">2018-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6常用知识点总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
         <h2 id="1-const和let"><a href="#1-const和let" class="headerlink" title="1.const和let"></a>1.const和let</h2><h3 id="1-1-函数变量提升"><a href="#1-1-函数变量提升" class="headerlink" title="1.1 函数变量提升"></a>1.1 函数变量提升</h3><p>用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    <span class="keyword">var</span> test = <span class="string">'hello'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(test);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>相当于：</p>
@@ -298,187 +182,197 @@
 
       
     </div>
+    <footer class="article-footer">
+      
+      <a data-url="https://michwh.github.io/post/ES6常用知识点总结/" data-id="cjkpm87wo000438gc8slipnlq" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
 
-    
       
-      
-
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="https://michwh.github.io">Fan Fei</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="https://michwh.github.io/post/ES6常用知识点总结/">https://michwh.github.io/post/ES6常用知识点总结/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
+    </footer>
   </div>
-
-
-
-      
-      
+  
     
-
     
-      <footer class="post-footer">
+<nav id="article-nav">
+  
+    <a href="/post/博客维护日志/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
         
-          <div class="post-tags">
-            
-              <a href="/tags/总结/">总结</a>
-            
-              <a href="/tags/es6/">es6</a>
-            
-          </div>
+          博客维护日志
         
-        
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/post/博客维护日志/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">博客维护日志</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    
-    
-      <a class="next" href="/post/日常学习自问自答/">
-        <span class="next-text nav-default">日常学习自问自答</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
+      </div>
+    </a>
+  
+  
+    <a href="/post/日常学习自问自答/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">日常学习自问自答</div>
+    </a>
+  
+</nav>
 
-      </footer>
-    
-
-  </article>
-
-
-          </div>
-          
+  
+</article>
+ <!-- 
+     
   <div class="comments" id="comments">
     
-  </div>
-
-
-        </div>
-      </main>
-
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:fjsxhwh@gmail.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="https://github.com/michwh" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">
-    
-    &copy; 
      
-      2015 - 
+       
+       
+      
+      
+  </div>
+ 
+   -->
+
+
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
+      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+          <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav> -->
+        </section>
+           
+    <aside id="sidebar">
+  
     
-    2018
 
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Fan Fei</span>
-  </span>
-</div>
-
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
+  
+    
+    <div class="widget-wrap">
+    
+        <div class="widget" id="toc-widget">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-const和let"><span class="toc-number">1.</span> <span class="toc-text">1.const和let</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-函数变量提升"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 函数变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-let和const"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 let和const</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字符串模板"><span class="toc-number">2.</span> <span class="toc-text">2.字符串模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数"><span class="toc-number">3.</span> <span class="toc-text">3.函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-拓展的对象功能"><span class="toc-number">4.</span> <span class="toc-text">4.拓展的对象功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-对象的初始化简写"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 对象的初始化简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Object-assign"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 Object.assign()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-解构"><span class="toc-number">5.</span> <span class="toc-text">5.解构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Spread-Operator展开运算符"><span class="toc-number">6.</span> <span class="toc-text">6.Spread Operator展开运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1组装数组或对象"><span class="toc-number">6.1.</span> <span class="toc-text">6.1组装数组或对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2获取数组或对象的某几项"><span class="toc-number">6.2.</span> <span class="toc-text">6.2获取数组或对象的某几项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3组成新的Object"><span class="toc-number">6.3.</span> <span class="toc-text">6.3组成新的Object</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-import-export"><span class="toc-number">7.</span> <span class="toc-text">7.import/export</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章"><span class="toc-number">8.</span> <span class="toc-text">参考文章</span></a></li></ol>
+          </div>
       </div>
     </div>
 
+  
+    
+
+  
     
   
-  
-
-  
-
-
-
     
+
+  
+</aside>
+
+      </div>
+      <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
+      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script> -->
+      <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav> -->
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav> -->
+    <img class="back-to-top-btn" src="/images/top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+  
+
   
 
 
 
 
 
-  
-    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  
 
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
 
-  </body>
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
+</body>
 </html>

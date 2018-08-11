@@ -1,243 +1,138 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Django入门知识总结 | 凡沸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="项目结构12345678910111213141516171819django ## 项目名├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源│    ├─ __init__.py│    ├─ admin.py│    ├─ apps.py│    ├─ migrations ## 数据库操作记录│    │    └─ __init__.py│    ├─ m">
+<meta name="keywords" content="总结,django,python,入门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django入门知识总结">
+<meta property="og:url" content="https://michwh.github.io/post/Django入门知识总结/index.html">
+<meta property="og:site_name" content="凡沸">
+<meta property="og:description" content="项目结构12345678910111213141516171819django ## 项目名├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源│    ├─ __init__.py│    ├─ admin.py│    ├─ apps.py│    ├─ migrations ## 数据库操作记录│    │    └─ __init__.py│    ├─ m">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://michwh.github.io/post/Django入门知识总结/2.jpg">
+<meta property="og:image" content="https://michwh.github.io/post/Django入门知识总结/3.jpg">
+<meta property="og:image" content="https://michwh.github.io/post/Django入门知识总结/4.jpg">
+<meta property="og:image" content="https://michwh.github.io/post/Django入门知识总结/1.jpg">
+<meta property="og:updated_time" content="2018-08-10T11:36:51.538Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django入门知识总结">
+<meta name="twitter:description" content="项目结构12345678910111213141516171819django ## 项目名├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源│    ├─ __init__.py│    ├─ admin.py│    ├─ apps.py│    ├─ migrations ## 数据库操作记录│    │    └─ __init__.py│    ├─ m">
+<meta name="twitter:image" content="https://michwh.github.io/post/Django入门知识总结/2.jpg">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
     
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-
-  <meta name="description" content="Django入门知识总结"/>
-
-
-
-
-  <meta name="keywords" content="django, python, 总结, 入门, 凡沸" />
-
-
-
-
-
-
-
-
-
-
-  <link rel="alternate" href="/default" title="凡沸">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
-
-
-
-<link rel="canonical" href="https://michwh.github.io/post/Django入门知识总结/"/>
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
-
-
-
-
+  
+  <link rel="stylesheet" href="/css/style.css">
   
 
+</head>
 
-
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
-  <script id="leancloud">
-    AV.init({
-      appId: "lLG89O9D8SmVSrls704BIUXy-gzGzoHsz",
-      appKey: "QAmzov7kvfh1xzhbMKwEJ7hs"
-    });
-  </script>
-
-
-
-
-<link rel="manifest" href="/manifest.json">
-
-
-<link rel="icon" href="/images/icons/144x144.png">
-<!-- theme-color defines the top bar color (blue in my case)-->
-<meta name="theme-color" content="#c05b4d"/>
-
-<!-- Add to home screen for Safari on iOS-->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-<meta name="apple-mobile-web-app-title" content="Alex Jover Blog"/>
-<link rel="apple-touch-icon" href="/images/icons/144x144.png"/>
-
-<!-- Add to home screen for Windows-->
-<meta name="msapplication-TileImage" content="/images/icons/144x144.png"/>
-<meta name="msapplication-TileColor" content="#000000"/>
-
-    <title> Django入门知识总结 - 凡沸 </title>
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">凡沸</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
+<body>
+  <div id="container">
+    <div id="wrap">
+      <!-- <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
     
-      <a href="/">
-        <li class="mobile-menu-item">
-          
-          
-            首页
-          
-        </li>
-      </a>
-    
-      <a href="/archives/">
-        <li class="mobile-menu-item">
-          
-          
-            归档
-          
-        </li>
-      </a>
-    
-      <a href="/tags/">
-        <li class="mobile-menu-item">
-          
-          
-            标签
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
-
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">凡沸</a>
-</div>
-
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/">
-            
-            
-              首页
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            
-            
-              归档
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/tags/">
-            
-            
-              标签
-            
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
         
-          Django入门知识总结
-        
-      </h1>
-
-      <div class="post-meta">
-        
-        <span class="post-time">
-          2018-08-07
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/post/Django入门知识总结/"
-             data-title="Django入门知识总结">
-            阅读次数
-          </div>
-        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
       </div>
-    </header>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>      
+    </div>
 
-    
-    
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目结构"><span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目搭建过程"><span class="toc-text">项目搭建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用虚拟环境-Virtualenv"><span class="toc-text">使用虚拟环境 Virtualenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建app"><span class="toc-text">创建app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建MySQL数据库"><span class="toc-text">创建MySQL数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#settings-py设置"><span class="toc-text">settings.py设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pycharm终端命令"><span class="toc-text">pycharm终端命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跨域问题"><span class="toc-text">跨域问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#报错"><span class="toc-text">报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集成vue，实现前后端分离"><span class="toc-text">集成vue，实现前后端分离</span></a></li></ol>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">凡沸</a>
+      </h1>
+      
     </div>
   </div>
+</header> -->
+      <div class="outer">
+        <section id="main">
+          <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>      
+    </div>
 
-
-    <div class="post-content">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">凡沸</a>
+      </h1>
       
-        <h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">django ## 项目名</span><br><span class="line">├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源</span><br><span class="line">│    ├─ __init__.py</span><br><span class="line">│    ├─ admin.py</span><br><span class="line">│    ├─ apps.py</span><br><span class="line">│    ├─ migrations ## 数据库操作记录</span><br><span class="line">│    │    └─ __init__.py</span><br><span class="line">│    ├─ models.py ## 模型定义文件，和数据库模型相关的代码</span><br><span class="line">│    ├─ tests.py</span><br><span class="line">│    └─ views.py ## 视图文件</span><br><span class="line">├─ django</span><br><span class="line">│    ├─ __init__.py</span><br><span class="line">│    ├─ __pycache__</span><br><span class="line">│    │    ├─ __init__.cpython-37.pyc</span><br><span class="line">│    │    └─ settings.cpython-37.pyc</span><br><span class="line">│    ├─ settings.py //主配置文件</span><br><span class="line">│    ├─ urls.py //url路由文件</span><br><span class="line">│    └─ wsgi.py</span><br><span class="line">└─ manage.py //Django管理主程序</span><br></pre></td></tr></table></figure>
+    </div>
+  </div>
+</header>
+          <article id="post-Django入门知识总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+    <a href="/post/Django入门知识总结/" class="article-date">
+  <time datetime="2018-08-07T15:42:39.000Z" itemprop="datePublished">2018-08-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Django入门知识总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">django ## 项目名</span><br><span class="line">├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源</span><br><span class="line">│    ├─ __init__.py</span><br><span class="line">│    ├─ admin.py</span><br><span class="line">│    ├─ apps.py</span><br><span class="line">│    ├─ migrations ## 数据库操作记录</span><br><span class="line">│    │    └─ __init__.py</span><br><span class="line">│    ├─ models.py ## 模型定义文件，和数据库模型相关的代码</span><br><span class="line">│    ├─ tests.py</span><br><span class="line">│    └─ views.py ## 视图文件</span><br><span class="line">├─ django #与项目同名的文件夹</span><br><span class="line">│    ├─ __init__.py</span><br><span class="line">│    ├─ __pycache__</span><br><span class="line">│    │    ├─ __init__.cpython-37.pyc</span><br><span class="line">│    │    └─ settings.cpython-37.pyc</span><br><span class="line">│    ├─ settings.py //主配置文件</span><br><span class="line">│    ├─ urls.py //url路由文件</span><br><span class="line">│    └─ wsgi.py</span><br><span class="line">└─ manage.py //Django管理主程序</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="项目搭建过程"><a href="#项目搭建过程" class="headerlink" title="项目搭建过程"></a>项目搭建过程</h1><h3 id="使用虚拟环境-Virtualenv"><a href="#使用虚拟环境-Virtualenv" class="headerlink" title="使用虚拟环境 Virtualenv"></a>使用虚拟环境 Virtualenv</h3><p>已建在<strong>C:/users/joy/django/venv</strong>下，在pycharm中打开setting添加本地python环境</p>
+<h1 id="项目搭建过程"><a href="#项目搭建过程" class="headerlink" title="项目搭建过程"></a>项目搭建过程</h1><h3 id="使用虚拟环境-Virtualenv"><a href="#使用虚拟环境-Virtualenv" class="headerlink" title="使用虚拟环境 Virtualenv"></a>使用虚拟环境 Virtualenv</h3><p><strong>安装virtualenv</strong></p>
+<p>win+r打开控制台输入cmd</p>
+<p>输入<code>pip install virtualenv</code></p>
+<p>进入一个希望创建虚拟python环境的文件夹下面，创建一个虚拟环境（此处为venv）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmd&gt;D:&gt;cd virtualenv </span><br><span class="line">cmd&gt;D:\virtualenv&gt;virtualenv venv</span><br></pre></td></tr></table></figure>
+<p>（本机虚拟环境已建在<strong>C:/users/joy/django</strong>下）</p>
+<p>在pycharm中打开setting添加本地python环境</p>
 <p><img src="/post/Django入门知识总结/2.jpg" alt="2"></p>
 <p>选择刚刚创建的虚拟环境</p>
 <p><img src="/post/Django入门知识总结/3.jpg" alt="3"></p>
@@ -250,222 +145,236 @@
 <p>virtualenv 创建的虚拟环境与主机的 Python 环境完全无关，</p>
 <p>你主机配置的库不能在 virtualenv 中直接使用。 </p>
 <p>你需要在虚拟环境中利用 pip install 再次安装配置后才能使用。</p>
+<p><strong>参考文章</strong></p>
 <p><a href="https://blog.csdn.net/hy245120020/article/details/50776197" target="_blank" rel="noopener">windows下使用pycharm配置python的virtualenv环境</a></p>
 <h3 id="创建app"><a href="#创建app" class="headerlink" title="创建app"></a>创建app</h3><p>在pycharm下方的terminal终端中输入命令：<code>python manage.py startapp cmdb</code></p>
 <p>这样就创建了一个叫做cmdb的APP，django自动生成“cmdb”文件夹。</p>
 <p>创建的app需要在settings.py里注册：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Application definition</span></span><br><span class="line"></span><br><span class="line">INSTALLED_APPS = ( </span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="string">'cmdb'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Application definition</span></span><br><span class="line"></span><br><span class="line">INSTALLED_APPS = ( </span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="string">'cmdb'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <h3 id="创建MySQL数据库"><a href="#创建MySQL数据库" class="headerlink" title="创建MySQL数据库"></a>创建MySQL数据库</h3><p>在pycharm中打开File-&gt;Settings，在左边栏找到当前项目，选择Project Interpreter</p>
 <p>点击右边栏右上角的加号：</p>
 <p><img src="/post/Django入门知识总结/1.jpg" alt="1"></p>
 <p>搜索pymsql，在点击左下角的Install Package</p>
 <p>在settings.py中的DATABASES下填写数据库信息，例：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 库名</span></span><br><span class="line">        <span class="string">'USER'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 用户名</span></span><br><span class="line">        <span class="string">'PASSWORD'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 密码</span></span><br><span class="line">        <span class="string">'HOST'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 数据库主机ip</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 库名</span></span><br><span class="line">        <span class="string">'USER'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 用户名</span></span><br><span class="line">        <span class="string">'PASSWORD'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 密码</span></span><br><span class="line">        <span class="string">'HOST'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 数据库主机ip</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="settings-py设置"><a href="#settings-py设置" class="headerlink" title="settings.py设置"></a>settings.py设置</h3><p>将settings.py中的：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'en-us'</span></span><br><span class="line">TIME_ZONE = <span class="string">'UTC'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'en-us'</span></span><br><span class="line">TIME_ZONE = <span class="string">'UTC'</span></span><br></pre></td></tr></table></figure>
 <p>改成</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'zh-hans'</span></span><br><span class="line">TIME_ZONE = <span class="string">'Asia/Shanghai'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'zh-hans'</span></span><br><span class="line">TIME_ZONE = <span class="string">'Asia/Shanghai'</span></span><br></pre></td></tr></table></figure>
 <p>让Django支持中文</p>
 <h1 id="pycharm终端命令"><a href="#pycharm终端命令" class="headerlink" title="pycharm终端命令"></a>pycharm终端命令</h1><p><code>python manage.py runserver</code>：启动服务</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置好自定义用户模型后，生成数据库迁移文件，并且迁移数据库以生成各个应用必要的数据库表</span></span><br><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置好自定义用户模型后，生成数据库迁移文件，并且迁移数据库以生成各个应用必要的数据库表</span></span><br><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
 <h1 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h1><p>须要在Django层注入header，用Django的第三方包django-cors-headers来解决跨域问题：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-cors-headers</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-cors-headers</span><br></pre></td></tr></table></figure>
 <p>settings.py 修改：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">'django.middleware.security.SecurityMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</span><br><span class="line">    <span class="string">'corsheaders.middleware.CorsMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.common.CommonMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.csrf.CsrfViewMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth.middleware.AuthenticationMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages.middleware.MessageMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</span>,</span><br><span class="line">]</span><br><span class="line"> </span><br><span class="line">CORS_ORIGIN_ALLOW_ALL = <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">'django.middleware.security.SecurityMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</span><br><span class="line">    <span class="string">'corsheaders.middleware.CorsMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.common.CommonMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.csrf.CsrfViewMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth.middleware.AuthenticationMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages.middleware.MessageMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</span>,</span><br><span class="line">]</span><br><span class="line"> </span><br><span class="line">CORS_ORIGIN_ALLOW_ALL = <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
 <p>注意中间件的添加顺序</p>
 <h1 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h1><p><strong>1.<code>ValueError: Dependency on app with no migrations: users</code></strong></p>
 <p>这是因为我们没有对app users进行migration</p>
 <p>执行下面两条命令即可：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py  makemigrations</span><br><span class="line">python manage.py  migrate</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py  makemigrations</span><br><span class="line">python manage.py  migrate</span><br></pre></td></tr></table></figure>
+<p><strong>2.<code>Forbidden (CSRF cookie not set.): /users/register</code></strong></p>
+<p>这是因为Django对表单post请求做的安全性验证，在app开发中，可以干掉这一项</p>
+<p>到setting里面注释掉下面的注释位置就好</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">'django.middleware.security.SecurityMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.common.CommonMiddleware'</span>,</span><br><span class="line">    <span class="comment">#'django.middleware.csrf.CsrfViewMiddleware',</span></span><br><span class="line">    <span class="string">'django.contrib.auth.middleware.AuthenticationMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages.middleware.MessageMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>3.<code>django.template.exceptions.TemplateDoesNotExist:</code></strong></p>
+<p>在与vue进行前后端分离开发时，只有一个页面index.html</p>
 <h1 id="集成vue，实现前后端分离"><a href="#集成vue，实现前后端分离" class="headerlink" title="集成vue，实现前后端分离"></a>集成vue，实现前后端分离</h1><p>在前端项目中执行<code>npm run build</code>，前端项目下会生成一个dist文件夹</p>
 <p>把前端项目文件夹（例如onehome)放到Django项目(onehomeServer)里</p>
 <p>修改django的settings文件：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">        <span class="string">'DIRS'</span>: [<span class="string">'onehome/dist'</span>],</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="keyword">True</span>,</span><br><span class="line">        <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="string">'context_processors'</span>: [</span><br><span class="line">                <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">                <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add for vuejs</span></span><br><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">"onehome/dist/static"</span>),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">        <span class="string">'DIRS'</span>: [<span class="string">'onehome/dist'</span>],</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="keyword">True</span>,</span><br><span class="line">        <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="string">'context_processors'</span>: [</span><br><span class="line">                <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">                <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add for vuejs</span></span><br><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">"onehome/dist/static"</span>),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>修改django的主目录的urls文件：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url, include</span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">    url(<span class="string">r'^$'</span>, TemplateView.as_view(template_name=<span class="string">"index.html"</span>)), <span class="comment">## 这里将url的根路径指向vue中的index页面</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url, include</span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">    url(<span class="string">r'^$'</span>, TemplateView.as_view(template_name=<span class="string">"index.html"</span>)), <span class="comment">## 这里将url的根路径指向vue中的index页面</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>启动django服务，访问localhost:8000 则可以出现vue的首页。</p>
+<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h2 id="django-extensions"><a href="#django-extensions" class="headerlink" title="django-extensions"></a>django-extensions</h2><p>可检查urls是不是已经被添加</p>
+<p>安装：<code>pip install django-extensions</code></p>
+<p>将’django_extensions’添加到settings.py的INSTALLED_APPS中</p>
+<p>然后列出所有urls:<code>python manage.py show_urls</code></p>
 
       
     </div>
+    <footer class="article-footer">
+      
+      <a data-url="https://michwh.github.io/post/Django入门知识总结/" data-id="cjkpm87vu000238gcw1efkj2n" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
 
-    
       
-      
-
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="https://michwh.github.io">Fan Fei</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="https://michwh.github.io/post/Django入门知识总结/">https://michwh.github.io/post/Django入门知识总结/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
+    </footer>
   </div>
-
-
-
-      
-      
-    
-
-    
-      <footer class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/django/">django</a>
-            
-              <a href="/tags/python/">python</a>
-            
-              <a href="/tags/总结/">总结</a>
-            
-              <a href="/tags/入门/">入门</a>
-            
-          </div>
-        
-        
-        
-  <nav class="post-nav">
+  
     
     
-      <a class="next" href="/post/JavaScript30知识点总结/">
-        <span class="next-text nav-default">JavaScript30知识点总结</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
+<nav id="article-nav">
+  
+  
+    <a href="/post/JavaScript30知识点总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">JavaScript30知识点总结</div>
+    </a>
+  
+</nav>
 
-      </footer>
-    
-
-  </article>
-
-
-          </div>
-          
+  
+</article>
+ <!-- 
+     
   <div class="comments" id="comments">
     
-  </div>
-
-
-        </div>
-      </main>
-
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:fjsxhwh@gmail.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="https://github.com/michwh" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">
-    
-    &copy; 
      
-      2015 - 
+       
+       
+      
+      
+  </div>
+ 
+   -->
+
+
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
+      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+          <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav> -->
+        </section>
+           
+    <aside id="sidebar">
+  
     
-    2018
 
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Fan Fei</span>
-  </span>
-</div>
-
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
+  
+    
+    <div class="widget-wrap">
+    
+        <div class="widget" id="toc-widget">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目结构"><span class="toc-number">1.</span> <span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目搭建过程"><span class="toc-number">2.</span> <span class="toc-text">项目搭建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用虚拟环境-Virtualenv"><span class="toc-number">2.0.1.</span> <span class="toc-text">使用虚拟环境 Virtualenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建app"><span class="toc-number">2.0.2.</span> <span class="toc-text">创建app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建MySQL数据库"><span class="toc-number">2.0.3.</span> <span class="toc-text">创建MySQL数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#settings-py设置"><span class="toc-number">2.0.4.</span> <span class="toc-text">settings.py设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pycharm终端命令"><span class="toc-number">3.</span> <span class="toc-text">pycharm终端命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跨域问题"><span class="toc-number">4.</span> <span class="toc-text">跨域问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#报错"><span class="toc-number">5.</span> <span class="toc-text">报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集成vue，实现前后端分离"><span class="toc-number">6.</span> <span class="toc-text">集成vue，实现前后端分离</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插件"><span class="toc-number">7.</span> <span class="toc-text">插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#django-extensions"><span class="toc-number">7.1.</span> <span class="toc-text">django-extensions</span></a></li></ol></li></ol>
+          </div>
       </div>
     </div>
 
+  
+    
+
+  
     
   
-  
-
-  
-
-
-
     
+
+  
+</aside>
+
+      </div>
+      <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
+      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script> -->
+      <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav> -->
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav> -->
+    <img class="back-to-top-btn" src="/images/top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+  
+
   
 
 
 
 
 
-  
-    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  
 
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
 
-  </body>
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
+</body>
 </html>

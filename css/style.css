@@ -610,7 +610,6 @@ a.article-title:hover {
 }
 .article-entry .table-responsive {
   width: 100%;
-  margin-bottom: 20px;
   overflow: auto;
 }
 .article-entry th {
@@ -1006,7 +1005,7 @@ a.article-title:hover {
   max-width: 28%;
 }
 .toc-title {
-  font-size: 120%;
+  font-size: 20px;
 }
 #toc {
   line-height: 1em;
@@ -1015,14 +1014,14 @@ a.article-title:hover {
 }
 .toc {
   padding: 0;
-  margin: 1em;
   line-height: 1.8em;
 }
 .toc li {
   list-style-type: none;
 }
 .toc-child {
-  margin-left: 1em;
+  margin-left: 0;
+  padding-left: 0;
 }
 #toc-widget {
   background: #eee;
@@ -1037,13 +1036,13 @@ a.article-title:hover {
 }
 .toc-widget-list {
   background: #eee;
-  margin: 0.4em 0 0.3em 0;
-  padding: 1.2em 1em 0 0.5em;
-  max-width: 90%;
+  margin: 0.2em 0 0.2em 0;
+  padding: 1.2em 0 0 0.5em;
+  max-width: 100%;
 }
 .toc-widget-list li>a {
   color: #258fb8;
-  font-size: 120%;
+  font-size: 16px;
 }
 #comments {
   background: #fff;
@@ -1209,7 +1208,7 @@ a.article-title:hover {
 .article-entry .highlight {
   background: #f5f2f0;
   margin: 0 -10px;
-  padding: 15px 10px;
+  padding: 10px 10px;
   border-style: solid;
   border-color: #ddd;
   border-width: 2px;
@@ -1719,7 +1718,7 @@ span.ua .location:before {
   -webkit-box-shadow: 0 -1px 4px #eee inset;
   box-shadow: 0 -1px 4px #eee inset;
   border: 1px solid #eee;
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
 }
 .widget a {
@@ -1759,7 +1758,7 @@ span.ua .location:before {
 .widget ol ul,
 .widget ul ol,
 .widget ol ol {
-  margin: 0 20px;
+  margin: 0 0 0 10px;
 }
 .widget ul ol,
 .widget ol ol {

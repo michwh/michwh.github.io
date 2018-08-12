@@ -328,6 +328,7 @@ body {
 @media screen and (max-width: 479px) {
   #header {
     padding-top: 0;
+    z-index: 10;
   }
 }
 #header-outer {
@@ -496,9 +497,6 @@ body {
   margin: 20px 0;
   padding: 0 1em;
 }
-.article-inner {
-  overflow: hidden;
-}
 .article-meta:before,
 .article-meta:after {
   content: "";
@@ -606,17 +604,26 @@ a.article-title:hover {
 }
 .article-entry table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 }
+.article-entry .table-responsive {
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: auto;
+}
 .article-entry th {
   font-weight: 500;
-  border-bottom: 3px solid #ddd;
-  padding-bottom: 0.5em;
+  padding: 5px 15px;
+  border: 1px double #d3d3d3;
 }
 .article-entry td {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+  padding: 5px 15px;
+  border: 1px double #d3d3d3;
+}
+.article-entry thead {
+  background: #deebf7;
 }
 .article-entry blockquote {
   font-family: Georgia, "Times New Roman", serif;

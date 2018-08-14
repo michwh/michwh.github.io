@@ -22,8 +22,8 @@
 <meta property="og:image" content="https://michwh.github.io/post/《CSS世界》读书笔记/8.jpg">
 <meta property="og:image" content="https://michwh.github.io/post/《CSS世界》读书笔记/9.jpg">
 <meta property="og:image" content="https://michwh.github.io/post/《CSS世界》读书笔记/10.jpg">
-<meta property="og:image" content="https://michwh.github.io/post/《CSS世界》读书笔记/b436e90b/11.jpg">
-<meta property="og:updated_time" content="2018-07-22T12:57:55.322Z">
+<meta property="og:image" content="https://michwh.github.io/post/《CSS世界》读书笔记/11.jpg">
+<meta property="og:updated_time" content="2018-08-14T11:12:40.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《CSS世界》读书笔记">
 <meta name="twitter:description" content="内容太多，弃更了。">
@@ -97,7 +97,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!-- Table of Contents -->
-        
+        <!--  -->
         <p>内容太多，弃更了。</p>
 <a id="more"></a>
 <h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h1><p><strong>文档流</strong>：是CSS中一中基本的定位和布局机制。引导元素在容器内“从左往右自上而下”地排列。</p>
@@ -200,14 +200,14 @@
 <p>缺点：过深的嵌套会增加页面渲染和维护成本。</p>
 <h3 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h3><p>content box、padding box、border box和margin box是内在盒子。默认情况下，width是作用在content box上的，box-sizing的作用就是可以把width作用的盒子变成其他几个。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span> &#123;<span class="attribute">box-sizing</span>: content-box; &#125;<span class="comment">/* 默认值 */</span></span><br><span class="line"><span class="selector-class">.box2</span> &#123;<span class="attribute">box-sizing</span>: padding-box; &#125;<span class="comment">/* 不支持 */</span></span><br><span class="line"><span class="selector-class">.box3</span> &#123;<span class="attribute">box-sizing</span>: border-box; &#125;<span class="comment">/* 全线支持 */</span></span><br><span class="line"><span class="selector-class">.box4</span> &#123;<span class="attribute">box-sizing</span>: margin-box; &#125;<span class="comment">/* 不支持 */</span></span><br></pre></td></tr></table></figure>
-<p><img src="/post/《CSS世界》读书笔记/b436e90b/11.jpg" alt="box-sizing作用示意图"></p>
+<p><img src="/post/《CSS世界》读书笔记/11.jpg" alt="box-sizing作用示意图"></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="comment">/* 宽度是100px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">  <span class="comment">/* 宽度也是100px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
       
-      <a data-url="https://michwh.github.io/post/《CSS世界》读书笔记/" data-id="cjkth9d9z000emkgci3inp4o8" class="article-share-link">分享</a>
+      <a data-url="https://michwh.github.io/post/《CSS世界》读书笔记/" data-id="cjktocfbk000bb8gckefms6g7" class="article-share-link">分享</a>
       
       
       
@@ -240,7 +240,7 @@
 
   
 </article>
- <!-- 
+ 
      
   <div class="comments" id="comments">
     
@@ -251,7 +251,7 @@
       
   </div>
  
-   -->
+  
 
 
           <footer id="footer">
@@ -276,9 +276,7 @@
   
     
     <div class="widget-wrap">
-    
         <div class="widget" id="toc-widget">
-      
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
               <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-概述"><span class="toc-number">1.</span> <span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-术语和概念"><span class="toc-number">2.</span> <span class="toc-text">2.术语和概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-专业术语"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 专业术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">2.1.1.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#值"><span class="toc-number">2.1.2.</span> <span class="toc-text">值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键字"><span class="toc-number">2.1.3.</span> <span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量"><span class="toc-number">2.1.4.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#长度单位"><span class="toc-number">2.1.5.</span> <span class="toc-text">长度单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能符"><span class="toc-number">2.1.6.</span> <span class="toc-text">功能符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-未定义行为"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 未定义行为</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-流、元素和基本尺寸"><span class="toc-number">3.</span> <span class="toc-text">3.流、元素和基本尺寸</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-display"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 display</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-width-height"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 width/height</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#width-auto"><span class="toc-number">3.2.1.</span> <span class="toc-text">width:auto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宽度分离原则"><span class="toc-number">3.2.2.</span> <span class="toc-text">宽度分离原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#box-sizing"><span class="toc-number">3.2.3.</span> <span class="toc-text">box-sizing</span></a></li></ol></li></ol></li></ol>
@@ -289,7 +287,7 @@
   
     
   
-    <!--微信公众号二维码-->
+    <!--打赏二维码-->
 
 
   

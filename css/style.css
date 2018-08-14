@@ -197,10 +197,20 @@ body {
   -moz-transform: rotateZ(180deg);
   -ms-transform: rotateZ(180deg);
   transform: rotateZ(180deg);
+  -webkit-transition: -webkit-transform 1s ease-out;
+  -moz-transition: -moz-transform 1s ease-out;
+  -o-transition: -o-transform 1s ease-out;
+  -ms-transition: -ms-transform 1s ease-out;
 }
 @media screen and (min-width: 768px) {
   #main {
     width: 850px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 479px) {
+  #main {
+    margin-left: 0 !important;
     margin: 0 auto;
   }
 }
@@ -1615,11 +1625,7 @@ span.ua .location:before {
   overflow: hidden;
 }
 .wechat-widget > img {
-  border-radius: 2em;
-  -webkit-transition: -webkit-transform 6s ease-out;
-  -moz-transition: -moz-transform 6s ease-out;
-  -o-transition: -o-transform 6s ease-out;
-  -ms-transition: -ms-transform 6s ease-out;
+  border-radius: 1em;
 }
 #random_posts {
   margin-top: 2em;
@@ -1669,14 +1675,14 @@ span.ua .location:before {
   font-size: 1em;
   font-weight: normal;
 }
-@media screen and (max-width: 479px) {
-  #sidebar {
-    display: none;
-  }
-}
 @media screen and (min-width: 768px) {
   #sidebar {
     width: 350px;
+  }
+}
+@media screen and (max-width: 479px) {
+  #sidebar {
+    display: none !important;
   }
 }
 #sidebar {
@@ -1689,7 +1695,7 @@ span.ua .location:before {
   display: none;
 }
 .widget-wrap {
-  margin: 20px 1em;
+  margin: 20px 1.5em;
 }
 .widget-title {
   margin-bottom: 1em;

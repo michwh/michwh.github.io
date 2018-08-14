@@ -88,7 +88,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!-- Table of Contents -->
-        
+        <!--  -->
         <h1 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h1><p><img src="/post/web版微信协议分析/1.png" alt="1"><br><a id="more"></a><br>1.打开页面后，向服务器发送一个get请求，服务器会返回一个uuid</p>
 <p>2.凭借这个uuid就可以获得用于登录的二维码</p>
 <p>3.在获取到二维码和用户扫描二维码并确认登录之间，客户端会每隔一段时间向服务器发送一个get请求来查看这个二维码是否被扫描。如果二维码被扫描，返回<code>window.code=201;</code>，否则返回<code>window.code=408;</code>。如果这个二维码长时间没有被扫描，那么这个二维码就会失效。另外，如果二维码被扫描了，但是用户一直没有在手机上点确定登录，那么一段时间后，服务器也会返回<code>window.code=408;</code>。一旦用户点了确定登录，那么服务器就会返回<code>window.code=200;</code>。</p>
@@ -383,7 +383,7 @@
     </div>
     <footer class="article-footer">
       
-      <a data-url="https://michwh.github.io/post/web版微信协议分析/" data-id="cjkth9d9u000bmkgcoidjrdhn" class="article-share-link">分享</a>
+      <a data-url="https://michwh.github.io/post/web版微信协议分析/" data-id="cjktocfbu000jb8gc524frzlm" class="article-share-link">分享</a>
       
       
       
@@ -416,7 +416,7 @@
 
   
 </article>
- <!-- 
+ 
      
   <div class="comments" id="comments">
     
@@ -427,7 +427,7 @@
       
   </div>
  
-   -->
+  
 
 
           <footer id="footer">
@@ -452,9 +452,7 @@
   
     
     <div class="widget-wrap">
-    
         <div class="widget" id="toc-widget">
-      
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
               <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#执行流程"><span class="toc-number">1.</span> <span class="toc-text">执行流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#具体分析"><span class="toc-number">2.</span> <span class="toc-text">具体分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#获得uuid"><span class="toc-number">2.1.</span> <span class="toc-text">获得uuid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获得二维码"><span class="toc-number">2.2.</span> <span class="toc-text">获得二维码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查二维码扫描状态"><span class="toc-number">2.3.</span> <span class="toc-text">检查二维码扫描状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登录获取cookie"><span class="toc-number">2.4.</span> <span class="toc-text">登录获取cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">2.5.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启状态通知"><span class="toc-number">2.6.</span> <span class="toc-text">开启状态通知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取联系人信息"><span class="toc-number">2.7.</span> <span class="toc-text">获取联系人信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#心跳检查"><span class="toc-number">2.8.</span> <span class="toc-text">心跳检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取最新消息"><span class="toc-number">2.9.</span> <span class="toc-text">获取最新消息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发送消息"><span class="toc-number">2.10.</span> <span class="toc-text">发送消息</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章-项目"><span class="toc-number">3.</span> <span class="toc-text">参考文章/项目</span></a></li></ol>
@@ -465,7 +463,7 @@
   
     
   
-    <!--微信公众号二维码-->
+    <!--打赏二维码-->
 
 
   

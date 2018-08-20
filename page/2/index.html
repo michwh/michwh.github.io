@@ -59,6 +59,99 @@
 </header>
           
   
+    <article id="post-利用Termux在手机上写nodejs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+    <a href="/post/利用Termux在手机上写nodejs/" class="article-date">
+  <time datetime="2018-06-07T14:49:57.000Z" itemprop="datePublished">2018-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/利用Termux在手机上写nodejs/">利用Termux在手机上写nodejs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Termux是一款开源且不需要root，运行在Android终端上极其强大的linux模拟器，支持apt管理软件包，完美支持python,ruby,go,nodejs。</p>
+<h2 id="键盘的选择"><a href="#键盘的选择" class="headerlink" title="键盘的选择"></a>键盘的选择</h2><p> 如果使用软键盘的话可以下载<strong>Hacker’s Keyboard</strong>来解决一般的输入法没有Ctrl、Alt、Tab、Esc这些常用控制键的问题。另外，<strong>Hacker’s Keyboard</strong>只有在手机横屏的时候才会显示所有的按键。当然，也可以像我一样使用蓝牙键盘。</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
+<li><p>下载安装完Termux后打开Termux，输入<code>apt update &amp;&amp; apt upgrade</code>并按回车进行升级</p>
+</li>
+<li><p>安装node.js和vim：<code>apt install nodejs vim</code>（Termux带有一个包管理器apt，平常要装什么包都要用apt命令）</p>
+</li>
+<li><p>程序创建一个目录并切换到这个目录：<code>mkdir test-node &amp;&amp; cd test-node</code></p>
+</li>
+<li><p>创建文件<strong>server.js</strong>：<code>touch server.js</code></p></li></ul>
+        
+          <p class="article-more-link">
+            <a href="/post/利用Termux在手机上写nodejs/#more">阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-CSS水平垂直居中对齐方法小结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+    <a href="/post/CSS水平垂直居中对齐方法小结/" class="article-date">
+  <time datetime="2018-06-06T15:05:12.000Z" itemprop="datePublished">2018-06-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/CSS水平垂直居中对齐方法小结/">CSS水平垂直居中对齐方法小结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="单行文本元素垂直居中"><a href="#单行文本元素垂直居中" class="headerlink" title="单行文本元素垂直居中"></a>单行文本元素垂直居中</h1><p>单行文本若想在包裹它的标签内垂直居中，可使<code>line-height</code>的值与<code>height</code>的值相等</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//css</span><br><span class="line">.vertical &#123;</span><br><span class="line">  height: 100px;</span><br><span class="line">  line-height: 100px;</span><br><span class="line">  border: 1px solid black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//html</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"vertical"</span>&gt;</span>content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/post/CSS水平垂直居中对齐方法小结/1.jpg" alt="1"><br></p>
+        
+          <p class="article-more-link">
+            <a href="/post/CSS水平垂直居中对齐方法小结/#more">阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-Element-UI使用小技巧" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -415,127 +508,10 @@
 
 
   
-    <article id="post-如何用Hexo在GitHub上搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-    <a href="/post/如何用Hexo在GitHub上搭建博客/" class="article-date">
-  <time datetime="2018-01-22T09:49:44.000Z" itemprop="datePublished">2018-01-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/如何用Hexo在GitHub上搭建博客/">如何用Hexo在GitHub上搭建博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><ul>
-<li><p>在GitHub上建一个名为  <strong>GitHub用户名.github.io</strong>  的项目</p>
-</li>
-<li><p>电脑上安装了Node.js和Git</p>
-</li>
-<li><p>打开git命令，输入 <code>npm install -g hexo-cli</code> 开始安装Hexo</p>
-</li>
-<li><p>安装成功后输入 <code>hexo -v</code> 会显示hexo的版本</p>
-</li>
-<li><p>在本地磁盘上建一个文件夹（比如blog)</p>
-</li>
-<li><p>打开blog文件夹，鼠标右键，选择 Git Bash Here</p>
-</li>
-<li><p>输入 <code>hexo init</code> 将blog文件夹初始化成一个博客文件夹</p>
-</li>
-<li><p>输入 <code>npm install</code> 安装依赖包</p>
-</li>
-<li><p>获取GitHub上项目的链接</p></li></ul>
-        
-          <p class="article-more-link">
-            <a href="/post/如何用Hexo在GitHub上搭建博客/#more">阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-git操作总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-    <a href="/post/git操作总结/" class="article-date">
-  <time datetime="2018-01-22T08:03:17.000Z" itemprop="datePublished">2018-01-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/git操作总结/">git操作总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="用git在码云或者GitHub上提交代码"><a href="#用git在码云或者GitHub上提交代码" class="headerlink" title="用git在码云或者GitHub上提交代码"></a>用git在码云或者GitHub上提交代码</h2><p>（这种是把代码提交到master分支）</p>
-<ul>
-<li><p>在本地建一个与码云/GitHub上同名的项目文件夹</p>
-</li>
-<li><p>打开本地的这个文件夹，鼠标右键，选择 “Git Bash Here”</p>
-</li>
-<li><p>在git命令窗口输入 <code>git init</code></p>
-</li>
-<li><p>再输入 <code>git remote add origin 项目地址</code> 这样本地文件夹就和码云/GitHub上的项目连接了</p>
-</li>
-<li><p>再输入 <code>git pull origin master</code>  码云/GitHub上的代码就会全部复制到本地</p>
-</li>
-<li><p>在本地文件夹内进行代码修改</p>
-</li>
-<li><p>修改完后，在git命令中输入 <code>git add .</code></p>
-</li>
-<li><p>输入 <code>git commit -m &quot;修改说明&quot;</code></p>
-</li>
-<li><p>再输入 <code>git push origin master</code></p></li></ul>
-        
-          <p class="article-more-link">
-            <a href="/post/git操作总结/#more">阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页&raquo;</a>
   </nav>
 
           <footer id="footer">
@@ -580,7 +556,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title tagcloud">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/bcryptjs/" style="font-size: 14px;">bcryptjs</a> <a href="/tags/cookie/" style="font-size: 14px;">cookie</a> <a href="/tags/css/" style="font-size: 21.33px;">css</a> <a href="/tags/django/" style="font-size: 14px;">django</a> <a href="/tags/element-ui/" style="font-size: 14px;">element-ui</a> <a href="/tags/es6/" style="font-size: 14px;">es6</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/hexo/" style="font-size: 17.67px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/http/" style="font-size: 17.67px;">http</a> <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/jwt/" style="font-size: 14px;">jwt</a> <a href="/tags/koa/" style="font-size: 14px;">koa</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/session/" style="font-size: 14px;">session</a> <a href="/tags/sublime/" style="font-size: 14px;">sublime</a> <a href="/tags/termux/" style="font-size: 14px;">termux</a> <a href="/tags/vue/" style="font-size: 17.67px;">vue</a> <a href="/tags/入门/" style="font-size: 17.67px;">入门</a> <a href="/tags/博客/" style="font-size: 17.67px;">博客</a> <a href="/tags/好玩/" style="font-size: 14px;">好玩</a> <a href="/tags/小程序/" style="font-size: 17.67px;">小程序</a> <a href="/tags/微信/" style="font-size: 21.33px;">微信</a> <a href="/tags/总结/" style="font-size: 25px;">总结</a> <a href="/tags/计划/" style="font-size: 17.67px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 17.67px;">读书笔记</a> <a href="/tags/项目/" style="font-size: 21.33px;">项目</a>
+      <a href="/tags/APIView/" style="font-size: 14px;">APIView</a> <a href="/tags/DRF/" style="font-size: 14px;">DRF</a> <a href="/tags/bcryptjs/" style="font-size: 14px;">bcryptjs</a> <a href="/tags/cookie/" style="font-size: 14px;">cookie</a> <a href="/tags/css/" style="font-size: 21.33px;">css</a> <a href="/tags/django/" style="font-size: 21.33px;">django</a> <a href="/tags/element-ui/" style="font-size: 14px;">element-ui</a> <a href="/tags/es6/" style="font-size: 14px;">es6</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/hexo/" style="font-size: 17.67px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/http/" style="font-size: 17.67px;">http</a> <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/jwt/" style="font-size: 14px;">jwt</a> <a href="/tags/koa/" style="font-size: 14px;">koa</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/python/" style="font-size: 21.33px;">python</a> <a href="/tags/session/" style="font-size: 14px;">session</a> <a href="/tags/sublime/" style="font-size: 14px;">sublime</a> <a href="/tags/termux/" style="font-size: 14px;">termux</a> <a href="/tags/viewsets/" style="font-size: 14px;">viewsets</a> <a href="/tags/vue/" style="font-size: 17.67px;">vue</a> <a href="/tags/入门/" style="font-size: 17.67px;">入门</a> <a href="/tags/博客/" style="font-size: 17.67px;">博客</a> <a href="/tags/好玩/" style="font-size: 14px;">好玩</a> <a href="/tags/小程序/" style="font-size: 17.67px;">小程序</a> <a href="/tags/微信/" style="font-size: 21.33px;">微信</a> <a href="/tags/总结/" style="font-size: 25px;">总结</a> <a href="/tags/计划/" style="font-size: 17.67px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 17.67px;">读书笔记</a> <a href="/tags/项目/" style="font-size: 21.33px;">项目</a>
     </div>
   </div>
 

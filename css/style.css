@@ -1096,7 +1096,7 @@ a.article-title:hover {
 }
 @media screen and (max-width: 799px) {
   .archives-wrap {
-    margin: 50px 0;
+    margin: 30px 1em;
   }
 }
 .archives:before,

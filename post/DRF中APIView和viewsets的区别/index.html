@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DRF中APIView和viewsets的区别 | 凡沸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DRF指代django rest framework">
+<meta name="keywords" content="django,python,APIView,viewsets,DRF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DRF中APIView和viewsets的区别">
+<meta property="og:url" content="https://michwh.github.io/post/DRF中APIView和viewsets的区别/index.html">
+<meta property="og:site_name" content="凡沸">
+<meta property="og:description" content="DRF指代django rest framework">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://michwh.github.io/post/DRF中APIView和viewsets的区别/1.jpg">
+<meta property="og:updated_time" content="2018-08-18T14:05:42.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DRF中APIView和viewsets的区别">
+<meta name="twitter:description" content="DRF指代django rest framework">
+<meta name="twitter:image" content="https://michwh.github.io/post/DRF中APIView和viewsets的区别/1.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+      <div class="outer">
+        <section id="main">
+          <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>      
+    </div>
+
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">凡沸</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+          <article id="post-DRF中APIView和viewsets的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+    <a href="/post/DRF中APIView和viewsets的区别/" class="article-date">
+  <time datetime="2018-08-18T11:44:43.000Z" itemprop="datePublished">2018-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DRF中APIView和viewsets的区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        <!--  -->
+        <p>DRF指代django rest framework</p>
+<p><img src="/post/DRF中APIView和viewsets的区别/1.jpg" alt="1"><br><a id="more"></a></p>
+<blockquote>
+<p>APIView是您在定义REST视图时通常会覆盖的最基本的类。您通常会定义诸如get，put，delete等方法。使用API​​View定义您的视图，然后将其添加到您的网址中，如下所示：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#in views.py</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyAPIView</span><span class="params">(APIView)</span>:</span></span><br><span class="line">     ... <span class="comment">#here you put your logic check methods you can use</span></span><br><span class="line"><span class="comment">#in urls.py</span></span><br><span class="line">url(<span class="string">r'^posts$'</span>, MyAPIView.as_view()), <span class="comment">#List of all the posts</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>因为某些事情比如<code>get</code>、<code>post</code>，删除帖子、获取所有帖子，更新和创建新帖子都是如此常见，DRF提供了Viewsets。使用ViewSets，您可以创建实际上合并所有上述操作的视图集，并且您也不需要定义url路径，通常使用路径为您创建路径：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#views.py</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">PostViewSet</span><span class="params">(ViewSet)</span>:</span> <span class="comment">#here you subclass Viwset check methods you can override, you have also ModelViewSet,...</span></span><br><span class="line"> <span class="comment"># urls.py </span></span><br><span class="line"> router = routers.DefaultRouter()</span><br><span class="line"> router.register(<span class="string">r'post'</span>, PostViewSet, base_name=<span class="string">'Post'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><p><a href="https://stackoverflow.com/questions/41379654/difference-between-apiview-class-and-viewsets-class/41380941" target="_blank" rel="noopener">Difference between APIView class and viewsets class?</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/5a66d262f265da3e317e4cc5" target="_blank" rel="noopener">django rest framework apivieｗ、viewset总结分析</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      <a data-url="https://michwh.github.io/post/DRF中APIView和viewsets的区别/" data-id="cjl2jj8e9000534gcfvn0npvh" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/APIView/">APIView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DRF/">DRF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/viewsets/">viewsets</a></li></ul>
+
+      
+    </footer>
+  </div>
+  
+    
+    
+<nav id="article-nav">
+  
+    <a href="/post/Django报错集合/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Django报错集合
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/Django入门知识总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Django入门知识总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+       
+       
+      
+      
+  </div>
+ 
+  
+
+
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
+      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+        </section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+        <div class="widget" id="toc-widget">
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章"><span class="toc-number">1.</span> <span class="toc-text">参考文章</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+  
+    <!--打赏二维码-->
+
+
+  
+</aside>
+
+          <img class="sidebar-btn" src="/images/right.png"/>
+          <img class="back-to-top-btn" src="/images/top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      </div>
+      
+
+  
+
+  
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+</body>
+</html>

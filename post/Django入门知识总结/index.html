@@ -5,22 +5,22 @@
   
   <title>Django入门知识总结 | 凡沸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="项目结构12345678910111213141516171819django ## 项目名├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源│    ├─ __init__.py│    ├─ admin.py│    ├─ apps.py│    ├─ migrations ## 数据库操作记录│    │    └─ __init__.py│    ├─ m">
+  <meta name="description" content="项目结构12345678910111213141516171819django ## 项目名├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源│    ├─ __init__.py│    ├─ admin.py│    ├─ apps.py│    ├─ migrations ## 数据库迁移记录│    │    └─ __init__.py│    ├─ m">
 <meta name="keywords" content="django,python,总结,入门">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django入门知识总结">
 <meta property="og:url" content="https://michwh.github.io/post/Django入门知识总结/index.html">
 <meta property="og:site_name" content="凡沸">
-<meta property="og:description" content="项目结构12345678910111213141516171819django ## 项目名├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源│    ├─ __init__.py│    ├─ admin.py│    ├─ apps.py│    ├─ migrations ## 数据库操作记录│    │    └─ __init__.py│    ├─ m">
+<meta property="og:description" content="项目结构12345678910111213141516171819django ## 项目名├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源│    ├─ __init__.py│    ├─ admin.py│    ├─ apps.py│    ├─ migrations ## 数据库迁移记录│    │    └─ __init__.py│    ├─ m">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://michwh.github.io/post/Django入门知识总结/2.jpg">
 <meta property="og:image" content="https://michwh.github.io/post/Django入门知识总结/3.jpg">
 <meta property="og:image" content="https://michwh.github.io/post/Django入门知识总结/4.jpg">
 <meta property="og:image" content="https://michwh.github.io/post/Django入门知识总结/1.jpg">
-<meta property="og:updated_time" content="2018-08-10T11:36:51.538Z">
+<meta property="og:updated_time" content="2018-08-19T11:56:07.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django入门知识总结">
-<meta name="twitter:description" content="项目结构12345678910111213141516171819django ## 项目名├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源│    ├─ __init__.py│    ├─ admin.py│    ├─ apps.py│    ├─ migrations ## 数据库操作记录│    │    └─ __init__.py│    ├─ m">
+<meta name="twitter:description" content="项目结构12345678910111213141516171819django ## 项目名├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源│    ├─ __init__.py│    ├─ admin.py│    ├─ apps.py│    ├─ migrations ## 数据库迁移记录│    │    └─ __init__.py│    ├─ m">
 <meta name="twitter:image" content="https://michwh.github.io/post/Django入门知识总结/2.jpg">
   
   
@@ -92,9 +92,9 @@
       
         <!-- Table of Contents -->
         <!--  -->
-        <h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">django ## 项目名</span><br><span class="line">├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源</span><br><span class="line">│    ├─ __init__.py</span><br><span class="line">│    ├─ admin.py</span><br><span class="line">│    ├─ apps.py</span><br><span class="line">│    ├─ migrations ## 数据库操作记录</span><br><span class="line">│    │    └─ __init__.py</span><br><span class="line">│    ├─ models.py ## 模型定义文件，和数据库模型相关的代码</span><br><span class="line">│    ├─ tests.py</span><br><span class="line">│    └─ views.py ## 视图文件</span><br><span class="line">├─ django #与项目同名的文件夹</span><br><span class="line">│    ├─ __init__.py</span><br><span class="line">│    ├─ __pycache__</span><br><span class="line">│    │    ├─ __init__.cpython-37.pyc</span><br><span class="line">│    │    └─ settings.cpython-37.pyc</span><br><span class="line">│    ├─ settings.py //主配置文件</span><br><span class="line">│    ├─ urls.py //url路由文件</span><br><span class="line">│    └─ wsgi.py</span><br><span class="line">└─ manage.py //Django管理主程序</span><br></pre></td></tr></table></figure>
+        <h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">django ## 项目名</span><br><span class="line">├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源</span><br><span class="line">│    ├─ __init__.py</span><br><span class="line">│    ├─ admin.py</span><br><span class="line">│    ├─ apps.py</span><br><span class="line">│    ├─ migrations ## 数据库迁移记录</span><br><span class="line">│    │    └─ __init__.py</span><br><span class="line">│    ├─ models.py ## 模型定义文件，和数据库模型相关的代码</span><br><span class="line">│    ├─ tests.py</span><br><span class="line">│    └─ views.py ## 视图文件</span><br><span class="line">├─ django #与项目同名的文件夹</span><br><span class="line">│    ├─ __init__.py</span><br><span class="line">│    ├─ __pycache__</span><br><span class="line">│    │    ├─ __init__.cpython-37.pyc</span><br><span class="line">│    │    └─ settings.cpython-37.pyc</span><br><span class="line">│    ├─ settings.py //主配置文件</span><br><span class="line">│    ├─ urls.py //url路由文件</span><br><span class="line">│    └─ wsgi.py</span><br><span class="line">└─ manage.py //Django管理主程序</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="项目搭建过程"><a href="#项目搭建过程" class="headerlink" title="项目搭建过程"></a>项目搭建过程</h1><h3 id="使用虚拟环境-Virtualenv"><a href="#使用虚拟环境-Virtualenv" class="headerlink" title="使用虚拟环境 Virtualenv"></a>使用虚拟环境 Virtualenv</h3><p><strong>安装virtualenv</strong></p>
+<h1 id="项目搭建过程"><a href="#项目搭建过程" class="headerlink" title="项目搭建过程"></a>项目搭建过程</h1><h2 id="使用虚拟环境-Virtualenv"><a href="#使用虚拟环境-Virtualenv" class="headerlink" title="使用虚拟环境 Virtualenv"></a>使用虚拟环境 Virtualenv</h2><p><strong>安装virtualenv</strong></p>
 <p>win+r打开控制台输入cmd</p>
 <p>输入<code>pip install virtualenv</code></p>
 <p>进入一个希望创建虚拟python环境的文件夹下面，创建一个虚拟环境（此处为venv）</p>
@@ -106,8 +106,10 @@
 <p><img src="/post/Django入门知识总结/3.jpg" alt="3"></p>
 <p><strong>开启关闭virtualenv</strong></p>
 <p>进入venv目录 </p>
-<p>激活 ：<code>cmd&gt;D:\virtualenv\venv&gt;Scripts\activate</code> </p>
-<p>关闭 ：<code>(venv) D:\virtualenv\venv&gt;deactivate</code></p>
+<p>激活 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd&gt;D:\virtualenv\venv&gt;Scripts\activate</span><br></pre></td></tr></table></figure>
+<p>关闭 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(venv) D:\virtualenv\venv&gt;deactivate</span><br></pre></td></tr></table></figure>
 <p><img src="/post/Django入门知识总结/4.jpg" alt="4"></p>
 <p><strong>注意</strong></p>
 <p>virtualenv 创建的虚拟环境与主机的 Python 环境完全无关，</p>
@@ -115,38 +117,29 @@
 <p>你需要在虚拟环境中利用 pip install 再次安装配置后才能使用。</p>
 <p><strong>参考文章</strong></p>
 <p><a href="https://blog.csdn.net/hy245120020/article/details/50776197" target="_blank" rel="noopener">windows下使用pycharm配置python的virtualenv环境</a></p>
-<h3 id="创建app"><a href="#创建app" class="headerlink" title="创建app"></a>创建app</h3><p>在pycharm下方的terminal终端中输入命令：<code>python manage.py startapp cmdb</code></p>
+<h2 id="创建app"><a href="#创建app" class="headerlink" title="创建app"></a>创建app</h2><p>在pycharm下方的terminal终端中输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp cmdb</span><br></pre></td></tr></table></figure>
 <p>这样就创建了一个叫做cmdb的APP，django自动生成“cmdb”文件夹。</p>
 <p>创建的app需要在settings.py里注册：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Application definition</span></span><br><span class="line"></span><br><span class="line">INSTALLED_APPS = ( </span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="string">'cmdb'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h3 id="创建MySQL数据库"><a href="#创建MySQL数据库" class="headerlink" title="创建MySQL数据库"></a>创建MySQL数据库</h3><p>在pycharm中打开File-&gt;Settings，在左边栏找到当前项目，选择Project Interpreter</p>
+<h2 id="创建MySQL数据库"><a href="#创建MySQL数据库" class="headerlink" title="创建MySQL数据库"></a>创建MySQL数据库</h2><p>在pycharm中打开File-&gt;Settings，在左边栏找到当前项目，选择Project Interpreter</p>
 <p>点击右边栏右上角的加号：</p>
 <p><img src="/post/Django入门知识总结/1.jpg" alt="1"></p>
 <p>搜索pymsql，在点击左下角的Install Package</p>
 <p>在settings.py中的DATABASES下填写数据库信息，例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 库名</span></span><br><span class="line">        <span class="string">'USER'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 用户名</span></span><br><span class="line">        <span class="string">'PASSWORD'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 密码</span></span><br><span class="line">        <span class="string">'HOST'</span>: <span class="string">'xxx'</span>,  <span class="comment"># 数据库主机ip</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="settings-py设置"><a href="#settings-py设置" class="headerlink" title="settings.py设置"></a>settings.py设置</h3><p>将settings.py中的：</p>
+<h2 id="settings-py设置"><a href="#settings-py设置" class="headerlink" title="settings.py设置"></a>settings.py设置</h2><p>将settings.py中的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'en-us'</span></span><br><span class="line">TIME_ZONE = <span class="string">'UTC'</span></span><br></pre></td></tr></table></figure>
 <p>改成</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'zh-hans'</span></span><br><span class="line">TIME_ZONE = <span class="string">'Asia/Shanghai'</span></span><br></pre></td></tr></table></figure>
 <p>让Django支持中文</p>
-<h1 id="pycharm终端命令"><a href="#pycharm终端命令" class="headerlink" title="pycharm终端命令"></a>pycharm终端命令</h1><p><code>python manage.py runserver</code>：启动服务</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置好自定义用户模型后，生成数据库迁移文件，并且迁移数据库以生成各个应用必要的数据库表</span></span><br><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+<h1 id="pycharm终端命令"><a href="#pycharm终端命令" class="headerlink" title="pycharm终端命令"></a>pycharm终端命令</h1><h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
+<h2 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置好自定义用户模型后，生成数据库迁移文件，并且迁移数据库以生成各个应用必要的数据库表</span></span><br><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
 <h1 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h1><p>须要在Django层注入header，用Django的第三方包django-cors-headers来解决跨域问题：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-cors-headers</span><br></pre></td></tr></table></figure>
 <p>settings.py 修改：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">'django.middleware.security.SecurityMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</span><br><span class="line">    <span class="string">'corsheaders.middleware.CorsMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.common.CommonMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.csrf.CsrfViewMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth.middleware.AuthenticationMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages.middleware.MessageMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</span>,</span><br><span class="line">]</span><br><span class="line"> </span><br><span class="line">CORS_ORIGIN_ALLOW_ALL = <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
 <p>注意中间件的添加顺序</p>
-<h1 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h1><p><strong>1.<code>ValueError: Dependency on app with no migrations: users</code></strong></p>
-<p>这是因为我们没有对app users进行migration</p>
-<p>执行下面两条命令即可：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py  makemigrations</span><br><span class="line">python manage.py  migrate</span><br></pre></td></tr></table></figure>
-<p><strong>2.<code>Forbidden (CSRF cookie not set.): /users/register</code></strong></p>
-<p>这是因为Django对表单post请求做的安全性验证，在app开发中，可以干掉这一项</p>
-<p>到setting里面注释掉下面的注释位置就好</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">'django.middleware.security.SecurityMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.common.CommonMiddleware'</span>,</span><br><span class="line">    <span class="comment">#'django.middleware.csrf.CsrfViewMiddleware',</span></span><br><span class="line">    <span class="string">'django.contrib.auth.middleware.AuthenticationMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages.middleware.MessageMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p><strong>3.<code>django.template.exceptions.TemplateDoesNotExist:</code></strong></p>
-<p>在与vue进行前后端分离开发时，只有一个页面index.html</p>
 <h1 id="集成vue，实现前后端分离"><a href="#集成vue，实现前后端分离" class="headerlink" title="集成vue，实现前后端分离"></a>集成vue，实现前后端分离</h1><p>在前端项目中执行<code>npm run build</code>，前端项目下会生成一个dist文件夹</p>
 <p>把前端项目文件夹（例如onehome)放到Django项目(onehomeServer)里</p>
 <p>修改django的settings文件：</p>
@@ -163,7 +156,7 @@
     </div>
     <footer class="article-footer">
       
-      <a data-url="https://michwh.github.io/post/Django入门知识总结/" data-id="cjktyybdb000100gc8dktzswq" class="article-share-link">分享</a>
+      <a data-url="https://michwh.github.io/post/Django入门知识总结/" data-id="cjl2jj8cl000034gc7mo0mzow" class="article-share-link">分享</a>
       
       
       
@@ -176,6 +169,15 @@
     
     
 <nav id="article-nav">
+  
+    <a href="/post/DRF中APIView和viewsets的区别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          DRF中APIView和viewsets的区别
+        
+      </div>
+    </a>
   
   
     <a href="/post/JavaScript30知识点总结/" id="article-nav-older" class="article-nav-link-wrap">
@@ -226,7 +228,7 @@
         <div class="widget" id="toc-widget">
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目结构"><span class="toc-number">1.</span> <span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目搭建过程"><span class="toc-number">2.</span> <span class="toc-text">项目搭建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用虚拟环境-Virtualenv"><span class="toc-number">2.0.1.</span> <span class="toc-text">使用虚拟环境 Virtualenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建app"><span class="toc-number">2.0.2.</span> <span class="toc-text">创建app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建MySQL数据库"><span class="toc-number">2.0.3.</span> <span class="toc-text">创建MySQL数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#settings-py设置"><span class="toc-number">2.0.4.</span> <span class="toc-text">settings.py设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pycharm终端命令"><span class="toc-number">3.</span> <span class="toc-text">pycharm终端命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跨域问题"><span class="toc-number">4.</span> <span class="toc-text">跨域问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#报错"><span class="toc-number">5.</span> <span class="toc-text">报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集成vue，实现前后端分离"><span class="toc-number">6.</span> <span class="toc-text">集成vue，实现前后端分离</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插件"><span class="toc-number">7.</span> <span class="toc-text">插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#django-extensions"><span class="toc-number">7.1.</span> <span class="toc-text">django-extensions</span></a></li></ol></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目结构"><span class="toc-number">1.</span> <span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目搭建过程"><span class="toc-number">2.</span> <span class="toc-text">项目搭建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用虚拟环境-Virtualenv"><span class="toc-number">2.1.</span> <span class="toc-text">使用虚拟环境 Virtualenv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建app"><span class="toc-number">2.2.</span> <span class="toc-text">创建app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建MySQL数据库"><span class="toc-number">2.3.</span> <span class="toc-text">创建MySQL数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#settings-py设置"><span class="toc-number">2.4.</span> <span class="toc-text">settings.py设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pycharm终端命令"><span class="toc-number">3.</span> <span class="toc-text">pycharm终端命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动服务"><span class="toc-number">3.1.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据迁移"><span class="toc-number">3.2.</span> <span class="toc-text">数据迁移</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跨域问题"><span class="toc-number">4.</span> <span class="toc-text">跨域问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集成vue，实现前后端分离"><span class="toc-number">5.</span> <span class="toc-text">集成vue，实现前后端分离</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插件"><span class="toc-number">6.</span> <span class="toc-text">插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#django-extensions"><span class="toc-number">6.1.</span> <span class="toc-text">django-extensions</span></a></li></ol></li></ol>
           </div>
       </div>
     </div>

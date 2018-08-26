@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="执行流程">
 <meta name="twitter:image" content="https://michwh.github.io/post/web版微信协议分析/1.png">
   
-    <link rel="alternate" href="ture" title="凡沸" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="凡沸" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -43,9 +43,9 @@
     <div id="header-inner" class="inner">
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="ture" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
@@ -387,7 +387,7 @@
     </div>
     <footer class="article-footer">
       
-      <a data-url="https://michwh.github.io/post/web版微信协议分析/" data-id="cjlaltfdx000idwgcuikr0p0j" class="article-share-link">Share</a>
+      <a data-url="https://michwh.github.io/post/web版微信协议分析/" data-id="cjlaomw6h001sbwgcejzj80q8" class="article-share-link">分享</a>
       
       
       
@@ -402,7 +402,7 @@
 <nav id="article-nav">
   
     <a href="/post/理解Cookie和Sessin机制/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           理解Cookie和Sessin机制
@@ -412,7 +412,7 @@
   
   
     <a href="/post/sublime常见问题总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">sublime常见问题总结</div>
     </a>
   
@@ -439,10 +439,10 @@
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
-      Theme by <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
     </div>
      <div id="footer-right">
-      Contact&nbsp;|&nbsp;wenhui-huang@qq.com
+      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
     </div>
   </div>
 </footer>
@@ -457,7 +457,7 @@
     
     <div class="widget-wrap">
         <div class="widget" id="toc-widget">
-        <strong class="toc-title">Content</strong>
+        <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
               <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#执行流程"><span class="toc-number">1.</span> <span class="toc-text">执行流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#具体分析"><span class="toc-number">2.</span> <span class="toc-text">具体分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#获得uuid"><span class="toc-number">2.1.</span> <span class="toc-text">获得uuid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获得二维码"><span class="toc-number">2.2.</span> <span class="toc-text">获得二维码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查二维码扫描状态"><span class="toc-number">2.3.</span> <span class="toc-text">检查二维码扫描状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登录获取cookie"><span class="toc-number">2.4.</span> <span class="toc-text">登录获取cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">2.5.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启状态通知"><span class="toc-number">2.6.</span> <span class="toc-text">开启状态通知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取联系人信息"><span class="toc-number">2.7.</span> <span class="toc-text">获取联系人信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#心跳检查"><span class="toc-number">2.8.</span> <span class="toc-text">心跳检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取最新消息"><span class="toc-number">2.9.</span> <span class="toc-text">获取最新消息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发送消息"><span class="toc-number">2.10.</span> <span class="toc-text">发送消息</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章-项目"><span class="toc-number">3.</span> <span class="toc-text">参考文章/项目</span></a></li></ol>
           </div>

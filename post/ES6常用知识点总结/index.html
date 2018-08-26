@@ -18,6 +18,8 @@
 <meta name="twitter:title" content="ES6常用知识点总结">
 <meta name="twitter:description" content="1.const和let1.1 函数变量提升用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例： 1234567function a() &amp;#123;  if (...) &amp;#123;    var test = &apos;hello&apos;;  &amp;#125; else &amp;#123;    console.log(test);  &amp;#125;&amp;#125; 相当">
   
+    <link rel="alternate" href="ture" title="凡沸" type="application/atom+xml">
+  
   
     <link rel="icon" href="/favicon.ico">
   
@@ -39,7 +41,9 @@
     <div id="header-inner" class="inner">
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+          <a id="nav-rss-link" class="nav-icon" href="ture" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
@@ -152,7 +156,7 @@
     </div>
     <footer class="article-footer">
       
-      <a data-url="https://michwh.github.io/post/ES6常用知识点总结/" data-id="cjl2jj8fx000h34gcuwaopsuw" class="article-share-link">分享</a>
+      <a data-url="https://michwh.github.io/post/ES6常用知识点总结/" data-id="cjlaltfcq0005dwgcqkn727pm" class="article-share-link">Share</a>
       
       
       
@@ -167,7 +171,7 @@
 <nav id="article-nav">
   
     <a href="/post/博客维护日志/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           博客维护日志
@@ -177,7 +181,7 @@
   
   
     <a href="/post/日常学习自问自答/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">日常学习自问自答</div>
     </a>
   
@@ -204,10 +208,10 @@
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
-      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+      Theme by <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
+      Contact&nbsp;|&nbsp;wenhui-huang@qq.com
     </div>
   </div>
 </footer>
@@ -222,7 +226,7 @@
     
     <div class="widget-wrap">
         <div class="widget" id="toc-widget">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Content</strong>
         <div class="toc-widget-list">
               <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-const和let"><span class="toc-number">1.</span> <span class="toc-text">1.const和let</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-函数变量提升"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 函数变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-let和const"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 let和const</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字符串模板"><span class="toc-number">2.</span> <span class="toc-text">2.字符串模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数"><span class="toc-number">3.</span> <span class="toc-text">3.函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-拓展的对象功能"><span class="toc-number">4.</span> <span class="toc-text">4.拓展的对象功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-对象的初始化简写"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 对象的初始化简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Object-assign"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 Object.assign()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-解构"><span class="toc-number">5.</span> <span class="toc-text">5.解构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Spread-Operator展开运算符"><span class="toc-number">6.</span> <span class="toc-text">6.Spread Operator展开运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1组装数组或对象"><span class="toc-number">6.1.</span> <span class="toc-text">6.1组装数组或对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2获取数组或对象的某几项"><span class="toc-number">6.2.</span> <span class="toc-text">6.2获取数组或对象的某几项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3组成新的Object"><span class="toc-number">6.3.</span> <span class="toc-text">6.3组成新的Object</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-import-export"><span class="toc-number">7.</span> <span class="toc-text">7.import/export</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章"><span class="toc-number">8.</span> <span class="toc-text">参考文章</span></a></li></ol>
           </div>

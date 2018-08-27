@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>凡沸</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://michwh.github.io/"/>
+  <updated>2018-08-26T08:40:55.313Z</updated>
+  <id>https://michwh.github.io/</id>
+  
+  <author>
+    <name>Fan Fei</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用Feed43，将任意网页制作成RSS订阅源</title>
+    <link href="https://michwh.github.io//post/%E5%88%A9%E7%94%A8Feed43%EF%BC%8C%E5%B0%86%E4%BB%BB%E6%84%8F%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C%E6%88%90RSS%E8%AE%A2%E9%98%85%E6%BA%90/"/>
+    <id>https://michwh.github.io//post/利用Feed43，将任意网页制作成RSS订阅源/</id>
+    <published>2018-08-26T07:50:16.000Z</published>
+    <updated>2018-08-26T08:40:55.313Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="转载" scheme="https://michwh.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django报错集合</title>
+    <link href="https://michwh.github.io//post/Django%E6%8A%A5%E9%94%99%E9%9B%86%E5%90%88/"/>
+    <id>https://michwh.github.io//post/Django报错集合/</id>
+    <published>2018-08-19T11:55:05.000Z</published>
+    <updated>2018-08-19T12:16:21.741Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;1.&lt;code&gt;ValueError: Dependency on app with no migrations: users&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这是因为我们没有对app users进行数据迁移&lt;/p&gt;
+&lt;p&gt;执行下面两条命令即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;python manage.py  makemigrations&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;python manage.py  migrate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;code&gt;Forbidden (CSRF cookie not set.): /users/register&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这是因为Django对表单post请求做的安全性验证，在app开发中，可以干掉这一项&lt;/p&gt;
+&lt;p&gt;到setting里面注释掉下面的注释位置就好&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;MIDDLEWARE = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;django.middleware.security.SecurityMiddleware&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;django.contrib.sessions.middleware.SessionMiddleware&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;django.middleware.common.CommonMiddleware&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#&#39;django.middleware.csrf.CsrfViewMiddleware&#39;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;django.contrib.messages.middleware.MessageMiddleware&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="django" scheme="https://michwh.github.io/tags/django/"/>
+    
+      <category term="python" scheme="https://michwh.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DRF中APIView和viewsets的区别</title>
+    <link href="https://michwh.github.io//post/DRF%E4%B8%ADAPIView%E5%92%8Cviewsets%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://michwh.github.io//post/DRF中APIView和viewsets的区别/</id>
+    <published>2018-08-18T11:44:43.000Z</published>
+    <updated>2018-08-18T14:05:42.276Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;DRF指代django rest framework&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/post/DRF中APIView和viewsets的区别/1.jpg&quot; alt=&quot;1&quot;&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="django" scheme="https://michwh.github.io/tags/django/"/>
+    
+      <category term="python" scheme="https://michwh.github.io/tags/python/"/>
+    
+      <category term="APIView" scheme="https://michwh.github.io/tags/APIView/"/>
+    
+      <category term="viewsets" scheme="https://michwh.github.io/tags/viewsets/"/>
+    
+      <category term="DRF" scheme="https://michwh.github.io/tags/DRF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django入门知识总结</title>
+    <link href="https://michwh.github.io//post/Django%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    <id>https://michwh.github.io//post/Django入门知识总结/</id>
+    <published>2018-08-07T15:42:39.000Z</published>
+    <updated>2018-08-19T11:56:07.445Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;项目结构&quot;&gt;&lt;a href=&quot;#项目结构&quot; class=&quot;headerlink&quot; title=&quot;项目结构&quot;&gt;&lt;/a&gt;项目结构&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;django ## 项目名&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├─ app ## 功能部件，一个项目里面可以有多个app,所有的APP共享项目资源&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ __init__.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ admin.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ apps.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ migrations ## 数据库迁移记录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    │    └─ __init__.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ models.py ## 模型定义文件，和数据库模型相关的代码&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ tests.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    └─ views.py ## 视图文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├─ django #与项目同名的文件夹&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ __init__.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ __pycache__&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    │    ├─ __init__.cpython-37.pyc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    │    └─ settings.cpython-37.pyc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ settings.py //主配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ urls.py //url路由文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    └─ wsgi.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;└─ manage.py //Django管理主程序&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="django" scheme="https://michwh.github.io/tags/django/"/>
+    
+      <category term="python" scheme="https://michwh.github.io/tags/python/"/>
+    
+      <category term="入门" scheme="https://michwh.github.io/tags/%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript30知识点总结</title>
+    <link href="https://michwh.github.io//post/JavaScript30%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>https://michwh.github.io//post/JavaScript30知识点总结/</id>
+    <published>2018-08-04T11:20:54.000Z</published>
+    <updated>2018-08-10T08:10:38.259Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="javascript" scheme="https://michwh.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序实现三列选择器组件</title>
+    <link href="https://michwh.github.io//post/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E4%B8%89%E5%88%97%E9%80%89%E6%8B%A9%E5%99%A8%E7%BB%84%E4%BB%B6/"/>
+    <id>https://michwh.github.io//post/小程序实现三列选择器组件/</id>
+    <published>2018-07-28T07:26:04.000Z</published>
+    <updated>2018-08-12T16:31:18.093Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;效果&quot;&gt;&lt;a href=&quot;#效果&quot; class=&quot;headerlink&quot; title=&quot;效果&quot;&gt;&lt;/a&gt;效果&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/post/小程序实现三列选择器组件/1.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;实现过程&quot;&gt;&lt;a href=&quot;#实现过程&quot; class=&quot;headerlink&quot; title=&quot;实现过程&quot;&gt;&lt;/a&gt;实现过程&lt;/h1&gt;
+    
+    </summary>
+    
+    
+      <category term="项目" scheme="https://michwh.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="微信" scheme="https://michwh.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+      <category term="小程序" scheme="https://michwh.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序入门知识总结</title>
+    <link href="https://michwh.github.io//post/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    <id>https://michwh.github.io//post/小程序入门知识总结/</id>
+    <published>2018-07-28T07:19:38.000Z</published>
+    <updated>2018-08-12T16:31:30.650Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;项目结构&quot;&gt;&lt;a href=&quot;#项目结构&quot; class=&quot;headerlink&quot; title=&quot;项目结构&quot;&gt;&lt;/a&gt;项目结构&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;project&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├─ app.js //放置全局的数据，其他js文件通过全局函数 getApp() 可以获取全局的应用实例&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├─ app.json //是对当前小程序的全局配置，包括了小程序的所有页面路径、界面表现、网络超时时间、底部 tab 等&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├─ app.wxss&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├─ components //组件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├─ utils&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    └─ util.js //放一些公共的js函数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├─ pages&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    ├─ index //初始界面&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|    |     ├─ index.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    |     ├─ index.wxml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|    |     └─ index.wxss&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│    └─ other page //其他界面&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;└─ project.config.json //工具配置&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="入门" scheme="https://michwh.github.io/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="微信" scheme="https://michwh.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+      <category term="小程序" scheme="https://michwh.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>暑假计划</title>
+    <link href="https://michwh.github.io//post/%E6%9A%91%E5%81%87%E8%AE%A1%E5%88%92/"/>
+    <id>https://michwh.github.io//post/暑假计划/</id>
+    <published>2018-07-22T13:27:56.000Z</published>
+    <updated>2018-07-23T07:11:35.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;暑假已经过了一半，我好像什么东西都没做出来，感觉自己要凉了。希望在剩下的时间里完成以下任务：&lt;/p&gt;
+&lt;p&gt;1.完成水稻决策分析系统的小程序&lt;/p&gt;
+&lt;p&gt;2.完成那个JavaScript30&lt;/p&gt;
+&lt;p&gt;3.学习用Python写后端&lt;/p&gt;
+&lt;p&gt;4.完成PWA版的华农一屋&lt;/p&gt;
+&lt;p&gt;5.完成操作系统的课程设计&lt;/p&gt;
+&lt;p&gt;6.希望自己早睡早起每分每秒都在学习&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计划" scheme="https://michwh.github.io/tags/%E8%AE%A1%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Koa+JSON-WEB-TOKEN+bcrypt实现登录注册</title>
+    <link href="https://michwh.github.io//post/Koa-JSON-WEB-TOKEN-bcrypt%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/"/>
+    <id>https://michwh.github.io//post/Koa-JSON-WEB-TOKEN-bcrypt实现登录注册/</id>
+    <published>2018-06-08T08:11:39.000Z</published>
+    <updated>2018-07-19T11:55:44.701Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前端我用的是vue+axios，项目地址&lt;a href=&quot;https://github.com/wenhui-huang/nothing-left&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;nothing-left&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;项目结构&quot;&gt;&lt;a href=&quot;#项目结构&quot; class=&quot;headerlink&quot; title=&quot;项目结构&quot;&gt;&lt;/a&gt;项目结构&lt;/h1&gt;&lt;p&gt;在用vue-cli构建项目脚手架的基础上新建一个app.js和server文件夹&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;├─ app.js//koa入口文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;└─ server//后端&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       ├─ config      //数据库配置&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       │    └─ db.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       ├─ controllers //对models里面的方法进行选择性的组装，来响应前端不同的请求&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       │    └─ users.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       ├─ models      //为controllers提供一些方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       │    └─ users.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       ├─ routes      //定义路由，把前端不同的请求分配给controllers相对应的方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       │    └─ auth.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       └─ schema      //数据库表结构&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            └─ users.js&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;项目依赖&quot;&gt;&lt;a href=&quot;#项目依赖&quot; class=&quot;headerlink&quot; title=&quot;项目依赖&quot;&gt;&lt;/a&gt;项目依赖&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;koa-router&lt;/strong&gt;：对路由进行控制&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://michwh.github.io/tags/vue/"/>
+    
+      <category term="koa" scheme="https://michwh.github.io/tags/koa/"/>
+    
+      <category term="jwt" scheme="https://michwh.github.io/tags/jwt/"/>
+    
+      <category term="bcryptjs" scheme="https://michwh.github.io/tags/bcryptjs/"/>
+    
+      <category term="项目" scheme="https://michwh.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="mysql" scheme="https://michwh.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用Termux在手机上写nodejs</title>
+    <link href="https://michwh.github.io//post/%E5%88%A9%E7%94%A8Termux%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%86%99nodejs/"/>
+    <id>https://michwh.github.io//post/利用Termux在手机上写nodejs/</id>
+    <published>2018-06-07T14:49:57.000Z</published>
+    <updated>2018-07-23T07:25:01.266Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Termux是一款开源且不需要root，运行在Android终端上极其强大的linux模拟器，支持apt管理软件包，完美支持python,ruby,go,nodejs。&lt;/p&gt;
+&lt;h2 id=&quot;键盘的选择&quot;&gt;&lt;a href=&quot;#键盘的选择&quot; class=&quot;headerlink&quot; title=&quot;键盘的选择&quot;&gt;&lt;/a&gt;键盘的选择&lt;/h2&gt;&lt;p&gt; 如果使用软键盘的话可以下载&lt;strong&gt;Hacker’s Keyboard&lt;/strong&gt;来解决一般的输入法没有Ctrl、Alt、Tab、Esc这些常用控制键的问题。另外，&lt;strong&gt;Hacker’s Keyboard&lt;/strong&gt;只有在手机横屏的时候才会显示所有的按键。当然，也可以像我一样使用蓝牙键盘。&lt;/p&gt;
+&lt;h2 id=&quot;初始化&quot;&gt;&lt;a href=&quot;#初始化&quot; class=&quot;headerlink&quot; title=&quot;初始化&quot;&gt;&lt;/a&gt;初始化&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;下载安装完Termux后打开Termux，输入&lt;code&gt;apt update &amp;amp;&amp;amp; apt upgrade&lt;/code&gt;并按回车进行升级&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装node.js和vim：&lt;code&gt;apt install nodejs vim&lt;/code&gt;（Termux带有一个包管理器apt，平常要装什么包都要用apt命令）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;程序创建一个目录并切换到这个目录：&lt;code&gt;mkdir test-node &amp;amp;&amp;amp; cd test-node&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;创建文件&lt;strong&gt;server.js&lt;/strong&gt;：&lt;code&gt;touch server.js&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="termux" scheme="https://michwh.github.io/tags/termux/"/>
+    
+      <category term="好玩" scheme="https://michwh.github.io/tags/%E5%A5%BD%E7%8E%A9/"/>
+    
+      <category term="node.js" scheme="https://michwh.github.io/tags/node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS水平垂直居中对齐方法小结</title>
+    <link href="https://michwh.github.io//post/CSS%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90%E6%96%B9%E6%B3%95%E5%B0%8F%E7%BB%93/"/>
+    <id>https://michwh.github.io//post/CSS水平垂直居中对齐方法小结/</id>
+    <published>2018-06-06T15:05:12.000Z</published>
+    <updated>2018-07-22T12:38:40.725Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;单行文本元素垂直居中&quot;&gt;&lt;a href=&quot;#单行文本元素垂直居中&quot; class=&quot;headerlink&quot; title=&quot;单行文本元素垂直居中&quot;&gt;&lt;/a&gt;单行文本元素垂直居中&lt;/h1&gt;&lt;p&gt;单行文本若想在包裹它的标签内垂直居中，可使&lt;code&gt;line-height&lt;/code&gt;的值与&lt;code&gt;height&lt;/code&gt;的值相等&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//css&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.vertical &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  height: 100px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  line-height: 100px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  border: 1px solid black;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;vertical&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;content&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;/post/CSS水平垂直居中对齐方法小结/1.jpg&quot; alt=&quot;1&quot;&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="css" scheme="https://michwh.github.io/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Element UI使用小技巧</title>
+    <link href="https://michwh.github.io//post/Element-UI%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>https://michwh.github.io//post/Element-UI使用小技巧/</id>
+    <published>2018-06-05T04:30:34.000Z</published>
+    <updated>2018-07-19T11:55:44.696Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;响应式布局&quot;&gt;&lt;a href=&quot;#响应式布局&quot; class=&quot;headerlink&quot; title=&quot;响应式布局&quot;&gt;&lt;/a&gt;响应式布局&lt;/h1&gt;&lt;p&gt;element中预设了五个响应尺寸：&lt;code&gt;xs&lt;/code&gt;、&lt;code&gt;sm&lt;/code&gt;、&lt;code&gt;md&lt;/code&gt;、&lt;code&gt;lg&lt;/code&gt; 和 &lt;code&gt;xl&lt;/code&gt;，可以在element的&lt;code&gt;&amp;lt;el-col&amp;gt;&amp;lt;/el-col&amp;gt;&lt;/code&gt;组件中设置它们的值，例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;el-col :xs=&amp;quot;8&amp;quot; :sm=&amp;quot;6&amp;quot; :md=&amp;quot;4&amp;quot; :lg=&amp;quot;3&amp;quot; :xl=&amp;quot;1&amp;quot;&amp;gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/el-col&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在element中是把一个界面竖着分成了24块，这些响应尺寸的值就是指在这24块中占了几块。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="element-ui" scheme="https://michwh.github.io/tags/element-ui/"/>
+    
+      <category term="vue" scheme="https://michwh.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>理解Cookie和Sessin机制</title>
+    <link href="https://michwh.github.io//post/%E7%90%86%E8%A7%A3Cookie%E5%92%8CSessin%E6%9C%BA%E5%88%B6/"/>
+    <id>https://michwh.github.io//post/理解Cookie和Sessin机制/</id>
+    <published>2018-05-28T15:09:12.000Z</published>
+    <updated>2018-07-22T13:03:26.420Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;常用的会话跟踪技术是Cookie与Session。Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份。&lt;/p&gt;
+&lt;h1 id=&quot;Cookie执行机制&quot;&gt;&lt;a href=&quot;#Cookie执行机制&quot; class=&quot;headerlink&quot; title=&quot;Cookie执行机制&quot;&gt;&lt;/a&gt;Cookie执行机制&lt;/h1&gt;&lt;p&gt;1.当用户使用浏览器访问一个支持Cookie的网站的时候，用户会提供包括用户名在内的个人信息并且提交至服务器&lt;/p&gt;
+&lt;p&gt;2.服务器向客户端回传相应的超文本并在HTTP响应头（Response Header）里发回用户的个人信息。在响应头里面会有一个Set-Cookie字段，这是用来指示客户端建立一个cookie&lt;/p&gt;
+&lt;p&gt;3.客户端浏览器接收来自服务器的响应，并将这些信息存放在一个统一的位置，这个位置可能是内存也有可能是硬盘。&lt;/p&gt;
+&lt;p&gt;4.当客户端要再向服务器发送请求时，就会在HTTP的请求头里加入cookie（一小段的文本信息）&lt;/p&gt;
+&lt;p&gt;5.服务器就根据cookie来识别客户端的身份，从而动态生成与该客户端相对应的内容。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/post/理解Cookie和Sessin机制/1.jpg&quot; alt=&quot;1&quot;&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="http" scheme="https://michwh.github.io/tags/http/"/>
+    
+      <category term="cookie" scheme="https://michwh.github.io/tags/cookie/"/>
+    
+      <category term="session" scheme="https://michwh.github.io/tags/session/"/>
+    
+      <category term="读书笔记" scheme="https://michwh.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>web版微信协议分析</title>
+    <link href="https://michwh.github.io//post/web%E7%89%88%E5%BE%AE%E4%BF%A1%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/"/>
+    <id>https://michwh.github.io//post/web版微信协议分析/</id>
+    <published>2018-05-15T04:03:23.000Z</published>
+    <updated>2018-07-22T12:56:04.174Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;执行流程&quot;&gt;&lt;a href=&quot;#执行流程&quot; class=&quot;headerlink&quot; title=&quot;执行流程&quot;&gt;&lt;/a&gt;执行流程&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/post/web版微信协议分析/1.png&quot; alt=&quot;1&quot;&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="项目" scheme="https://michwh.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="微信" scheme="https://michwh.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+      <category term="http" scheme="https://michwh.github.io/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sublime常见问题总结</title>
+    <link href="https://michwh.github.io//post/sublime%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <id>https://michwh.github.io//post/sublime常见问题总结/</id>
+    <published>2018-03-29T04:51:53.000Z</published>
+    <updated>2018-07-22T12:55:21.875Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;卡顿现象&quot;&gt;&lt;a href=&quot;#卡顿现象&quot; class=&quot;headerlink&quot; title=&quot;卡顿现象&quot;&gt;&lt;/a&gt;卡顿现象&lt;/h2&gt;&lt;p&gt;最近发现如果用sublime编辑有装git的项目文件会出现卡顿的现象。后来发现是GitGutter这个插件的原因，于是我从&lt;strong&gt;首选项(N)/插件控制(C)/删除插件/GitGutter&lt;/strong&gt;进行删除。不过出现了如下警告：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/post/sublime常见问题总结/4.jpg&quot; alt=&quot;4&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后我根据上述的文件路径对GitGutter进行了删除。下次如果再出现sublime卡顿的现象，应对sublime安装的插件进行逐个排查（就是逐个卸载测试）&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="sublime" scheme="https://michwh.github.io/tags/sublime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML标签和CSS属性总结</title>
+    <link href="https://michwh.github.io//post/HTML%E6%A0%87%E7%AD%BE%E5%92%8CCSS%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93/"/>
+    <id>https://michwh.github.io//post/HTML标签和CSS属性总结/</id>
+    <published>2018-03-11T03:47:53.000Z</published>
+    <updated>2018-07-22T12:53:55.529Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;width&quot;&gt;&lt;a href=&quot;#width&quot; class=&quot;headerlink&quot; title=&quot;width&quot;&gt;&lt;/a&gt;width&lt;/h3&gt;&lt;h4 id=&quot;width-auto&quot;&gt;&lt;a href=&quot;#width-auto&quot; class=&quot;headerlink&quot; title=&quot;width:auto&quot;&gt;&lt;/a&gt;width:auto&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;子元素（包括content+padding+border+margin）撑满整个父元素的content区域。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子元素有margin、border、padding时，会减去子元素content区域相对应的width值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父元素的content = 子元素（content + padding + border + margin )&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;width-100&quot;&gt;&lt;a href=&quot;#width-100&quot; class=&quot;headerlink&quot; title=&quot;width:100%&quot;&gt;&lt;/a&gt;width:100%&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;强制将子元素的content区域 撑满 父元素的content区域&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子元素有margin、border、padding时，不改变子元素content区域的width，而是溢出父盒子，保持原有值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父元素的content = 子元素的content&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="css" scheme="https://michwh.github.io/tags/css/"/>
+    
+      <category term="html" scheme="https://michwh.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计划表</title>
+    <link href="https://michwh.github.io//post/%E8%AE%A1%E5%88%92%E8%A1%A8/"/>
+    <id>https://michwh.github.io//post/计划表/</id>
+    <published>2018-03-11T03:26:13.000Z</published>
+    <updated>2018-07-22T13:03:40.537Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录自己的新想法以及目前要完成的任务。新想法不一定要立马完成，只是存储创意，等到自己想做一个新项目时可以拿出来参考。&lt;/p&gt;
+&lt;h3 id=&quot;1-完成二手交易应用&quot;&gt;&lt;a href=&quot;#1-完成二手交易应用&quot; class=&quot;headerlink&quot; title=&quot;1.完成二手交易应用&quot;&gt;&lt;/a&gt;1.完成二手交易应用&lt;/h3&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wenhui-huang/nothing-left&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;nothing-left&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-看完《CSS世界》&quot;&gt;&lt;a href=&quot;#2-看完《CSS世界》&quot; class=&quot;headerlink&quot; title=&quot;2.看完《CSS世界》&quot;&gt;&lt;/a&gt;2.看完《CSS世界》&lt;/h3&gt;&lt;h3 id=&quot;3-开发一款日历应用&quot;&gt;&lt;a href=&quot;#3-开发一款日历应用&quot; class=&quot;headerlink&quot; title=&quot;3.开发一款日历应用&quot;&gt;&lt;/a&gt;3.开发一款日历应用&lt;/h3&gt;&lt;p&gt;我们平常手机上的日历应用都附带了很多功能，比如天气、倒计时和星座运势等等。可是很多功能我们都用不到，但是这些功能仍然占据着我们的内存。所以我想开发一款日历应用，最开始的应用只有看日历的功能，然后用户根据自己的需求去下载其他功能（也就是把功能模块化，用户根据自己的需求去拼装一个属于自己的应用）。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计划" scheme="https://michwh.github.io/tags/%E8%AE%A1%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《CSS世界》读书笔记</title>
+    <link href="https://michwh.github.io//post/%E3%80%8ACSS%E4%B8%96%E7%95%8C%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <id>https://michwh.github.io//post/《CSS世界》读书笔记/</id>
+    <published>2018-02-10T13:59:59.000Z</published>
+    <updated>2018-08-14T11:12:40.114Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;内容太多，弃更了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="css" scheme="https://michwh.github.io/tags/css/"/>
+    
+      <category term="读书笔记" scheme="https://michwh.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客维护日志</title>
+    <link href="https://michwh.github.io//post/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/"/>
+    <id>https://michwh.github.io//post/博客维护日志/</id>
+    <published>2018-02-09T02:53:07.000Z</published>
+    <updated>2018-08-12T16:22:24.794Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录对博客维护、修改的过程和自己的一点想法。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="博客" scheme="https://michwh.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="hexo" scheme="https://michwh.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6常用知识点总结</title>
+    <link href="https://michwh.github.io//post/ES6%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>https://michwh.github.io//post/ES6常用知识点总结/</id>
+    <published>2018-02-08T13:40:20.000Z</published>
+    <updated>2018-07-19T12:21:23.422Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-const和let&quot;&gt;&lt;a href=&quot;#1-const和let&quot; class=&quot;headerlink&quot; title=&quot;1.const和let&quot;&gt;&lt;/a&gt;1.const和let&lt;/h2&gt;&lt;h3 id=&quot;1-1-函数变量提升&quot;&gt;&lt;a href=&quot;#1-1-函数变量提升&quot; class=&quot;headerlink&quot; title=&quot;1.1 函数变量提升&quot;&gt;&lt;/a&gt;1.1 函数变量提升&lt;/h3&gt;&lt;p&gt;用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;a&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (...) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; test = &lt;span class=&quot;string&quot;&gt;&#39;hello&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(test);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;相当于：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;a&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; test; &lt;span class=&quot;comment&quot;&gt;//变量提升&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (...) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    test = &lt;span class=&quot;string&quot;&gt;&#39;hello&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//此处访问test，值为undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(test);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;//此处访问test，值为undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="es6" scheme="https://michwh.github.io/tags/es6/"/>
+    
+  </entry>
+  
+</feed>

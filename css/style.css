@@ -1079,7 +1079,7 @@ a.article-title:hover {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 3px;
-  margin: 20px 0;
+  margin: 20px 1em;
 }
 #comments a {
   color: #258fb8;

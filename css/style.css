@@ -186,12 +186,12 @@ body {
 .mobile-nav-on #wrap {
   left: 250px;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   .sidebar-btn {
     display: none;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   .sidebar-btn {
     position: fixed;
     z-index: 999;
@@ -210,17 +210,23 @@ body {
   -o-transition: -o-transform 1s ease-out;
   -ms-transition: -ms-transform 1s ease-out;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #main {
     position: relative;
     width: 62%;
     margin: 0 auto;
   }
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   #main {
     margin: 0 auto;
     width: 100% !important;
+  }
+}
+@media screen and (max-width: 800px) {
+  #main {
+    margin: 0 auto;
+    width: 80%;
   }
 }
 .article-date,
@@ -353,7 +359,7 @@ body {
   border-bottom: 1px solid #ddd;
   margin: 0 1em;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   #header {
     padding-top: 0;
     z-index: 10;
@@ -394,7 +400,7 @@ body {
   line-height: 1.2em;
   letter-spacing: 1px;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   #logo {
     font-size: 1.2em;
     line-height: 1.7em;
@@ -477,7 +483,7 @@ body {
   opacity: 1;
   right: 0;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   #search-form-wrap {
     width: 100%;
     right: -100%;
@@ -568,7 +574,7 @@ body {
 a.article-title:hover {
   color: #258fb8;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   .article-title {
     font-size: 1.5em;
   }
@@ -674,7 +680,7 @@ a.article-title:hover {
   content: "—";
   padding: 0 0.5em;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   .article-entry blockquote {
     font-size: 1em;
     margin: 1.2em 0;
@@ -790,7 +796,7 @@ a.article-title:hover {
 #article-nav:after {
   clear: both;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #article-nav {
     margin: 20px 0;
   }
@@ -823,20 +829,20 @@ a.article-title:hover {
 .article-nav-link-wrap:hover {
   color: #333;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   .article-nav-link-wrap {
     width: 50%;
     margin-top: 0;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #article-nav-newer {
     float: left;
     text-align: right;
     padding-right: 20px;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #article-nav-older {
     float: right;
     text-align: left;
@@ -1094,7 +1100,7 @@ a.article-title:hover {
 .archives-wrap {
   margin: 50px 0 50px 120px;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   .archives-wrap {
     margin: 30px 1em;
   }
@@ -1188,7 +1194,7 @@ a.article-title:hover {
 #page-nav .page-number {
   display: inline-block;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   #page-nav .page-number {
     display: none;
   }
@@ -1225,7 +1231,7 @@ a.article-title:hover {
   float: right;
   font-size: 0.85em;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   #footer-right {
     float: left;
     margin-top: 5px;
@@ -1567,8 +1573,8 @@ span.ua .location:before {
 .back-to-top-btn {
   position: fixed;
   display: none;
-  right: 15px;
-  bottom: 50px;
+  right: 10px;
+  bottom: 20px;
   z-index: 300 !important;
   cursor: pointer;
 }
@@ -1652,7 +1658,7 @@ span.ua .location:before {
   font-size: 1.58em;
   line-height: 1.35em;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   #random_posts h2 {
     font-size: 1.2em;
   }
@@ -1684,12 +1690,12 @@ span.ua .location:before {
   font-size: 1em;
   font-weight: normal;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #sidebar {
     width: 320px;
   }
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   #sidebar {
     display: none;
   }
@@ -1702,6 +1708,8 @@ span.ua .location:before {
   height: 100%;
   overflow-y: auto;
   display: none;
+  -webkit-box-shadow: -0.25rem 0 0.25rem rgba(232,237,250,0.6);
+  box-shadow: -0.25rem 0 0.25rem rgba(232,237,250,0.6);
 }
 .widget-wrap {
   margin: 20px 1.5em;

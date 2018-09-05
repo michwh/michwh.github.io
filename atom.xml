@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://michwh.github.io/"/>
-  <updated>2018-08-26T08:40:55.313Z</updated>
+  <updated>2018-09-05T11:29:20.321Z</updated>
   <id>https://michwh.github.io/</id>
   
   <author>
@@ -17,26 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>利用Feed43，将任意网页制作成RSS订阅源</title>
-    <link href="https://michwh.github.io//post/%E5%88%A9%E7%94%A8Feed43%EF%BC%8C%E5%B0%86%E4%BB%BB%E6%84%8F%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C%E6%88%90RSS%E8%AE%A2%E9%98%85%E6%BA%90/"/>
-    <id>https://michwh.github.io//post/利用Feed43，将任意网页制作成RSS订阅源/</id>
-    <published>2018-08-26T07:50:16.000Z</published>
-    <updated>2018-08-26T08:40:55.313Z</updated>
+    <title>[转载]理解javascript中的立即执行函数(function(){})()</title>
+    <link href="https://michwh.github.io//post/%E8%BD%AC%E8%BD%BD-%E7%90%86%E8%A7%A3javascript%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-function/"/>
+    <id>https://michwh.github.io//post/转载-理解javascript中的立即执行函数-function/</id>
+    <published>2018-09-05T11:22:44.000Z</published>
+    <updated>2018-09-05T11:29:20.321Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;原文链接：&lt;a href=&quot;https://www.cnblogs.com/yanzp/p/6371292.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;理解javascript中的立即执行函数(function(){})()&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;之前看了好多代码，都有用到这种函数的写法，但是都没认真的去想为什么会这样写，今天开始想学习下jquery的源码，发现jquery也是使用这种方式，用(function(window, undefined){})(window)包裹内部代码，于是进一步的去学习了下。&lt;/p&gt;
+&lt;p&gt;要理解立即执行函数(function(){})()，先了解些函数的基本概念（函数声明、函数表达式、匿名函数）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;函数声明&lt;/strong&gt;：使用function声明函数，并指定函数名。　&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;setFn&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// coding   &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;函数表达式&lt;/strong&gt;：使用function声明函数，但未指定函数名，将匿名函数赋予一个变量。&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; setFn = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// coding&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
     
       <category term="转载" scheme="https://michwh.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+      <category term="js" scheme="https://michwh.github.io/tags/js/"/>
     
   </entry>
   
@@ -345,11 +347,11 @@
     
       <category term="http" scheme="https://michwh.github.io/tags/http/"/>
     
+      <category term="读书笔记" scheme="https://michwh.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
       <category term="cookie" scheme="https://michwh.github.io/tags/cookie/"/>
     
       <category term="session" scheme="https://michwh.github.io/tags/session/"/>
-    
-      <category term="读书笔记" scheme="https://michwh.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

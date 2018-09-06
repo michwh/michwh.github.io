@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="凡沸">
 <meta property="og:description" content="原文链接：理解javascript中的立即执行函数(function(){})() 之前看了好多代码，都有用到这种函数的写法，但是都没认真的去想为什么会这样写，今天开始想学习下jquery的源码，发现jquery也是使用这种方式，用(function(window, undefined){})(window)包裹内部代码，于是进一步的去学习了下。 要理解立即执行函数(function(){})()">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-05T11:29:20.321Z">
+<meta property="og:updated_time" content="2018-09-05T11:37:00.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转载]理解javascript中的立即执行函数(function(){})()">
 <meta name="twitter:description" content="原文链接：理解javascript中的立即执行函数(function(){})() 之前看了好多代码，都有用到这种函数的写法，但是都没认真的去想为什么会这样写，今天开始想学习下jquery的源码，发现jquery也是使用这种方式，用(function(window, undefined){})(window)包裹内部代码，于是进一步的去学习了下。 要理解立即执行函数(function(){})()">
@@ -102,13 +102,9 @@
 <p><strong>匿名函数</strong>：使用function关键字声明函数，但未指定函数名。匿名函数属于函数表达式，匿名函数有很多作用，赋予一个变量则创建函数，赋予一个事件则成为事件处理程序或创建闭包等等。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// coding</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>函数声明与函数表达式的不同在于：</p>
-<ol>
-<li>函数声明可在当前作用域下提前调用执行，函数表达式需等执行到该函数后，方可执行，不可提前调用。</li>
-</ol>
+<p>1.函数声明可在当前作用域下提前调用执行，函数表达式需等执行到该函数后，方可执行，不可提前调用。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setFn()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setFn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// coding  </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 正常，函数声明可提前调用</span></span><br><span class="line"></span><br><span class="line">setFn()</span><br><span class="line"><span class="keyword">var</span> setFn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// coding</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 报错，setFn未保存对函数的引用，函数调用需放在函数表达式后面</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>函数表达式可直接在函数后加括号调用。</li>
-</ol>
+<p>2.函数表达式可直接在函数后加括号调用。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> setFn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2   解析至此，可直接执行调用</span></span><br></pre></td></tr></table></figure>
 <p>立即执行函数(function(){})()可以看出很像函数表达式的调用，但为什么要加括号呢？如果不加括号：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错，函数需要函数名</span></span><br></pre></td></tr></table></figure>
@@ -124,7 +120,7 @@
     </div>
     <footer class="article-footer">
       
-      <a data-url="https://michwh.github.io/post/转载-理解javascript中的立即执行函数-function/" data-id="cjlp2ay9u0013asgc34msjzba" class="article-share-link">分享</a>
+      <a data-url="https://michwh.github.io/post/转载-理解javascript中的立即执行函数-function/" data-id="cjlqkucz100187kgc21477hls" class="article-share-link">分享</a>
       
       
         <a href="https://michwh.github.io/post/转载-理解javascript中的立即执行函数-function/#disqus_thread" class="article-comment-link">留言</a>
@@ -139,6 +135,15 @@
     
     
 <nav id="article-nav">
+  
+    <a href="/post/js之arguments/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          js之arguments
+        
+      </div>
+    </a>
   
   
     <a href="/post/Django报错集合/" id="article-nav-older" class="article-nav-link-wrap">

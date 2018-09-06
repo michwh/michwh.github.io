@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>js之闭包 | 凡沸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。 12345function f1()&amp;#123;  var n=999;&amp;#125;alert(n); // error">
+<meta name="keywords" content="js,闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js之闭包">
+<meta property="og:url" content="https://michwh.github.io/post/js之闭包/index.html">
+<meta property="og:site_name" content="凡沸">
+<meta property="og:description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。 12345function f1()&amp;#123;  var n=999;&amp;#125;alert(n); // error">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://michwh.github.io/post/js之闭包/1.jpg">
+<meta property="og:updated_time" content="2018-09-06T12:55:30.022Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js之闭包">
+<meta name="twitter:description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。 12345function f1()&amp;#123;  var n=999;&amp;#125;alert(n); // error">
+<meta name="twitter:image" content="https://michwh.github.io/post/js之闭包/1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="凡沸" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+      <div class="outer">
+        <section id="main">
+          <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>      
+    </div>
+
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">凡沸</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+          <article id="post-js之闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+    <a href="/post/js之闭包/" class="article-date">
+  <time datetime="2018-09-06T11:33:55.000Z" itemprop="datePublished">2018-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js之闭包
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        <!--  -->
+        <h1 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h1><p>在JavaScript中，函数内部可以读取全局变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f1(); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
+<p>但是，函数外部无法读取函数内部的局部变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(n); <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>这就是Javascript语言特有的”链式作用域”结构（chain scope），当在函数中搜索一个变量的时候，如果该函数内没有声明这个变量，那么此次搜索的过程会随着代码执行环境创建的作用域链往外层逐层搜索，一直到搜索到全局对象为止。</p>
+<h1 id="究竟什么是闭包"><a href="#究竟什么是闭包" class="headerlink" title="究竟什么是闭包"></a>究竟什么是闭包</h1><blockquote>
+<p>「函数」和「函数内部能访问到的变量」（也叫环境）的总和，就是一个闭包。</p>
+</blockquote>
+<p>比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> local = <span class="number">1</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    local++</span><br><span class="line">    <span class="keyword">return</span> local</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> bar</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = foo()</span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+<p>local 变量和 bar 函数就组成了一个闭包（Closure）。而闭包的模型也就是这样，函数套函数，然后 return 一个函数。但是，函数套函数只是为了造出一个局部变量，return 函数只是为了return的这个函数能被外部使用，都跟闭包无关。</p>
+<h1 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h1><p>那么，闭包到底有什么用呢？闭包常常用来「间接访问一个变量」。换句话说，「隐藏一个变量」。</p>
+<h2 id="间接访问一个变量"><a href="#间接访问一个变量" class="headerlink" title="间接访问一个变量"></a>间接访问一个变量</h2><p>这就是一种面向对象的编程，如同Java一样，通过对象内的一个函数将对象内的变量暴露出去，以便在对象外部对这个对象内部的变量进行访问。</p>
+<p>假设我们在做一个游戏，在写其中关于「还剩几条命」的代码，我们通过暴露一个访问器（函数），让别人可以「间接访问」lives这个变量：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> lives = <span class="number">50</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">window</span>.奖励一条命 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    lives += <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">window</span>.死一条命 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    lives -= <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
+<p>那么在其他的 JS 文件，就可以使用 window.奖励一条命() 来涨命，使用 window.死一条命() 来让角色掉一条命。</p>
+<p><img src="/post/js之闭包/1.jpg" alt="1"></p>
+<h2 id="让变量的值始终保持在内存中"><a href="#让变量的值始终保持在内存中" class="headerlink" title="让变量的值始终保持在内存中"></a>让变量的值始终保持在内存中</h2><p>闭包还有一个很重要的作用就是使得局部变量的生命得以延续。对于全局变量来说，它们的生命周期是永久的（除非我们主动销毁），而对于函数内用var关键字声明的局部变量来说，当退出函数时，这些局部变量即失去了它们的价值，它们会随着函数调用的结束而被销毁。</p>
+<p>但是，如果使用了闭包，情况会有所不同：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    a++;</span><br><span class="line">    alert(a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = func();</span><br><span class="line"></span><br><span class="line">f();  <span class="comment">// 2</span></span><br><span class="line">f();  <span class="comment">// 3</span></span><br><span class="line">f();  <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+<p>这是因为当执行<code>var f = func()</code>时，f返回了func()中定义的那个匿名函数，使得它可以访问到func()里面的局部变量。既然局部变量仍能被外界访问，那么这个局部变量就不会被销毁。</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><p><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="noopener">学习Javascript闭包（Closure）</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="noopener">闭包</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/22486908" target="_blank" rel="noopener">「每日一题」JS 中的闭包是什么？</a></p>
+</li>
+<li><p><a href="https://book.douban.com/subject/26382780/" target="_blank" rel="noopener">《JavaScript设计模式与开发实践》 曾探 著</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      <a data-url="https://michwh.github.io/post/js之闭包/" data-id="cjlqkucxx000j7kgc0xk4z3uz" class="article-share-link">分享</a>
+      
+      
+        <a href="https://michwh.github.io/post/js之闭包/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
+
+      
+    </footer>
+  </div>
+  
+    
+    
+<nav id="article-nav">
+  
+  
+    <a href="/post/js之arguments/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">js之arguments</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
+      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+        </section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+        <div class="widget" id="toc-widget">
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#变量的作用域"><span class="toc-number">1.</span> <span class="toc-text">变量的作用域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#究竟什么是闭包"><span class="toc-number">2.</span> <span class="toc-text">究竟什么是闭包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闭包的作用"><span class="toc-number">3.</span> <span class="toc-text">闭包的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#间接访问一个变量"><span class="toc-number">3.1.</span> <span class="toc-text">间接访问一个变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#让变量的值始终保持在内存中"><span class="toc-number">3.2.</span> <span class="toc-text">让变量的值始终保持在内存中</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章"><span class="toc-number">4.</span> <span class="toc-text">参考文章</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+  
+    <!--打赏二维码-->
+
+
+  
+</aside>
+
+          <img class="sidebar-btn" src="/images/right3.png"/>
+          <img class="back-to-top-btn" src="/images/top2.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      </div>
+      
+
+<script>
+  var disqus_shortname = 'true';
+  
+  var disqus_url = 'https://michwh.github.io/post/js之闭包/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+</body>
+</html>

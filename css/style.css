@@ -239,21 +239,20 @@ body {
   letter-spacing: 2px;
   color: #999;
   margin-bottom: 0;
-  margin-left: 5px;
   line-height: 1em;
   font-weight: bold;
 }
 .article-entry h1,
 .widget h1 {
-  font-size: 2em;
+  font-size: 2.3em;
 }
 .article-entry h2,
 .widget h2 {
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
 .article-entry h3,
 .widget h3 {
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 .article-entry h4,
 .widget h4 {
@@ -356,13 +355,15 @@ body {
 #header {
   padding-top: 1em;
   position: relative;
-  border-bottom: 1px solid #ddd;
   margin: 0 1em;
+  margin-bottom: 3.5em;
 }
 @media screen and (max-width: 800px) {
   #header {
     padding-top: 0;
     z-index: 10;
+    border-bottom: 1px solid #ddd;
+    margin: 0 1em;
   }
 }
 #header-outer {
@@ -382,12 +383,13 @@ body {
   z-index: -1;
 }
 #header-title {
-  height: 1.6em;
+  height: 3em;
   position: absolute;
   top: 50%;
   width: auto;
-  left: 2%;
-  margin-top: -0.8em;
+  left: 0%;
+  margin-top: -1.5em;
+  font-family: "Chancery", cursive, LiSu, sans-serif;
 }
 #logo,
 #subtitle {
@@ -396,14 +398,14 @@ body {
   font-weight: 100;
 }
 #logo {
-  font-size: 1.6em;
-  line-height: 1.2em;
+  font-size: 3em;
+  line-height: 1.5em;
   letter-spacing: 1px;
 }
 @media screen and (max-width: 800px) {
   #logo {
-    font-size: 1.2em;
-    line-height: 1.7em;
+    font-size: 1.5em;
+    line-height: 2em;
   }
 }
 #subtitle {
@@ -416,6 +418,7 @@ body {
 }
 #main-nav {
   float: right;
+  font-size: 18px;
   margin-right: 0;
 }
 .nav-icon,
@@ -528,8 +531,8 @@ body {
   color: #777;
 }
 .article {
-  margin: 20px 0;
-  padding: 0 1em;
+  margin: 20px 0.5em;
+  padding: 0 0.5em;
 }
 .article-meta:before,
 .article-meta:after {
@@ -556,11 +559,12 @@ body {
   margin: 0 12px 1em;
 }
 .article-header {
-  padding: 10px 10px 0;
+  padding: 0;
+  margin-bottom: 0.5em;
 }
 .article-title {
   text-decoration: none;
-  font-size: 2em;
+  font-size: 2.1em;
   font-weight: 500;
   color: #333;
   padding: 0 0 0.2em 0;
@@ -581,7 +585,7 @@ a.article-title:hover {
 }
 .article-entry {
   color: #333;
-  padding: 0 10px;
+  padding: 0;
 }
 .article-entry:before,
 .article-entry:after {
@@ -595,6 +599,7 @@ a.article-title:hover {
 .article-entry table {
   line-height: 1.5em;
   margin: 0.8em 0;
+  font-size: 1.03em;
 }
 .article-entry h1,
 .article-entry h2,
@@ -602,7 +607,7 @@ a.article-title:hover {
 .article-entry h4,
 .article-entry h5,
 .article-entry h6 {
-  font-weight: 500;
+  font-weight: 1000;
 }
 .article-entry h1,
 .article-entry h2,
@@ -612,6 +617,7 @@ a.article-title:hover {
 .article-entry h6 {
   line-height: 1.1em;
   margin: 1.1em 0;
+  padding-bottom: 0.3em;
 }
 .article-entry a {
   color: #258fb8;
@@ -660,9 +666,8 @@ a.article-title:hover {
 }
 .article-entry blockquote {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.4em;
-  margin: 1.5em 20px;
-  padding: 0.5em 1em;
+  font-size: 1.2em;
+  padding: 0 0.5em;
   overflow: auto;
   border-left-style: solid;
   border-left-width: 10px;
@@ -742,7 +747,7 @@ a.article-title:hover {
   line-height: 1.5em;
   border-top: 1px solid #ddd;
   padding-top: 1em;
-  margin: 0 10px 10px;
+  margin: 0;
   margin-bottom: 0;
 }
 .article-footer:before,
@@ -1273,6 +1278,9 @@ a.article-title:hover {
   color: #333;
   padding: 0;
 }
+.article-entry .highlight {
+  margin: 0;
+}
 .article-entry .highlight pre {
   border: none;
   margin: 0;
@@ -1712,7 +1720,7 @@ span.ua .location:before {
   box-shadow: -0.25rem 0 0.25rem rgba(232,237,250,0.6);
 }
 .widget-wrap {
-  margin: 20px 1.5em;
+  margin: 20px 0.6em;
 }
 .widget-title {
   margin-bottom: 1em;

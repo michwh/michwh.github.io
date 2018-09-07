@@ -14,7 +14,7 @@
 <meta property="og:description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。 12345function f1()&amp;#123;  var n=999;&amp;#125;alert(n); // error">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://michwh.github.io/post/js之闭包/1.jpg">
-<meta property="og:updated_time" content="2018-09-07T02:45:26.264Z">
+<meta property="og:updated_time" content="2018-09-07T06:49:25.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js之闭包">
 <meta name="twitter:description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。 12345function f1()&amp;#123;  var n=999;&amp;#125;alert(n); // error">
@@ -45,7 +45,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
@@ -100,7 +100,7 @@
 <a id="more"></a>
 <p>这就是Javascript语言特有的”链式作用域”结构（chain scope），当在函数中搜索一个变量的时候，如果该函数内没有声明这个变量，那么此次搜索的过程会随着代码执行环境创建的作用域链往外层逐层搜索，一直到搜索到全局对象为止。</p>
 <h1 id="究竟什么是闭包"><a href="#究竟什么是闭包" class="headerlink" title="究竟什么是闭包"></a>究竟什么是闭包</h1><blockquote>
-<p>「函数」和「函数内部能访问到的变量」（也叫环境）的总和，就是一个闭包。弄长啛啛喳喳错错错错错错啛啛喳喳错错错错错错错错错错错错错错</p>
+<p>「函数」和「函数内部能访问到的变量」（也叫环境）的总和，就是一个闭包。</p>
 </blockquote>
 <p>比如：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> local = <span class="number">1</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    local++</span><br><span class="line">    <span class="keyword">return</span> local</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> bar</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = foo()</span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
@@ -130,10 +130,10 @@
     </div>
     <footer class="article-footer">
       
-      <a data-url="https://michwh.github.io/post/js之闭包/" data-id="cjlrfbyys000aa4gcifk67qam" class="article-share-link">分享</a>
+      <a data-url="https://michwh.github.io/post/js之闭包/" data-id="cjlrphh5n000g3ogc7krneudq" class="article-share-link">Share</a>
       
       
-        <a href="https://michwh.github.io/post/js之闭包/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="https://michwh.github.io/post/js之闭包/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
@@ -147,9 +147,9 @@
 <nav id="article-nav">
   
   
-    <a href="/post/转载-理解javascript中的立即执行函数-function/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">[转载]理解javascript中的立即执行函数(function(){})()</div>
+    <a href="/post/Django报错集合/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Django报错集合</div>
     </a>
   
 </nav>
@@ -184,10 +184,10 @@
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
-      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+      Theme by <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
+      Contact&nbsp;|&nbsp;wenhui-huang@qq.com
     </div>
   </div>
 </footer>
@@ -202,7 +202,7 @@
     
     <div class="widget-wrap">
         <div class="widget" id="toc-widget">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Content</strong>
         <div class="toc-widget-list">
               <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#变量的作用域"><span class="toc-number">1.</span> <span class="toc-text">变量的作用域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#究竟什么是闭包"><span class="toc-number">2.</span> <span class="toc-text">究竟什么是闭包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闭包的作用"><span class="toc-number">3.</span> <span class="toc-text">闭包的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#间接访问一个变量"><span class="toc-number">3.1.</span> <span class="toc-text">间接访问一个变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#让变量的值始终保持在内存中"><span class="toc-number">3.2.</span> <span class="toc-text">让变量的值始终保持在内存中</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章"><span class="toc-number">4.</span> <span class="toc-text">参考文章</span></a></li></ol>
           </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://michwh.github.io/"/>
-  <updated>2018-09-07T06:49:25.921Z</updated>
+  <updated>2018-09-16T07:32:51.671Z</updated>
   <id>https://michwh.github.io/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS中Array对象的一些注意事项</title>
+    <link href="https://michwh.github.io//post/JS%E4%B8%ADArray%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
+    <id>https://michwh.github.io//post/JS中Array对象的一些注意事项/</id>
+    <published>2018-09-16T01:19:12.000Z</published>
+    <updated>2018-09-16T07:32:51.671Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.若用&lt;code&gt;push()&lt;/code&gt;来合并两个数组，例&lt;code&gt;a.push(b)&lt;/code&gt;那么一整个b数组才是a数组的一个子元素&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; array1 = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; array2 = [&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;array1.push(array2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(array1[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;]); &lt;span class=&quot;comment&quot;&gt;//4 5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;若用&lt;code&gt;concat()&lt;/code&gt;方法每个参数的顺序依次是该参数的元素（如果参数是数组）或参数本身（如果参数不是数组）。它不会递归到嵌套数组参数中。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://michwh.github.io/tags/javascript/"/>
+    
+      <category term="array" scheme="https://michwh.github.io/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js之高阶函数</title>
+    <link href="https://michwh.github.io//post/js%E4%B9%8B%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
+    <id>https://michwh.github.io//post/js之高阶函数/</id>
+    <published>2018-09-08T05:32:30.000Z</published>
+    <updated>2018-09-08T13:30:51.423Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;高阶函数是指至少满足下列条件之一的函数。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数可以作为参数被传递&lt;/li&gt;
+&lt;li&gt;函数可以作为返回值输出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;高阶函数的应用场景&quot;&gt;&lt;a href=&quot;#高阶函数的应用场景&quot; class=&quot;headerlink&quot; title=&quot;高阶函数的应用场景&quot;&gt;&lt;/a&gt;高阶函数的应用场景&lt;/h1&gt;&lt;p&gt;高阶函数主要用于抽离出项目中容易变化的业务逻辑，并对这部分业务逻辑进行封装，从而分离业务代码中变化与不变化的部分。以下为高阶函数比较常见的应用场景。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://michwh.github.io/tags/javascript/"/>
+    
+      <category term="高阶函数" scheme="https://michwh.github.io/tags/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>js之闭包</title>
@@ -36,6 +85,62 @@
       <category term="javascript" scheme="https://michwh.github.io/tags/javascript/"/>
     
       <category term="闭包" scheme="https://michwh.github.io/tags/%E9%97%AD%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js之arguments</title>
+    <link href="https://michwh.github.io//post/js%E4%B9%8Barguments/"/>
+    <id>https://michwh.github.io//post/js之arguments/</id>
+    <published>2018-09-05T12:01:44.000Z</published>
+    <updated>2018-09-08T12:28:24.855Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://michwh.github.io/tags/javascript/"/>
+    
+      <category term="arguments" scheme="https://michwh.github.io/tags/arguments/"/>
+    
+      <category term="转载" scheme="https://michwh.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>理解javascript中的立即执行函数(function(){})()</title>
+    <link href="https://michwh.github.io//post/%E7%90%86%E8%A7%A3javascript%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-function/"/>
+    <id>https://michwh.github.io//post/理解javascript中的立即执行函数-function/</id>
+    <published>2018-09-05T11:22:44.000Z</published>
+    <updated>2018-09-08T12:28:40.474Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://michwh.github.io/tags/javascript/"/>
+    
+      <category term="转载" scheme="https://michwh.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+      <category term="立即执行函数" scheme="https://michwh.github.io/tags/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
@@ -71,7 +176,7 @@
     <link href="https://michwh.github.io//post/DRF%E4%B8%ADAPIView%E5%92%8Cviewsets%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>https://michwh.github.io//post/DRF中APIView和viewsets的区别/</id>
     <published>2018-08-18T11:44:43.000Z</published>
-    <updated>2018-09-07T06:43:14.485Z</updated>
+    <updated>2018-09-09T09:20:06.030Z</updated>
     
     <summary type="html">
     
@@ -107,11 +212,11 @@
     </summary>
     
     
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
       <category term="django" scheme="https://michwh.github.io/tags/django/"/>
     
       <category term="python" scheme="https://michwh.github.io/tags/python/"/>
-    
-      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
     
       <category term="入门" scheme="https://michwh.github.io/tags/%E5%85%A5%E9%97%A8/"/>
     
@@ -344,11 +449,11 @@
     
       <category term="http" scheme="https://michwh.github.io/tags/http/"/>
     
+      <category term="读书笔记" scheme="https://michwh.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
       <category term="cookie" scheme="https://michwh.github.io/tags/cookie/"/>
     
       <category term="session" scheme="https://michwh.github.io/tags/session/"/>
-    
-      <category term="读书笔记" scheme="https://michwh.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -428,89 +533,6 @@
       <category term="css" scheme="https://michwh.github.io/tags/css/"/>
     
       <category term="html" scheme="https://michwh.github.io/tags/html/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计划表</title>
-    <link href="https://michwh.github.io//post/%E8%AE%A1%E5%88%92%E8%A1%A8/"/>
-    <id>https://michwh.github.io//post/计划表/</id>
-    <published>2018-03-11T03:26:13.000Z</published>
-    <updated>2018-07-22T13:03:40.537Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录自己的新想法以及目前要完成的任务。新想法不一定要立马完成，只是存储创意，等到自己想做一个新项目时可以拿出来参考。&lt;/p&gt;
-&lt;h3 id=&quot;1-完成二手交易应用&quot;&gt;&lt;a href=&quot;#1-完成二手交易应用&quot; class=&quot;headerlink&quot; title=&quot;1.完成二手交易应用&quot;&gt;&lt;/a&gt;1.完成二手交易应用&lt;/h3&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wenhui-huang/nothing-left&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;nothing-left&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2-看完《CSS世界》&quot;&gt;&lt;a href=&quot;#2-看完《CSS世界》&quot; class=&quot;headerlink&quot; title=&quot;2.看完《CSS世界》&quot;&gt;&lt;/a&gt;2.看完《CSS世界》&lt;/h3&gt;&lt;h3 id=&quot;3-开发一款日历应用&quot;&gt;&lt;a href=&quot;#3-开发一款日历应用&quot; class=&quot;headerlink&quot; title=&quot;3.开发一款日历应用&quot;&gt;&lt;/a&gt;3.开发一款日历应用&lt;/h3&gt;&lt;p&gt;我们平常手机上的日历应用都附带了很多功能，比如天气、倒计时和星座运势等等。可是很多功能我们都用不到，但是这些功能仍然占据着我们的内存。所以我想开发一款日历应用，最开始的应用只有看日历的功能，然后用户根据自己的需求去下载其他功能（也就是把功能模块化，用户根据自己的需求去拼装一个属于自己的应用）。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计划" scheme="https://michwh.github.io/tags/%E8%AE%A1%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《CSS世界》读书笔记</title>
-    <link href="https://michwh.github.io//post/%E3%80%8ACSS%E4%B8%96%E7%95%8C%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    <id>https://michwh.github.io//post/《CSS世界》读书笔记/</id>
-    <published>2018-02-10T13:59:59.000Z</published>
-    <updated>2018-08-14T11:12:40.114Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;内容太多，弃更了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="css" scheme="https://michwh.github.io/tags/css/"/>
-    
-      <category term="读书笔记" scheme="https://michwh.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客维护日志</title>
-    <link href="https://michwh.github.io//post/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/"/>
-    <id>https://michwh.github.io//post/博客维护日志/</id>
-    <published>2018-02-09T02:53:07.000Z</published>
-    <updated>2018-08-12T16:22:24.794Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录对博客维护、修改的过程和自己的一点想法。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="博客" scheme="https://michwh.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="hexo" scheme="https://michwh.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6常用知识点总结</title>
-    <link href="https://michwh.github.io//post/ES6%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-    <id>https://michwh.github.io//post/ES6常用知识点总结/</id>
-    <published>2018-02-08T13:40:20.000Z</published>
-    <updated>2018-07-19T12:21:23.422Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-const和let&quot;&gt;&lt;a href=&quot;#1-const和let&quot; class=&quot;headerlink&quot; title=&quot;1.const和let&quot;&gt;&lt;/a&gt;1.const和let&lt;/h2&gt;&lt;h3 id=&quot;1-1-函数变量提升&quot;&gt;&lt;a href=&quot;#1-1-函数变量提升&quot; class=&quot;headerlink&quot; title=&quot;1.1 函数变量提升&quot;&gt;&lt;/a&gt;1.1 函数变量提升&lt;/h3&gt;&lt;p&gt;用var声明变量时，无论声明在何处，都会被视为声明在函数的最顶部（不在函数内即在全局作用域的最顶部）。例：&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;a&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (...) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; test = &lt;span class=&quot;string&quot;&gt;&#39;hello&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(test);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;相当于：&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;a&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; test; &lt;span class=&quot;comment&quot;&gt;//变量提升&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (...) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    test = &lt;span class=&quot;string&quot;&gt;&#39;hello&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//此处访问test，值为undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(test);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;//此处访问test，值为undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="es6" scheme="https://michwh.github.io/tags/es6/"/>
     
   </entry>
   

@@ -127,11 +127,13 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 *::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 5px;
 }
 *::-webkit-scrollbar-thumb {
-  background: #258fb8;
+  background: #dcdcdc;
+  border-radius: 10px;
+  -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5);
 }
 *::-webkit-scrollbar-track {
   background-color: transparent;
@@ -254,19 +256,19 @@ body {
 }
 .article-entry h1,
 .widget h1 {
-  font-size: 2.3em;
+  font-size: 2em;
 }
 .article-entry h2,
 .widget h2 {
-  font-size: 1.8em;
+  font-size: 1.5em;
 }
 .article-entry h3,
 .widget h3 {
-  font-size: 1.5em;
+  font-size: 1.15em;
 }
 .article-entry h4,
 .widget h4 {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .article-entry h5,
 .widget h5 {
@@ -574,7 +576,7 @@ body {
 }
 .article-title {
   text-decoration: none;
-  font-size: 2.1em;
+  font-size: 2em;
   font-weight: 500;
   color: #333;
   padding: 0 0 0.2em 0;

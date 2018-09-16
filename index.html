@@ -38,7 +38,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
@@ -157,6 +157,97 @@
 
 
   
+    <article id="post-JS中Array对象的一些注意事项" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/JS中Array对象的一些注意事项/">JS中Array对象的一些注意事项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <a href="/post/JS中Array对象的一些注意事项/" class="article-date">
+  <time datetime="2018-09-16T01:19:12.000Z" itemprop="datePublished">2018-09-16</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.若用<code>push()</code>来合并两个数组，例<code>a.push(b)</code>那么一整个b数组才是a数组的一个子元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> array2 = [<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">array1.push(array2);</span><br><span class="line"><span class="built_in">console</span>.log(array1[<span class="number">3</span>]); <span class="comment">//4 5</span></span><br></pre></td></tr></table></figure>
+<p>若用<code>concat()</code>方法每个参数的顺序依次是该参数的元素（如果参数是数组）或参数本身（如果参数不是数组）。它不会递归到嵌套数组参数中。<br></p>
+        
+          <p class="article-more-link">
+            <a href="/post/JS中Array对象的一些注意事项/#more">阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-js之高阶函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/js之高阶函数/">js之高阶函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <a href="/post/js之高阶函数/" class="article-date">
+  <time datetime="2018-09-08T05:32:30.000Z" itemprop="datePublished">2018-09-08</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><blockquote>
+<p>高阶函数是指至少满足下列条件之一的函数。</p>
+<ul>
+<li>函数可以作为参数被传递</li>
+<li>函数可以作为返回值输出</li>
+</ul>
+</blockquote>
+<h1 id="高阶函数的应用场景"><a href="#高阶函数的应用场景" class="headerlink" title="高阶函数的应用场景"></a>高阶函数的应用场景</h1><p>高阶函数主要用于抽离出项目中容易变化的业务逻辑，并对这部分业务逻辑进行封装，从而分离业务代码中变化与不变化的部分。以下为高阶函数比较常见的应用场景。<br></p>
+        
+          <p class="article-more-link">
+            <a href="/post/js之高阶函数/#more">阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-js之闭包" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -189,6 +280,84 @@
             <a href="/post/js之闭包/#more">阅读全文 »</a>
           </p>
         
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-js之arguments" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/js之arguments/">js之arguments</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <a href="/post/js之arguments/" class="article-date">
+  <time datetime="2018-09-05T12:01:44.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        <!--  -->
+        <p>原文链接：<a href="https://blog.csdn.net/qq_16339527/article/details/53231725" target="_blank" rel="noopener">js的arguments到底是什么？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-理解javascript中的立即执行函数-function" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/理解javascript中的立即执行函数-function/">理解javascript中的立即执行函数(function(){})()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <a href="/post/理解javascript中的立即执行函数-function/" class="article-date">
+  <time datetime="2018-09-05T11:22:44.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        <!--  -->
+        <p>原文链接：<a href="https://www.cnblogs.com/yanzp/p/6371292.html" target="_blank" rel="noopener">理解javascript中的立即执行函数(function(){})()</a></p>
+
       
     </div>
     <footer class="article-footer">
@@ -332,184 +501,10 @@
 
 
   
-    <article id="post-JavaScript30知识点总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/JavaScript30知识点总结/">JavaScript30知识点总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <a href="/post/JavaScript30知识点总结/" class="article-date">
-  <time datetime="2018-08-04T11:20:54.000Z" itemprop="datePublished">2018-08-04</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        <!--  -->
-        <h1 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h1><ul>
-<li><p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></p>
-</li>
-<li><p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">Flex 布局教程：实例篇</a></p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-小程序实现三列选择器组件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/小程序实现三列选择器组件/">小程序实现三列选择器组件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <a href="/post/小程序实现三列选择器组件/" class="article-date">
-  <time datetime="2018-07-28T07:26:04.000Z" itemprop="datePublished">2018-07-28</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="/post/小程序实现三列选择器组件/1.gif" alt=""></p>
-<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1>
-        
-          <p class="article-more-link">
-            <a href="/post/小程序实现三列选择器组件/#more">阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-小程序入门知识总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/小程序入门知识总结/">小程序入门知识总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <a href="/post/小程序入门知识总结/" class="article-date">
-  <time datetime="2018-07-28T07:19:38.000Z" itemprop="datePublished">2018-07-28</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">project</span><br><span class="line">├─ app.js //放置全局的数据，其他js文件通过全局函数 getApp() 可以获取全局的应用实例</span><br><span class="line">├─ app.json //是对当前小程序的全局配置，包括了小程序的所有页面路径、界面表现、网络超时时间、底部 tab 等</span><br><span class="line">├─ app.wxss</span><br><span class="line">├─ components //组件</span><br><span class="line">├─ utils</span><br><span class="line">│    └─ util.js //放一些公共的js函数</span><br><span class="line">├─ pages</span><br><span class="line">│    ├─ index //初始界面</span><br><span class="line">|    |     ├─ index.js</span><br><span class="line">│    |     ├─ index.wxml</span><br><span class="line">|    |     └─ index.wxss</span><br><span class="line">│    └─ other page //其他界面</span><br><span class="line">└─ project.config.json //工具配置</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/post/小程序入门知识总结/#more">阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-暑假计划" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/暑假计划/">暑假计划</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <a href="/post/暑假计划/" class="article-date">
-  <time datetime="2018-07-22T13:27:56.000Z" itemprop="datePublished">2018-07-22</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>暑假已经过了一半，我好像什么东西都没做出来，感觉自己要凉了。希望在剩下的时间里完成以下任务：</p>
-<p>1.完成水稻决策分析系统的小程序</p>
-<p>2.完成那个JavaScript30</p>
-<p>3.学习用Python写后端</p>
-<p>4.完成PWA版的华农一屋</p>
-<p>5.完成操作系统的课程设计</p>
-<p>6.希望自己早睡早起每分每秒都在学习</p>
-        
-          <p class="article-more-link">
-            <a href="/post/暑假计划/#more">阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页&raquo;</a>
   </nav>
 
           <footer id="footer">
@@ -517,10 +512,10 @@
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
-      Theme by <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
     </div>
      <div id="footer-right">
-      Contact&nbsp;|&nbsp;wenhui-huang@qq.com
+      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
     </div>
   </div>
 </footer>
@@ -552,9 +547,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title tagcloud">Tag Cloud</h3>
+    <h3 class="widget-title tagcloud">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/APIView/" style="font-size: 14px;">APIView</a> <a href="/tags/DRF/" style="font-size: 14px;">DRF</a> <a href="/tags/bcryptjs/" style="font-size: 14px;">bcryptjs</a> <a href="/tags/cookie/" style="font-size: 14px;">cookie</a> <a href="/tags/css/" style="font-size: 21.33px;">css</a> <a href="/tags/django/" style="font-size: 21.33px;">django</a> <a href="/tags/element-ui/" style="font-size: 14px;">element-ui</a> <a href="/tags/es6/" style="font-size: 14px;">es6</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/hexo/" style="font-size: 17.67px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/http/" style="font-size: 17.67px;">http</a> <a href="/tags/javascript/" style="font-size: 17.67px;">javascript</a> <a href="/tags/jwt/" style="font-size: 14px;">jwt</a> <a href="/tags/koa/" style="font-size: 14px;">koa</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/python/" style="font-size: 21.33px;">python</a> <a href="/tags/session/" style="font-size: 14px;">session</a> <a href="/tags/sublime/" style="font-size: 14px;">sublime</a> <a href="/tags/termux/" style="font-size: 14px;">termux</a> <a href="/tags/viewsets/" style="font-size: 14px;">viewsets</a> <a href="/tags/vue/" style="font-size: 17.67px;">vue</a> <a href="/tags/入门/" style="font-size: 17.67px;">入门</a> <a href="/tags/博客/" style="font-size: 17.67px;">博客</a> <a href="/tags/好玩/" style="font-size: 14px;">好玩</a> <a href="/tags/小程序/" style="font-size: 17.67px;">小程序</a> <a href="/tags/微信/" style="font-size: 21.33px;">微信</a> <a href="/tags/总结/" style="font-size: 25px;">总结</a> <a href="/tags/计划/" style="font-size: 17.67px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 17.67px;">读书笔记</a> <a href="/tags/闭包/" style="font-size: 14px;">闭包</a> <a href="/tags/项目/" style="font-size: 21.33px;">项目</a>
+      <a href="/tags/APIView/" style="font-size: 14px;">APIView</a> <a href="/tags/DRF/" style="font-size: 14px;">DRF</a> <a href="/tags/arguments/" style="font-size: 14px;">arguments</a> <a href="/tags/array/" style="font-size: 14px;">array</a> <a href="/tags/bcryptjs/" style="font-size: 14px;">bcryptjs</a> <a href="/tags/cookie/" style="font-size: 14px;">cookie</a> <a href="/tags/css/" style="font-size: 19.5px;">css</a> <a href="/tags/django/" style="font-size: 19.5px;">django</a> <a href="/tags/element-ui/" style="font-size: 14px;">element-ui</a> <a href="/tags/es6/" style="font-size: 14px;">es6</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/hexo/" style="font-size: 16.75px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/http/" style="font-size: 16.75px;">http</a> <a href="/tags/javascript/" style="font-size: 22.25px;">javascript</a> <a href="/tags/jwt/" style="font-size: 14px;">jwt</a> <a href="/tags/koa/" style="font-size: 14px;">koa</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/python/" style="font-size: 19.5px;">python</a> <a href="/tags/session/" style="font-size: 14px;">session</a> <a href="/tags/sublime/" style="font-size: 14px;">sublime</a> <a href="/tags/termux/" style="font-size: 14px;">termux</a> <a href="/tags/viewsets/" style="font-size: 14px;">viewsets</a> <a href="/tags/vue/" style="font-size: 16.75px;">vue</a> <a href="/tags/入门/" style="font-size: 16.75px;">入门</a> <a href="/tags/博客/" style="font-size: 16.75px;">博客</a> <a href="/tags/好玩/" style="font-size: 14px;">好玩</a> <a href="/tags/小程序/" style="font-size: 16.75px;">小程序</a> <a href="/tags/微信/" style="font-size: 19.5px;">微信</a> <a href="/tags/总结/" style="font-size: 25px;">总结</a> <a href="/tags/立即执行函数/" style="font-size: 14px;">立即执行函数</a> <a href="/tags/计划/" style="font-size: 16.75px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 16.75px;">读书笔记</a> <a href="/tags/转载/" style="font-size: 16.75px;">转载</a> <a href="/tags/闭包/" style="font-size: 14px;">闭包</a> <a href="/tags/项目/" style="font-size: 19.5px;">项目</a> <a href="/tags/高阶函数/" style="font-size: 14px;">高阶函数</a>
     </div>
   </div>
 

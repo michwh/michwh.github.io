@@ -5,19 +5,19 @@
   
   <title>js之闭包 | 凡沸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。 12345function f1()&amp;#123;  var n=999;&amp;#125;alert(n); // error">
+  <meta name="description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。">
 <meta name="keywords" content="javascript,闭包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js之闭包">
 <meta property="og:url" content="https://michwh.github.io/post/js之闭包/index.html">
 <meta property="og:site_name" content="凡沸">
-<meta property="og:description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。 12345function f1()&amp;#123;  var n=999;&amp;#125;alert(n); // error">
+<meta property="og:description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://michwh.github.io/post/js之闭包/1.jpg">
-<meta property="og:updated_time" content="2018-09-07T06:49:25.921Z">
+<meta property="og:updated_time" content="2018-09-16T07:39:02.390Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js之闭包">
-<meta name="twitter:description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。 12345function f1()&amp;#123;  var n=999;&amp;#125;alert(n); // error">
+<meta name="twitter:description" content="变量的作用域在JavaScript中，函数内部可以读取全局变量。 1234567var n=999;function f1()&amp;#123;  alert(n);&amp;#125;f1(); // 999 但是，函数外部无法读取函数内部的局部变量。">
 <meta name="twitter:image" content="https://michwh.github.io/post/js之闭包/1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="凡沸" type="application/atom+xml">
@@ -95,9 +95,7 @@
         <!--  -->
         <h1 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h1><p>在JavaScript中，函数内部可以读取全局变量。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f1(); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
-<p>但是，函数外部无法读取函数内部的局部变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(n); <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+<p>但是，函数外部无法读取函数内部的局部变量。<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(n); <span class="comment">// error</span></span><br></pre></td></tr></table></figure></p>
 <p>这就是Javascript语言特有的”链式作用域”结构（chain scope），当在函数中搜索一个变量的时候，如果该函数内没有声明这个变量，那么此次搜索的过程会随着代码执行环境创建的作用域链往外层逐层搜索，一直到搜索到全局对象为止。</p>
 <h1 id="究竟什么是闭包"><a href="#究竟什么是闭包" class="headerlink" title="究竟什么是闭包"></a>究竟什么是闭包</h1><blockquote>
 <p>「函数」和「函数内部能访问到的变量」（也叫环境）的总和，就是一个闭包。</p>
@@ -130,7 +128,7 @@
     </div>
     <footer class="article-footer">
       
-      <a data-url="https://michwh.github.io/post/js之闭包/" data-id="cjm4jrlaq000kd0gcf5u5lc2q" class="article-share-link">分享</a>
+      <a data-url="https://michwh.github.io/post/js之闭包/" data-id="cjm7fchk6000jkcgco9k0trqb" class="article-share-link">分享</a>
       
       
         <a href="https://michwh.github.io/post/js之闭包/#disqus_thread" class="article-comment-link">留言</a>

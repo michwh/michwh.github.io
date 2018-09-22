@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS之函数防抖和函数节流 | 凡沸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="函数防抖(debounce) 在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。  实现1234567891011121314151617function debounce(func, delay) &amp;#123;    var timeout;    return function(e) &amp;#123;        clearTimeout(timeout);        var">
+<meta name="keywords" content="javascript,函数防抖,函数节流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS之函数防抖和函数节流">
+<meta property="og:url" content="https://michwh.github.io/post/JS之函数防抖和函数节流/index.html">
+<meta property="og:site_name" content="凡沸">
+<meta property="og:description" content="函数防抖(debounce) 在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。  实现1234567891011121314151617function debounce(func, delay) &amp;#123;    var timeout;    return function(e) &amp;#123;        clearTimeout(timeout);        var">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-09-22T12:53:50.331Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS之函数防抖和函数节流">
+<meta name="twitter:description" content="函数防抖(debounce) 在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。  实现1234567891011121314151617function debounce(func, delay) &amp;#123;    var timeout;    return function(e) &amp;#123;        clearTimeout(timeout);        var">
+  
+    <link rel="alternate" href="/atom.xml" title="凡沸" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+      <div class="outer">
+        <section id="main">
+          <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michwh.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>      
+    </div>
+
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">凡沸</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+          <article id="post-JS之函数防抖和函数节流" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS之函数防抖和函数节流
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <a href="/post/JS之函数防抖和函数节流/" class="article-date">
+  <time datetime="2018-09-22T11:42:13.000Z" itemprop="datePublished">2018-09-22</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        <!--  -->
+        <h1 id="函数防抖-debounce"><a href="#函数防抖-debounce" class="headerlink" title="函数防抖(debounce)"></a>函数防抖(debounce)</h1><blockquote>
+<p>在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。</p>
+</blockquote>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timeout;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        clearTimeout(timeout);</span><br><span class="line">        <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span></span><br><span class="line">        timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          func.apply(context, args);</span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> validate = debounce(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"change"</span>)</span><br><span class="line">&#125;, <span class="number">380</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定监听</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"input"</span>).addEventListener(<span class="string">'input'</span>, validate);</span><br></pre></td></tr></table></figure>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li><p>给按钮加函数防抖防止表单多次提交。</p>
+</li>
+<li><p>对于输入框连续输入进行AJAX验证时，用函数防抖能有效减少请求次数。</p>
+</li>
+<li><p>判断scroll是否滑到底部，滚动事件+函数防抖</p>
+</li>
+</ul>
+<h1 id="函数节流-throttle"><a href="#函数节流-throttle" class="headerlink" title="函数节流(throttle)"></a>函数节流(throttle)</h1><blockquote>
+<p>规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。</p>
+</blockquote>
+<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, threshhold</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> timeout</span><br><span class="line"> <span class="keyword">var</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>;</span><br><span class="line"> <span class="keyword">var</span> threshhold = threshhold || <span class="number">160</span></span><br><span class="line"> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span>, curr = <span class="keyword">new</span> <span class="built_in">Date</span>() - <span class="number">0</span></span><br><span class="line"> </span><br><span class="line"> clearTimeout(timeout)<span class="comment">//总是干掉事件回调</span></span><br><span class="line"> <span class="keyword">if</span>(curr - start &gt;= threshhold)&#123; </span><br><span class="line">     fn.apply(context, args) <span class="comment">//只执行一部分方法，这些方法是在某个时间段内执行一次</span></span><br><span class="line">     start = curr</span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> <span class="comment">//让方法在脱离事件后也能执行一次</span></span><br><span class="line">     timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        fn.apply(context, args) </span><br><span class="line">     &#125;, threshhold);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> mousemove = throttle(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(e.pageX, e.pageY)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定监听</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"#panel"</span>).addEventListener(<span class="string">'mousemove'</span>, mousemove);</span><br></pre></td></tr></table></figure>
+<h2 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h2><p>函数节流会用在比input, keyup更频繁触发的事件中，如resize, touchmove, mousemove, scroll。throttle 会强制函数以固定的速率执行。因此这个方法比较适合应用于动画相关的场景。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>函数节流（throttle）与 函数防抖（debounce）都是为了限制函数的执行频次，以优化函数触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象。</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><p><a href="https://juejin.im/post/5a35ed25f265da431d3cc1b1" target="_blank" rel="noopener">轻松理解JS函数节流和函数防抖</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/38313717" target="_blank" rel="noopener">函数防抖与函数节流</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      <a data-url="https://michwh.github.io/post/JS之函数防抖和函数节流/" data-id="cjmdg454g00050wgckwiiyv9c" class="article-share-link">分享</a>
+      
+      
+        <a href="https://michwh.github.io/post/JS之函数防抖和函数节流/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数节流/">函数节流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数防抖/">函数防抖</a></li></ul>
+
+      
+    </footer>
+  </div>
+  
+    
+    
+<nav id="article-nav">
+  
+  
+    <a href="/post/JS中Array对象的一些注意事项/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">JS中Array对象的一些注意事项</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 Fan Fei&nbsp;|&nbsp;
+      主题 <a href="https://github.com/michwh/hexo-theme-conscious/" target="_blank">conscious</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;wenhui-huang@qq.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+        </section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+        <div class="widget" id="toc-widget">
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数防抖-debounce"><span class="toc-number">1.</span> <span class="toc-text">函数防抖(debounce)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-number">1.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用场景"><span class="toc-number">1.2.</span> <span class="toc-text">应用场景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数节流-throttle"><span class="toc-number">2.</span> <span class="toc-text">函数节流(throttle)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现-1"><span class="toc-number">2.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用场景-1"><span class="toc-number">2.2.</span> <span class="toc-text">应用场景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章"><span class="toc-number">4.</span> <span class="toc-text">参考文章</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+  
+    <!--打赏二维码-->
+
+
+  
+</aside>
+
+          <img class="sidebar-btn" src="/images/right3.png"/>
+          <img class="back-to-top-btn" src="/images/top2.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      </div>
+      
+
+<script>
+  var disqus_shortname = 'true';
+  
+  var disqus_url = 'https://michwh.github.io/post/JS之函数防抖和函数节流/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+</body>
+</html>

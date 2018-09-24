@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://michwh.github.io/"/>
-  <updated>2018-09-22T12:53:50.331Z</updated>
+  <updated>2018-09-24T10:16:25.628Z</updated>
   <id>https://michwh.github.io/</id>
   
   <author>
@@ -17,21 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JS之事件捕获和事件冒泡</title>
+    <link href="https://michwh.github.io//post/JS%E4%B9%8B%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/"/>
+    <id>https://michwh.github.io//post/JS之事件捕获和事件冒泡/</id>
+    <published>2018-09-24T07:25:41.000Z</published>
+    <updated>2018-09-24T10:16:25.628Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;DOM事件流（event  flow ）存在三个阶段：事件捕获阶段、处于目标阶段、事件冒泡阶段。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;事件捕获（event  capturing）：&lt;/strong&gt; 当鼠标点击或者触发dom事件时（被触发dom事件的这个元素被叫作事件源），浏览器会从根节点 =&amp;gt;事件源（由外到内）进行事件传播。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;事件冒泡（dubbed  bubbling）：&lt;/strong&gt; 事件源 =&amp;gt;根节点（由内到外）进行事件传播。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/post/JS之事件捕获和事件冒泡/3.jpg&quot; alt=&quot;3&quot;&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://michwh.github.io/tags/javascript/"/>
+    
+      <category term="事件冒泡" scheme="https://michwh.github.io/tags/%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/"/>
+    
+      <category term="事件捕获" scheme="https://michwh.github.io/tags/%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7/"/>
+    
+      <category term="事件委托" scheme="https://michwh.github.io/tags/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS之函数防抖和函数节流</title>
     <link href="https://michwh.github.io//post/JS%E4%B9%8B%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E5%92%8C%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/"/>
     <id>https://michwh.github.io//post/JS之函数防抖和函数节流/</id>
     <published>2018-09-22T11:42:13.000Z</published>
-    <updated>2018-09-22T12:53:50.331Z</updated>
+    <updated>2018-09-22T13:10:39.595Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h1 id=&quot;函数防抖-debounce&quot;&gt;&lt;a href=&quot;#函数防抖-debounce&quot; class=&quot;headerlink&quot; title=&quot;函数防抖(debounce)&quot;&gt;&lt;/a&gt;函数防抖(debounce)&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;实现&quot;&gt;&lt;a href=&quot;#实现&quot; class=&quot;headerlink&quot; title=&quot;实现&quot;&gt;&lt;/a&gt;实现&lt;/h2&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;debounce&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;func, delay&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; timeout;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;e&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        clearTimeout(timeout);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; context = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;, args = &lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        timeout = setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          func.apply(context, args);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;,delay)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; validate = debounce(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;e&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&quot;change&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;380&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 绑定监听&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelector(&lt;span class=&quot;string&quot;&gt;&quot;input&quot;&lt;/span&gt;).addEventListener(&lt;span class=&quot;string&quot;&gt;&#39;input&#39;&lt;/span&gt;, validate);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -49,7 +75,7 @@
     <link href="https://michwh.github.io//post/JS%E4%B8%ADArray%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
     <id>https://michwh.github.io//post/JS中Array对象的一些注意事项/</id>
     <published>2018-09-16T01:19:12.000Z</published>
-    <updated>2018-09-16T07:32:51.671Z</updated>
+    <updated>2018-09-22T13:21:29.508Z</updated>
     
     <summary type="html">
     
@@ -239,11 +265,11 @@
     </summary>
     
     
-      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
-    
       <category term="django" scheme="https://michwh.github.io/tags/django/"/>
     
       <category term="python" scheme="https://michwh.github.io/tags/python/"/>
+    
+      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
     
       <category term="入门" scheme="https://michwh.github.io/tags/%E5%85%A5%E9%97%A8/"/>
     
@@ -503,28 +529,6 @@
       <category term="微信" scheme="https://michwh.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
     
       <category term="http" scheme="https://michwh.github.io/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sublime常见问题总结</title>
-    <link href="https://michwh.github.io//post/sublime%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
-    <id>https://michwh.github.io//post/sublime常见问题总结/</id>
-    <published>2018-03-29T04:51:53.000Z</published>
-    <updated>2018-07-22T12:55:21.875Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;卡顿现象&quot;&gt;&lt;a href=&quot;#卡顿现象&quot; class=&quot;headerlink&quot; title=&quot;卡顿现象&quot;&gt;&lt;/a&gt;卡顿现象&lt;/h2&gt;&lt;p&gt;最近发现如果用sublime编辑有装git的项目文件会出现卡顿的现象。后来发现是GitGutter这个插件的原因，于是我从&lt;strong&gt;首选项(N)/插件控制(C)/删除插件/GitGutter&lt;/strong&gt;进行删除。不过出现了如下警告：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/post/sublime常见问题总结/4.jpg&quot; alt=&quot;4&quot;&gt;&lt;/p&gt;
-&lt;p&gt;然后我根据上述的文件路径对GitGutter进行了删除。下次如果再出现sublime卡顿的现象，应对sublime安装的插件进行逐个排查（就是逐个卸载测试）&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="总结" scheme="https://michwh.github.io/tags/%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="sublime" scheme="https://michwh.github.io/tags/sublime/"/>
     
   </entry>
   

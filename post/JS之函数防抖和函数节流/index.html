@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="凡沸">
 <meta property="og:description" content="函数防抖(debounce) 在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。  实现1234567891011121314151617function debounce(func, delay) &amp;#123;    var timeout;    return function(e) &amp;#123;        clearTimeout(timeout);        var">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-22T12:53:50.331Z">
+<meta property="og:updated_time" content="2018-09-22T13:10:39.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS之函数防抖和函数节流">
 <meta name="twitter:description" content="函数防抖(debounce) 在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。  实现1234567891011121314151617function debounce(func, delay) &amp;#123;    var timeout;    return function(e) &amp;#123;        clearTimeout(timeout);        var">
@@ -95,6 +95,7 @@
 <p>在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。</p>
 </blockquote>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timeout;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        clearTimeout(timeout);</span><br><span class="line">        <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span></span><br><span class="line">        timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          func.apply(context, args);</span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> validate = debounce(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"change"</span>)</span><br><span class="line">&#125;, <span class="number">380</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定监听</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"input"</span>).addEventListener(<span class="string">'input'</span>, validate);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
 <li><p>给按钮加函数防抖防止表单多次提交。</p>
 </li>
@@ -120,7 +121,7 @@
     </div>
     <footer class="article-footer">
       
-      <a data-url="https://michwh.github.io/post/JS之函数防抖和函数节流/" data-id="cjmdg454g00050wgckwiiyv9c" class="article-share-link">分享</a>
+      <a data-url="https://michwh.github.io/post/JS之函数防抖和函数节流/" data-id="cjmg50nkw000ei8gcun7snc2v" class="article-share-link">分享</a>
       
       
         <a href="https://michwh.github.io/post/JS之函数防抖和函数节流/#disqus_thread" class="article-comment-link">留言</a>
@@ -135,6 +136,15 @@
     
     
 <nav id="article-nav">
+  
+    <a href="/post/JS之事件捕获和事件冒泡/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          JS之事件捕获和事件冒泡
+        
+      </div>
+    </a>
   
   
     <a href="/post/JS中Array对象的一些注意事项/" id="article-nav-older" class="article-nav-link-wrap">
